@@ -6,6 +6,6 @@ using UnityEngine.Serialization;
 public struct HandStruct
 {
     public GameObject handGO;
-    public Transform initialPoisition;
+    public Transform initialPosition;
     public Transform target;
 }
