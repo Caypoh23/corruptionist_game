@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CashCollector : MonoBehaviour
+public class Bribe : MonoBehaviour
 {
     [SerializeField] private int cashAmount;
     // if the cash has been collected
@@ -11,12 +11,12 @@ public class CashCollector : MonoBehaviour
     
     public void OnMouseDown()
     {
-        if (!_isCollected)
-        {
+       // if (!_isCollected)
+       // {
             gameObject.SetActive(false);
-            _isCollected = true;
+        //    _isCollected = true;
             // cashAmount++;
-        }
+        //}
     }
     
     
