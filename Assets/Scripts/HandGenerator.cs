@@ -10,36 +10,35 @@ public class HandGenerator : MonoBehaviour
 {
     [SerializeField] private HandStruct[] hands;
     [SerializeField] private float duration = 2;
-
-    private int _minIndex = 0;
-    private int _maxIndex;
-
+    private float speed = 1;
+    private int _index;
 
     private void Awake()
     {
-        
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            var handomIndex = Random.Range(0, hands.Length);
-            // activate bribe
-            hands[handomIndex].bribeGO.SetActive(true);
-            MoveHand(handomIndex);
-        }
+        InvokeRepeating($"MoveHandLerp", 0f, 0.2f);
+        hands[_index].cashGO.SetActive(true);
     }
 
-    private void MoveHand(int index)
+    /*private void MoveHand()
     {
-        hands[index].handGO.transform.DOMove(hands[index].target.position, duration)
+        _index = Random.Range(0, hands.Length);
+        hands[_index].handGO.transform.DOMove(hands[_index].target.position, duration)
             .SetEase(Ease.OutCubic)
             .OnComplete(() =>
             {
-                hands[index].handGO.transform.DOMove(hands[index].initialPosition.position, duration);
-                // not working properly
-               
+                hands[_index].handGO.transform.DOMove(hands[_index].initialPosition.position, duration);
             });
+    }*/
+
+    private void MoveHandLerp()
+    {
+        _index = Random.Range(0, hands.Length);
+        hands[_index].handGO.transform.position = Vector3.Lerp(hands[_index].initialPosition.position,
+            hands[_index].target.position,
+            Mathf.PingPong(Time.time / duration, 2));
     }
 }
