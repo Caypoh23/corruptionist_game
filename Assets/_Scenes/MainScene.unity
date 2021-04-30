@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 79010344}
   - component: {fileID: 79010345}
   m_Layer: 0
-  m_Name: cash_0
+  m_Name: PoliceCash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -441,9 +441,8 @@ GameObject:
   m_Component:
   - component: {fileID: 529333386}
   - component: {fileID: 529333387}
-  - component: {fileID: 529333389}
   m_Layer: 0
-  m_Name: cash_0
+  m_Name: NormyCash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,20 +513,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &529333389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529333385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f9041743c7e8ab40af35090a77e7e46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cashAmount: 0
-  cashObject: {fileID: 0}
 --- !u!1 &568420584
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 1
   maxTimerValue: 5
+  handGenerator: {fileID: 1341336852}
+  loopNumber: 7
 --- !u!4 &658372633
 Transform:
   m_ObjectHideFlags: 0
@@ -1253,7 +1240,8 @@ MonoBehaviour:
     initialPosition: {fileID: 568420585}
     target: {fileID: 2122927273}
     cashGO: {fileID: 529333385}
-  duration: 0.5
+  movementTime: 1
+  stayDuration: 0.5
 --- !u!4 &1341336853
 Transform:
   m_ObjectHideFlags: 0
