@@ -11,10 +11,11 @@ public class HandGenerator : MonoBehaviour
     [SerializeField] private HandStruct[] hands;
     [SerializeField] private float movementTime = 2;
     [SerializeField] private float stayDuration = 1;
-
-    public bool CanPlay { get; set; } = true;
+    [SerializeField] private LevelController levelController;
 
     private int _index;
+
+    public bool CanPlay { get; set; } = true;
 
     private void Update()
     {
@@ -50,15 +51,18 @@ public class HandGenerator : MonoBehaviour
     {
         hands[index].handGO.transform.DOMove(hands[index].target.position, movementTime)
             .SetEase(Ease.OutCubic);
-        
+
         CanPlay = false;
         yield return new WaitForSeconds(stayDuration + movementTime);
-        
+
         if (!CanPlay)
         {
             hands[index].handGO.transform.DOMove(hands[index].initialPosition.position, movementTime);
             yield return new WaitForSeconds(movementTime);
-            CanPlay = true;
+            if (levelController.loopNumber != 0)
+            {
+                CanPlay = true;
+            }
         }
     }
 }

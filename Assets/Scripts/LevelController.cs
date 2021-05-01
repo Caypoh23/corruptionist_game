@@ -7,21 +7,16 @@ public class LevelController : MonoBehaviour
 {
     [SerializeField] private int currentLevel = 1;
     [SerializeField] private float maxTimerValue;
-    [SerializeField] private HandGenerator handGenerator;
-    [SerializeField] private int loopNumber;
-    
+
     private float _currentTimerValue;
 
-    private void Awake()
-    {
-        _currentTimerValue = maxTimerValue;
-    }
+    public int loopNumber;
 
     private void Update()
     {
         LevelTimer();
     }
-    
+
     // Rename method name
     private void LevelTimer()
     {
@@ -34,14 +29,7 @@ public class LevelController : MonoBehaviour
             currentLevel++;
             loopNumber--;
             _currentTimerValue = maxTimerValue;
-            Debug.Log("Game over or start next level. Current level: " + currentLevel + " " + handGenerator.CanPlay);
-        }
-        // Think of better method
-        else if(loopNumber == 0)
-        {
-            handGenerator.CanPlay = false;
+            Debug.Log("Game over or start next level. Current level: " + currentLevel);
         }
     }
-    
-    
 }
