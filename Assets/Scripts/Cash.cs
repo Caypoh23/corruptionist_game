@@ -1,27 +1,47 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using TMPro;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
-public class Cash : MonoBehaviour
-{
-    [SerializeField] private TextMeshPro textUI;
-    [SerializeField] private Hand hand;
+public class Cash : MonoBehaviour 
+{ 
+    [SerializeField] private float amountCash;
 
-    private void Start()
+    private SpriteRenderer _cashSR;
+    private bool _canBeTaken;
+
+    [SerializeField] private GameObject cashTextParent;
+    private CashCount cashCount;
+
+    private TextMeshPro _cashText;
+
+    private void Awake()
     {
-        hand = FindObjectOfType<Hand>().GetComponent<Hand>();
-        //TODO: нужно чтобы определенный cashAmount сеттился имеено на определенный textUI
-        // сейчас он сеттит только 1 значение даже если у всех разная сумма.
-        textUI.SetText("+" + hand.cashAmount.ToString());
+        _cashText = cashTextParent.GetComponentInChildren<TextMeshPro>();
+        _cashSR = gameObject.GetComponent<SpriteRenderer>();
+        _canBeTaken = true;
+        _cashText.SetText("+" + amountCash.ToString());
+        cashCount = FindObjectOfType<CashCount>();
     }
 
-    // Set a prefab object to false in animator 
-    private void SetActive()
+
+    public void OnMouseDown()
     {
-        gameObject.SetActive(false);
+        _cashSR.enabled = false;
+        if (_canBeTaken)
+        {  cashTextParent.transform.position = transform.position;
+            cashTextParent.SetActive(true);
+            cashCount.addCash(amountCash);
+            _canBeTaken = false;
+        }
+        
+        //TODO: сделать так чтоб цифра денег спавнилась 1 раз а не 100500 раз пока игрок кликает на тригер
+        // можно сделать через бул или установить количество клика на 1 раз используя int
+    }
+
+    public void CashCanBeTaken()
+    {
+        _canBeTaken = true;
     }
 }

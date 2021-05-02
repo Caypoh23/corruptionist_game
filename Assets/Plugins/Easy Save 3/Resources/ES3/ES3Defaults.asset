@@ -30,7 +30,10 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp-firstpass
+    - AV.Hierarchy
     - Assembly-CSharp
+    - AV.Tags
+    - PsdPlugin
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

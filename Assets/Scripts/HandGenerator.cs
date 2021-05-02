@@ -17,6 +17,7 @@ public class HandGenerator : MonoBehaviour
 
     public bool CanPlay { get; set; } = true;
 
+ 
     private void Update()
     {
         //InvokeRepeating($"MoveHandLerp", 0f, 0.2f);
@@ -24,7 +25,9 @@ public class HandGenerator : MonoBehaviour
         {
             var randomIndex = Random.Range(0, hands.Length);
             StartCoroutine(MoveObject(randomIndex));
-            hands[randomIndex].cashGO.SetActive(true);
+            // making hand avaibale again
+            hands[randomIndex].cashGO.GetComponent<SpriteRenderer>().enabled = true;
+            hands[randomIndex].cashGO.GetComponent<Cash>().CashCanBeTaken(); 
         }
     }
 
