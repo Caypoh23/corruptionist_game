@@ -38,4 +38,9 @@ public class CashCount : MonoBehaviour
         }
         cashCountText.rectTransform.localScale = new Vector3(1f, 1f, 1f);
     }
+
+    public float GetEarnedCash()
+    {
+        return cashCount;
+    }
 }

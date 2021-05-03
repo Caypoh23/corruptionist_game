@@ -5,13 +5,23 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] private int currentLevel = 1;
-    [SerializeField] private float maxTimerValue;
-
+    [SerializeField] private int numberOfworkingDays = 7;
+    [SerializeField] private ClockUI clock; 
+    [SerializeField] private EndLevel endLevel; //TODO: mb event
+    [SerializeField] private CashCount cashCount; //TODO: mb event
+    private float maxTimerValue;
     private float _currentTimerValue;
 
-    public int loopNumber;
+    
+    [HideInInspector] public int loopNumber;
+    private int currentLevel = 1;
 
+    private void Awake()
+    {
+        maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
+        loopNumber = numberOfworkingDays;
+        _currentTimerValue = maxTimerValue;
+    }
     private void Update()
     {
         LevelTimer();
@@ -26,10 +36,20 @@ public class LevelController : MonoBehaviour
         }
         else if (_currentTimerValue <= 0)
         {
-            currentLevel++;
-            loopNumber--;
-            _currentTimerValue = maxTimerValue;
+            //currentLevel++;
+            //loopNumber--;
+            //_currentTimerValue = maxTimerValue;
+            clock.StopClock();
+            endLevel.ShowPanel(currentLevel, cashCount.GetEarnedCash());
+            //
             Debug.Log("Game over or start next level. Current level: " + currentLevel);
         }
+    }
+
+    public void StartNextlevel()
+    {
+        currentLevel++;
+        loopNumber--;
+        _currentTimerValue = maxTimerValue;
     }
 }
