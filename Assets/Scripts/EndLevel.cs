@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,10 +12,25 @@ public class EndLevel : MonoBehaviour
     [SerializeField] private TMP_Text cashEarnedText;
     private Animator panelAnimator;
 
+    public Action<int, float> OnShowPanel;
+
+    private void OnEnable()
+    {
+        OnShowPanel += ShowPanel;
+    }
+    
+    private void OnDisable()
+    {
+        OnShowPanel -= ShowPanel;
+    }
+
+    private static readonly int Hide = Animator.StringToHash("hide");
+
     private void Awake()
     {
         panelAnimator = panel.GetComponent<Animator>();
     }
+
     private void Start()
     {
         panel.SetActive(false);
@@ -22,19 +38,19 @@ public class EndLevel : MonoBehaviour
 
     private void Update()
     {
-        
     }
+
     public void ShowPanel(int dayNumber, float cashEarned)
     {
         dayNumberText.SetText("День " + dayNumber.ToString() + " завершен");
         cashEarnedText.SetText("Заработанно: " + cashEarned.ToString());
         panel.SetActive(true);
-        panelAnimator.SetBool("hide", false);
+        panelAnimator.SetBool(Hide, false);
     }
+
     //call from inspector (button event)
     public void NextLevel()
     {
-        panelAnimator.SetBool("hide", true);
+        panelAnimator.SetBool(Hide, true);
     }
-
 }

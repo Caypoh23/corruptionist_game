@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cash;
+using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] private int numberOfworkingDays = 7;
+    [SerializeField] private int numberOfWorkingDays = 7;
     [SerializeField] private ClockUI clock; 
     [SerializeField] private EndLevel endLevel; //TODO: mb event
     [SerializeField] private CashCount cashCount; //TODO: mb event
@@ -19,7 +22,7 @@ public class LevelController : MonoBehaviour
     private void Awake()
     {
         maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
-        loopNumber = numberOfworkingDays;
+        loopNumber = numberOfWorkingDays;
         _currentTimerValue = maxTimerValue;
     }
     private void Update()
@@ -40,16 +43,17 @@ public class LevelController : MonoBehaviour
             //loopNumber--;
             //_currentTimerValue = maxTimerValue;
             clock.StopClock();
-            endLevel.ShowPanel(currentLevel, cashCount.GetEarnedCash());
-            //
+            endLevel.OnShowPanel?.Invoke(currentLevel, cashCount.GetEarnedCash());
             Debug.Log("Game over or start next level. Current level: " + currentLevel);
         }
     }
 
-    public void StartNextlevel()
+    public void StartNextLevel()
     {
         currentLevel++;
         loopNumber--;
         _currentTimerValue = maxTimerValue;
     }
+    
+    
 }
