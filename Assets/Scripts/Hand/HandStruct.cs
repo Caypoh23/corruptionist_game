@@ -10,6 +10,5 @@ namespace Hand
         public Transform initialPosition;
         public Transform target;
         public GameObject cashGO;
-  
     }
 }

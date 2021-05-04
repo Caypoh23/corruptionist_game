@@ -11,47 +11,69 @@ namespace Cash
 {
     public class Cash : MonoBehaviour
     {
-        [SerializeField] private float amountCash;
+        // cash text
+        [SerializeField] private float amountCash;        
+        [SerializeField] private GameObject cashTextParent; 
 
-        [SerializeField] private GameObject cashTextParent;
-        [CanBeNull] [SerializeField] private GameObject pulsePanel;
+        [CanBeNull] [SerializeField] private GameObject pulsePanel;// TODO: MB action?
         [CanBeNull] [SerializeField] private LevelController levelController;
 
-        [SerializeField] private bool isFlagged;
+        [SerializeField] private bool isFlagged; // ment hand
 
         private SpriteRenderer _cashSR;
-        private bool _canBeTaken;
 
-        private CashCount cashCount;
+        private CashCount _cashCount;
+
+        private HandGenerator _handGenerator;
 
         private TextMeshPro _cashText;
+
+        private bool _canBeTaken;
+        private string _plusOrMinus;
+        private Color _textColor;
 
         private void Awake()
         {
             _cashText = cashTextParent.GetComponentInChildren<TextMeshPro>();
             _cashSR = gameObject.GetComponent<SpriteRenderer>();
+            _cashCount = FindObjectOfType<CashCount>();
+            _handGenerator = FindObjectOfType<HandGenerator>();
+
             _canBeTaken = true;
-            _cashText.SetText("+" + amountCash.ToString());
-            cashCount = FindObjectOfType<CashCount>();
+
+            _plusOrMinus = isFlagged ? "-" : "+";
+            _textColor = isFlagged ? new Color32(255, 0, 0, 255) : new Color32(48, 255, 0, 255);
+
+            _cashText.SetText(_plusOrMinus + amountCash.ToString()); // +/- 200
+            _cashText.color = _textColor;
         }
 
         public void OnMouseDown()
         {
             _cashSR.enabled = false;
-            if (_canBeTaken && !isFlagged)
+
+            if (_canBeTaken)
             {
+                // displaying text +/- 200
                 cashTextParent.transform.position = transform.position;
                 cashTextParent.SetActive(true);
-                cashCount.OnCashAdd?.Invoke(amountCash);
-                _canBeTaken = false;
+                _canBeTaken = false; // no text will appear on second click
             }
-            if (isFlagged)
+            if (!isFlagged)
             {
-                StartCoroutine(ActivatePulsePanel(2.0f));
+                _cashCount.OnCashAdd?.Invoke(amountCash); // + 200
             }
+            else
+            {
+                _handGenerator.BlockHandGenerator();
+                //artCoroutine(ActivatePulsePanel(2.0f));
+                _cashCount.OnCashRemove?.Invoke(amountCash); // - 200
+            }
+
 
             //TODO: сделать так чтоб цифра денег спавнилась 1 раз а не 100500 раз пока игрок кликает на тригер
             // можно сделать через бул или установить количество клика на 1 раз используя int
+            // это сделано?
         }
 
         public void CashCanBeTaken()
@@ -62,10 +84,10 @@ namespace Cash
         private IEnumerator ActivatePulsePanel(float pulseDuration)
         {
             // можно вместо часов создать слайдер и на ui показывать что плюс 5 секунд добавилось
-            // Нужно сделать так чтобы когда собирали деньги у мента, то в UI сумма показывала -100 а не +100, не знаю где ты это делала
+            // Нужно сделать так чтобы когда собирали деньги у мента, то в UI сумма показывала -100 а не +100, не знаю где ты это делала (на 36 строчке или где то там)
             if (!(pulsePanel is null))
             {
-                cashCount.OnCashRemove?.Invoke(amountCash);
+                //_cashCount.OnCashRemove?.Invoke(amountCash); this code is above 
                 pulsePanel.SetActive(true);
                 // need to think of a better method
                 levelController._currentTimerValue -= 5.0f;

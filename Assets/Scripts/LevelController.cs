@@ -55,5 +55,12 @@ public class LevelController : MonoBehaviour
         _currentTimerValue = maxTimerValue;
     }
     
-    
+    public int GetCurrentLevel()
+    {
+        return currentLevel; // 
+    }
+    public int GetTotalLevels()
+    {
+        return numberOfWorkingDays; // 7
+    }
 }

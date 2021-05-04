@@ -9,12 +9,13 @@ namespace Hand
     {
         [SerializeField] private HandStruct[] hands;
         [SerializeField] private float movementTime = 2;
+
         [SerializeField] private float stayDuration = 1;
+        [SerializeField] private float blockDurationForMent = 3;
         [SerializeField] private LevelController levelController;
 
-
         private int _index;
-
+        private bool _isBlocked;
         public bool CanPlay { get; set; } = true;
 
 
@@ -24,7 +25,15 @@ namespace Hand
             if (CanPlay)
             {
                 var randomIndex = Random.Range(0, hands.Length);
-                StartCoroutine(MoveObject(randomIndex));
+                if (!_isBlocked)
+                {
+                    StartCoroutine(MoveObject(randomIndex));
+                }
+                else
+                {
+                    StartCoroutine(BlockHands());
+                }
+               
                 // making hand avaibale again
                 hands[randomIndex].cashGO.GetComponent<SpriteRenderer>().enabled = true;
                 hands[randomIndex].cashGO.GetComponent<Cash.Cash>().CashCanBeTaken();
@@ -50,6 +59,13 @@ namespace Hand
             Mathf.PingPong(Time.time / duration, 2));
     }*/
 
+        private IEnumerator BlockHands()
+        {
+            _isBlocked = true;
+            yield return new WaitForSeconds(blockDurationForMent);
+            _isBlocked = false;
+        }
+
         private IEnumerator MoveObject(int index)
         {
             hands[index].handGO.transform.DOMove(hands[index].target.position, movementTime)
@@ -68,6 +84,11 @@ namespace Hand
                     CanPlay = true;
                 }
             }
+        }
+
+        public void BlockHandGenerator()
+        {
+            _isBlocked = true;
         }
     }
 }
