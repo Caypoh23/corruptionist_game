@@ -13,7 +13,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private EndLevel endLevel; //TODO: mb event
     [SerializeField] private CashCount cashCount; //TODO: mb event
     private float maxTimerValue;
-    private float _currentTimerValue;
+    public float _currentTimerValue;
 
     
     [HideInInspector] public int loopNumber;

@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using EZCameraShake;
+using Hand;
 using JetBrains.Annotations;
 using TMPro;
+using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,6 +15,7 @@ namespace Cash
 
         [SerializeField] private GameObject cashTextParent;
         [CanBeNull] [SerializeField] private GameObject pulsePanel;
+        [CanBeNull] [SerializeField] private LevelController levelController;
 
         [SerializeField] private bool isFlagged;
 
@@ -37,7 +40,6 @@ namespace Cash
             _cashSR.enabled = false;
             if (_canBeTaken && !isFlagged)
             {
-        
                 cashTextParent.transform.position = transform.position;
                 cashTextParent.SetActive(true);
                 cashCount.OnCashAdd?.Invoke(amountCash);
@@ -45,7 +47,7 @@ namespace Cash
             }
             if (isFlagged)
             {
-                StartCoroutine(ActivatePulsePanel(4.5f));
+                StartCoroutine(ActivatePulsePanel(2.0f));
             }
 
             //TODO: сделать так чтоб цифра денег спавнилась 1 раз а не 100500 раз пока игрок кликает на тригер
@@ -59,13 +61,16 @@ namespace Cash
 
         private IEnumerator ActivatePulsePanel(float pulseDuration)
         {
-            // need to think of a method to stop collection action
+            // можно вместо часов создать слайдер и на ui показывать что плюс 5 секунд добавилось
             // Нужно сделать так чтобы когда собирали деньги у мента, то в UI сумма показывала -100 а не +100, не знаю где ты это делала
             if (!(pulsePanel is null))
             {
                 cashCount.OnCashRemove?.Invoke(amountCash);
                 pulsePanel.SetActive(true);
+                // need to think of a better method
+                levelController._currentTimerValue -= 5.0f;
                 // camera shake
+                // may be we need to make it pulse not shake
                 CameraShaker.Instance.ShakeOnce(.5f, 5f, .1f, 1f);
                 yield return new WaitForSeconds(pulseDuration);
                 pulsePanel.SetActive(false);
