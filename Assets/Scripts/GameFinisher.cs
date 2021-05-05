@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class GameFinisher : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject panel;
+    [SerializeField] private Animator player;
 
-    // Update is called once per frame
-    void Update()
+    public void BurstPlayer()
     {
-        
+        Debug.Log("BOOOOM");
+        //player.SetTrigger("blowUp");
     }
 }

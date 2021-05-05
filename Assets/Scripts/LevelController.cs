@@ -12,6 +12,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private ClockUI clock; 
     [SerializeField] private EndLevel endLevel; //TODO: mb event
     [SerializeField] private CashCount cashCount; //TODO: mb event
+    [SerializeField] private GameFinisher gameFinisher;
     private float maxTimerValue;
     public float _currentTimerValue;
 
@@ -45,6 +46,12 @@ public class LevelController : MonoBehaviour
             clock.StopClock();
             endLevel.OnShowPanel?.Invoke(currentLevel, cashCount.GetEarnedCash());
             Debug.Log("Game over or start next level. Current level: " + currentLevel);
+        }
+
+        if(currentLevel == 7 && _currentTimerValue <= 0)
+        {
+            gameFinisher.BurstPlayer();
+          
         }
     }
 
