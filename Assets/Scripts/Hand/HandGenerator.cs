@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using Level;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,6 +14,7 @@ namespace Hand
         [SerializeField] private float stayDuration = 1;
         [SerializeField] private float blockDurationForMent = 3;
         [SerializeField] private LevelController levelController;
+        [SerializeField] private GameObject jailPanel;
 
         private int _index;
         private bool _isBlocked;
@@ -33,9 +35,10 @@ namespace Hand
                 {
                     StartCoroutine(BlockHands());
                 }
-               
+
                 // making hand avaibale again
                 hands[randomIndex].cashGO.GetComponent<SpriteRenderer>().enabled = true;
+                // вызывается постоянно потому что can play тру в MoveObject()
                 hands[randomIndex].cashGO.GetComponent<Cash.Cash>().CashCanBeTaken();
             }
         }
@@ -74,15 +77,12 @@ namespace Hand
             CanPlay = false;
             yield return new WaitForSeconds(stayDuration + movementTime);
 
-            if (!CanPlay)
+            hands[index].handGO.transform.DOMove(hands[index].initialPosition.position, movementTime);
+            yield return new WaitForSeconds(movementTime);
+            //pulsePanel.SetActive(false);
+            if (levelController.loopNumber != 0)
             {
-                hands[index].handGO.transform.DOMove(hands[index].initialPosition.position, movementTime);
-                yield return new WaitForSeconds(movementTime);
-                //pulsePanel.SetActive(false);
-                if (levelController.loopNumber != 0)
-                {
-                    CanPlay = true;
-                }
+                CanPlay = true;
             }
         }
 

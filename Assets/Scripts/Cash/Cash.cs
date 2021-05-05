@@ -2,6 +2,7 @@
 using EZCameraShake;
 using Hand;
 using JetBrains.Annotations;
+using Level;
 using TMPro;
 using UI;
 using UnityEngine;
@@ -65,6 +66,8 @@ namespace Cash
             }
             else
             {
+                // с этим тоже какие-то проблемы были но я забыл
+                // по-моему и без этого работает кстати код
                 _handGenerator.BlockHandGenerator();
                 //artCoroutine(ActivatePulsePanel(2.0f));
                 _cashCount.OnCashRemove?.Invoke(amountCash); // - 200
