@@ -25,7 +25,6 @@ namespace Cash
         {
             OnCashAdd += AddCash;
             OnCashRemove += RemoveCash;
-            
         }
 
         private void OnDisable()

@@ -11,5 +11,6 @@ public class GameFinisher : MonoBehaviour
     {
         Debug.Log("BOOOOM");
         //player.SetTrigger("blowUp");
+        
     }
 }

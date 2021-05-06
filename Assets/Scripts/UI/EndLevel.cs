@@ -1,24 +1,26 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace UI
 {
     public class EndLevel : MonoBehaviour
     {
-        [SerializeField] private GameObject panel;
+        [SerializeField] private GameObject levelPanel;
 
         [SerializeField] private TMP_Text dayNumberText;
         [SerializeField] private TMP_Text cashEarnedText;
+        [SerializeField] private TMP_Text caughtTimesText;
         private Animator panelAnimator;
 
-        public Action<int, float> OnShowPanel;
+        public Action<int, float, int> OnShowPanel;
 
         private void OnEnable()
         {
             OnShowPanel += ShowPanel;
         }
-    
+
         private void OnDisable()
         {
             OnShowPanel -= ShowPanel;
@@ -28,23 +30,20 @@ namespace UI
 
         private void Awake()
         {
-            panelAnimator = panel.GetComponent<Animator>();
+            panelAnimator = levelPanel.GetComponent<Animator>();
         }
 
         private void Start()
         {
-            panel.SetActive(false);
+            levelPanel.SetActive(false);
         }
 
-        private void Update()
-        {
-        }
-
-        public void ShowPanel(int dayNumber, float cashEarned)
+        public void ShowPanel(int dayNumber, float cashEarned, int caughtTimes)
         {
             dayNumberText.SetText("День " + dayNumber.ToString() + " завершен");
             cashEarnedText.SetText("Заработанно: " + cashEarned.ToString());
-            panel.SetActive(true);
+            caughtTimesText.SetText("Пойман с поличным: " + caughtTimes.ToString());
+            levelPanel.SetActive(true);
             panelAnimator.SetBool(Hide, false);
         }
 

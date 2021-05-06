@@ -1,4 +1,5 @@
 ﻿using Cash;
+using Hand;
 using UI;
 using UnityEngine;
 
@@ -7,14 +8,15 @@ namespace Level
     public class LevelController : MonoBehaviour
     {
         [SerializeField] private int numberOfWorkingDays = 7;
-        [SerializeField] private ClockUI clock; 
+        [SerializeField] private ClockUI clock;
         [SerializeField] private EndLevel endLevel; //TODO: mb event
         [SerializeField] private CashCount cashCount; //TODO: mb event
         [SerializeField] private GameFinisher gameFinisher;
+        [SerializeField] private PoliceCaughtCounter _policeCaughtCounter;
         private float maxTimerValue;
         public float _currentTimerValue;
 
-    
+
         [HideInInspector] public int loopNumber;
         private int currentLevel = 1;
 
@@ -24,6 +26,7 @@ namespace Level
             loopNumber = numberOfWorkingDays;
             _currentTimerValue = maxTimerValue;
         }
+
         private void Update()
         {
             LevelTimer();
@@ -42,14 +45,14 @@ namespace Level
                 //loopNumber--;
                 //_currentTimerValue = maxTimerValue;
                 clock.StopClock();
-                endLevel.OnShowPanel?.Invoke(currentLevel, cashCount.GetEarnedCash());
+                endLevel.OnShowPanel?.Invoke(currentLevel, cashCount.GetEarnedCash(),
+                    _policeCaughtCounter.GetPoliceCaughtNumber());
                 Debug.Log("Game over or start next level. Current level: " + currentLevel);
             }
 
-            if(currentLevel == 7 && _currentTimerValue <= 0)
+            if (currentLevel == 7 && _currentTimerValue <= 0)
             {
                 gameFinisher.BurstPlayer();
-          
             }
         }
 
@@ -59,11 +62,12 @@ namespace Level
             loopNumber--;
             _currentTimerValue = maxTimerValue;
         }
-    
+
         public int GetCurrentLevel()
         {
             return currentLevel; // 
         }
+
         public int GetTotalLevels()
         {
             return numberOfWorkingDays; // 7
