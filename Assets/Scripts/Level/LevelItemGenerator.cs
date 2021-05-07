@@ -12,18 +12,27 @@ namespace Level
         {
             levelController = FindObjectOfType<LevelController>(); 
         }
+        private void Start()
+        {
+            LoadItems();
+        }
         private void Update()
         {
             Debug.Log("Current Level: " +levelController.GetCurrentLevel());
+           
+        }
+
+        public void LoadItems()
+        {
             for (int i = 0; i < items.Length; i++)
             {
-                if(items[i].startLevel > items[i].endLevel)
+                if (items[i].startLevel > items[i].endLevel)
                 {
                     Debug.LogError("StartLevel is > than EndLevel in LevelItemGenerator. We made them equal. Eat Shit");
                     items[i].startLevel = items[i].endLevel;
                 }
                 //if item levels have current level in range
-                if (levelController.GetCurrentLevel() >= items[i].startLevel && levelController.GetCurrentLevel() <= items[i].endLevel)
+                if (levelController.currentLevel >= items[i].startLevel && levelController.currentLevel <= items[i].endLevel)
                 {
                     items[i].itemGO.SetActive(true);
                 }
@@ -32,7 +41,7 @@ namespace Level
                     items[i].itemGO.SetActive(false);
                 }
 
-            
+
             }
         }
     }

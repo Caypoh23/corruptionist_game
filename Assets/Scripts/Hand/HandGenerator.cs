@@ -20,7 +20,8 @@ namespace Hand
 
         private int _index;
 
-        private bool _isBlocked;
+        public bool _isBlocked;
+        private bool _isBlockedByMent;
 
         private bool _canGoBack;
 
@@ -30,20 +31,23 @@ namespace Hand
         private float _elapsedWaitTime = 0.0f;
         private float _elapsedBlockTime = 0.0f;
 
+        private float _elapsedHandGeneratorBlockTime = 0.0f;
+        private float _handGeneratorBlockTime = 1f;
 
         private void Update()
         {
             _elapsedMoveTime += Time.deltaTime;
+           
 
             if (_canMoveHands)
             {
-                if (!_isBlocked)
+                if (!_isBlocked && !_isBlockedByMent)
                 {
-                    // возможно сделать так чтобы руки не спавнились до того времени пока решетки не поднимутся
-                    // сейчас руки показываются когда решетки еще не исчезли
                     MoveHandForward();
+
                 }
-                else
+               
+                else if(_isBlockedByMent)
                 {
                     ShowJail();
                 }
@@ -54,9 +58,44 @@ namespace Hand
 
         public void UnblockHandGenerator()
         {
+            _isBlockedByMent = false;
             _isBlocked = false;
         }
+        public void UnblockHandGeneratorAfterWait()
+        {
+            StartCoroutine(WaitAndUnblock(1f));
+        }
 
+        private IEnumerator WaitAndUnblock(float time)
+        {
+
+            yield return new WaitForSeconds(time);
+            _isBlocked = false;
+        }
+    
+
+        public void BlockHandGenerator()
+        {
+            _isBlocked = true;
+            hands[_index].handGO.SetActive(false);
+            
+            Debug.Log("Should lock generaor");
+        }
+        public void BlockHandGeneratorByMent()
+        {
+            _isBlockedByMent = true;
+            _isBlocked = true;
+        }
+        public void StopHands()
+        {
+            Debug.Log("Stop Hands");
+            _canMoveHands = false;
+        }
+        public void MoveHands()
+        {
+            Debug.Log("Stop Hands");
+            _canMoveHands = true;
+        }
         private void ShowJail()
         {
             jailPanelGO.SetActive(true);
@@ -64,17 +103,14 @@ namespace Hand
 
             if (_elapsedBlockTime >= blockDurationForMent)
             {
+                Debug.Log("MoveUP");
                 _elapsedBlockTime = 0.0f;
                 jailAnimator.SetTrigger("MoveUp");
-                _isBlocked = false;
+                //_isBlocked = false;
             }
         }
 
-        public void BlockHandGenerator()
-        {
-            _isBlocked = true;
-        }
-
+       
         private void MoveHandForward()
         {
             if (_elapsedMoveTime >= handMovementInterval && _canMoveHands)

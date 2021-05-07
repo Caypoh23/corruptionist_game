@@ -63,7 +63,7 @@ namespace Cash
             else
             {
                 _policeCaughtCounter.IncrementPoliceCaughtNumber();
-                _handGenerator.BlockHandGenerator();
+                _handGenerator.BlockHandGeneratorByMent();
                 _cashCount.OnCashRemove?.Invoke(amountCash); // - 200
             }
         }

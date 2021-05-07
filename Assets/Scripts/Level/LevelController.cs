@@ -16,15 +16,18 @@ namespace Level
         private float maxTimerValue;
         public float _currentTimerValue;
 
-
+        private LevelItemGenerator itemGenerator;
         [HideInInspector] public int loopNumber;
-        private int currentLevel = 1;
+        public int currentLevel = 1;
 
         private void Awake()
         {
             maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
+    
             loopNumber = numberOfWorkingDays;
             _currentTimerValue = maxTimerValue;
+
+            itemGenerator = FindObjectOfType<LevelItemGenerator>();
         }
 
         private void Update()
@@ -54,6 +57,8 @@ namespace Level
             {
                 gameFinisher.BurstPlayer();
             }
+
+          
         }
 
         public void StartNextLevel()
@@ -61,6 +66,8 @@ namespace Level
             currentLevel++;
             loopNumber--;
             _currentTimerValue = maxTimerValue;
+
+            itemGenerator.LoadItems();
         }
 
         public int GetCurrentLevel()
