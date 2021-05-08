@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class PoliceCaughtCounter : MonoBehaviour
 {
-    private int _policeCaughtTimes;
+    public int todayCaughtTimes;
+    private int _overallCaughtTimes;
 
     public void IncrementPoliceCaughtNumber()
     {
-        _policeCaughtTimes++;
+        todayCaughtTimes++;
+        _overallCaughtTimes++;
     }
     
-    public int GetPoliceCaughtNumber()
+    public int GetOverallCaughtNumber()
     {
-        return _policeCaughtTimes;
+        return _overallCaughtTimes;
+    }
+    
+    public int GetTodayCaughtNumber()
+    {
+        return todayCaughtTimes;
     }
 }

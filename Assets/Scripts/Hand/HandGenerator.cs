@@ -33,21 +33,20 @@ namespace Hand
 
         private float _elapsedHandGeneratorBlockTime = 0.0f;
         private float _handGeneratorBlockTime = 1f;
+        private static readonly int MoveUp = Animator.StringToHash("MoveUp");
 
         private void Update()
         {
             _elapsedMoveTime += Time.deltaTime;
-           
 
             if (_canMoveHands)
             {
                 if (!_isBlocked && !_isBlockedByMent)
                 {
                     MoveHandForward();
-
                 }
-               
-                else if(_isBlockedByMent)
+
+                else if (_isBlockedByMent)
                 {
                     ShowJail();
                 }
@@ -61,6 +60,7 @@ namespace Hand
             _isBlockedByMent = false;
             _isBlocked = false;
         }
+
         public void UnblockHandGeneratorAfterWait()
         {
             StartCoroutine(WaitAndUnblock(1f));
@@ -68,34 +68,36 @@ namespace Hand
 
         private IEnumerator WaitAndUnblock(float time)
         {
-
+            hands[_index].handGO.SetActive(true);
             yield return new WaitForSeconds(time);
             _isBlocked = false;
         }
-    
 
         public void BlockHandGenerator()
         {
             _isBlocked = true;
             hands[_index].handGO.SetActive(false);
-            
             Debug.Log("Should lock generaor");
         }
+
         public void BlockHandGeneratorByMent()
         {
             _isBlockedByMent = true;
             _isBlocked = true;
         }
+
         public void StopHands()
         {
             Debug.Log("Stop Hands");
             _canMoveHands = false;
         }
+
         public void MoveHands()
         {
             Debug.Log("Stop Hands");
             _canMoveHands = true;
         }
+
         private void ShowJail()
         {
             jailPanelGO.SetActive(true);
@@ -105,12 +107,11 @@ namespace Hand
             {
                 Debug.Log("MoveUP");
                 _elapsedBlockTime = 0.0f;
-                jailAnimator.SetTrigger("MoveUp");
+                jailAnimator.SetTrigger(MoveUp);
                 //_isBlocked = false;
             }
         }
 
-       
         private void MoveHandForward()
         {
             if (_elapsedMoveTime >= handMovementInterval && _canMoveHands)

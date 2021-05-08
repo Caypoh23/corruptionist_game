@@ -19,7 +19,6 @@ namespace UI
         public Action<int, float, int> OnShowPanel;
 
         private HandGenerator handGenerator;
-       
 
         private void OnEnable()
         {
@@ -37,7 +36,6 @@ namespace UI
         {
             panelAnimator = levelPanel.GetComponent<Animator>();
             handGenerator = FindObjectOfType<HandGenerator>();
-           
         }
 
         private void Start()
@@ -49,19 +47,18 @@ namespace UI
         {
             dayNumberText.SetText("День " + dayNumber.ToString() + " завершен");
             cashEarnedText.SetText("Заработанно: " + cashEarned.ToString());
-            caughtTimesText.SetText("Пойман с поличным: " + caughtTimes.ToString());
+            caughtTimesText.SetText("Пойман сегодня: " + caughtTimes.ToString() + " раз");
             levelPanel.SetActive(true);
             panelAnimator.SetBool(Hide, false);
             handGenerator.BlockHandGenerator();
-           
         }
 
         //call from inspector (button event)
         public void NextLevel()
         {
             panelAnimator.SetBool(Hide, true);
+            levelPanel.SetActive(false);
             handGenerator.UnblockHandGeneratorAfterWait();
-            
         }
     }
 }
