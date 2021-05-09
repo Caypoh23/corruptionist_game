@@ -40,6 +40,7 @@ public class GameFinisher : MonoBehaviour
     {
         endGamePanel.SetActive(true);
         // не деактивируется
+        // при открытии финальной панели, моральная панель долждна отключаться
         moralePanel.SetActive(false);
         cashEarnedText.SetText("Заработанно в общем: " + cashCount.GetEarnedCash());
         overallCaughtTimesText.SetText("Пойман в общем: " + policeCaughtCounter.GetOverallCaughtNumber() + " раз");

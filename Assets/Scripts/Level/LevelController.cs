@@ -13,6 +13,7 @@ namespace Level
         [SerializeField] private CashCount cashCount; //TODO: mb event
         [SerializeField] private GameFinisher gameFinisher;
         [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
+        [SerializeField] private ProgressBar progressBar;
         private HandGenerator _handGenerator;
         private GameFinisher _gameFinisher;
         private float maxTimerValue;
@@ -35,12 +36,16 @@ namespace Level
             LevelTimer();
         }
 
+        
+        // overall piece of a shit method, cause calling it in f* update
         // Rename method name
         private void LevelTimer()
         {
             if (_currentTimerValue > 0)
             {
                 _currentTimerValue -= Time.deltaTime;
+                // progress bar start
+                progressBar.AnimateBar(_currentTimerValue);
             }
             else if (_currentTimerValue <= 0 && currentLevel != 7)
             {
@@ -62,18 +67,14 @@ namespace Level
             }
         }
         
-        // нужно подумать о том как бы отключить jail 
-        // потому что если мы взяли последним элементом мусорскую руку
-        // то опускается jail но если при этом кончился таймер
-        // то jail до сих пор играет свою анимацию
-        // и когда нажимаем на кнопку продолжить то видим там jail
         public void StartNextLevel()
         {
             currentLevel++;
             _currentTimerValue = maxTimerValue;
             policeCaughtCounter.todayCaughtTimes = 0;
             itemGenerator.LoadItems();
-            
+            _handGenerator.DeactivateJail();
+            _handGenerator.OnLevelUp();
         }
 
         public int GetCurrentLevel()

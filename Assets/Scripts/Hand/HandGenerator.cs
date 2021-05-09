@@ -33,7 +33,13 @@ namespace Hand
 
         private float _elapsedHandGeneratorBlockTime = 0.0f;
         private float _handGeneratorBlockTime = 1f;
+
+        #region Cache
+
         private static readonly int MoveUp = Animator.StringToHash("MoveUp");
+
+        #endregion
+        
 
         private void Update()
         {
@@ -108,8 +114,14 @@ namespace Hand
                 Debug.Log("MoveUP");
                 _elapsedBlockTime = 0.0f;
                 jailAnimator.SetTrigger(MoveUp);
-                //_isBlocked = false;
+                _isBlocked = false;
             }
+        }
+
+        public void DeactivateJail()
+        {
+            _isBlockedByMent = false;
+            jailPanelGO.SetActive(false);
         }
 
         private void MoveHandForward()
@@ -147,6 +159,15 @@ namespace Hand
                     _canGoBack = false;
                 }
             }
+        }
+
+        public void OnLevelUp()
+        {
+            // accelerates hand movement speed according to current level
+            // called in level controller
+            handMovementInterval -= 0.066f;
+            handMovementTime -= 0.066f;
+            handStayDuration -= 0.066f;
         }
     }
 }
