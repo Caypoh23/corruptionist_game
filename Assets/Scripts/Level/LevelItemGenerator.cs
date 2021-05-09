@@ -5,6 +5,7 @@ namespace Level
     public class LevelItemGenerator : MonoBehaviour
     {
         [SerializeField] private LevelItemStruct[] items;
+        [SerializeField] private LevelPlayerStruct[] players;
 
         private LevelController levelController;
 
@@ -42,6 +43,18 @@ namespace Level
                 }
 
 
+            }
+            // chnaging players
+            for (int j = 0; j < players.Length; j++)
+            {
+                if (players[j].level == levelController.currentLevel)
+                {
+                    players[j].playerGO.SetActive(true);
+                }
+                else
+                {
+                    players[j].playerGO.SetActive(false);
+                }
             }
         }
     }

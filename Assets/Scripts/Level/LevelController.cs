@@ -1,5 +1,6 @@
 ﻿using Cash;
 using Hand;
+using System.Collections;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,15 +9,18 @@ namespace Level
 {
     public class LevelController : MonoBehaviour
     {
+        public float maxTimerValue;
         [SerializeField] private ClockUI clock;
         [SerializeField] private EndLevel endLevel; //TODO: mb event
         [SerializeField] private CashCount cashCount; //TODO: mb event
+        [SerializeField] private DayCount dayCount;
         [SerializeField] private GameFinisher gameFinisher;
         [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
         [SerializeField] private ProgressBar progressBar;
+        [SerializeField]
         private HandGenerator _handGenerator;
         private GameFinisher _gameFinisher;
-        private float maxTimerValue;
+        
         public float _currentTimerValue;
 
         private LevelItemGenerator itemGenerator;
@@ -26,7 +30,7 @@ namespace Level
         {
             _gameFinisher = FindObjectOfType<GameFinisher>();
             _handGenerator = FindObjectOfType<HandGenerator>();
-            maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
+            //maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
             _currentTimerValue = maxTimerValue;
             itemGenerator = FindObjectOfType<LevelItemGenerator>();
         }
@@ -45,7 +49,7 @@ namespace Level
             {
                 _currentTimerValue -= Time.deltaTime;
                 // progress bar start
-                progressBar.AnimateBar(_currentTimerValue);
+                //progressBar.AnimateBar(_currentTimerValue);
             }
             else if (_currentTimerValue <= 0 && currentLevel != 7)
             {
@@ -69,14 +73,17 @@ namespace Level
         
         public void StartNextLevel()
         {
+        
             currentLevel++;
+            dayCount.SetDayUI(currentLevel);
             _currentTimerValue = maxTimerValue;
             policeCaughtCounter.todayCaughtTimes = 0;
             itemGenerator.LoadItems();
             _handGenerator.DeactivateJail();
             _handGenerator.OnLevelUp();
+           
         }
-
+      
         public int GetCurrentLevel()
         {
             return currentLevel; // 

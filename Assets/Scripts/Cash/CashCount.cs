@@ -10,6 +10,7 @@ namespace Cash
         [SerializeField] private TMP_Text cashCountText;
 
         private float cashCount;
+        private float cashCountLost;
 
         // Events for adding and removing money
         public Action<float> OnCashAdd;
@@ -41,6 +42,7 @@ namespace Cash
         private void RemoveCash(float amount)
         {
             cashCount -= amount;
+            cashCountLost += amount;
             cashCountText.SetText(cashCount.ToString());
         }
         
@@ -68,7 +70,11 @@ namespace Cash
 
         public float GetEarnedCash()
         {
-            return cashCount;
+            return cashCount >= 0 ? cashCount : 0;
+        }
+        public float GetLostCash()
+        {
+            return cashCountLost;
         }
     }
 }

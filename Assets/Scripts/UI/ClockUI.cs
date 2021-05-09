@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Level;
+using System.Collections;
 using UnityEngine;
 
 namespace UI
@@ -15,9 +16,12 @@ namespace UI
         [SerializeField] private float dayEndDegrees = 180;
         private float _day;
         private bool _isWorkingDayGoing;
+        private LevelController levelcontroller;
 
         private void Awake()
         {
+            levelcontroller = FindObjectOfType<LevelController>();
+            secondsPerIngameDay = levelcontroller.maxTimerValue;
         }
 
         private void Start()

@@ -1,4 +1,5 @@
-﻿using Hand;
+﻿using Cash;
+using Hand;
 using Level;
 using System;
 using TMPro;
@@ -13,12 +14,17 @@ namespace UI
 
         [SerializeField] private TMP_Text dayNumberText;
         [SerializeField] private TMP_Text cashEarnedText;
+        [SerializeField] private TMP_Text cashEarnedTotalText;
+        [SerializeField] private TMP_Text cashLostTotalText;
         [SerializeField] private TMP_Text caughtTimesText;
+       
         private Animator panelAnimator;
 
         public Action<int, float, int> OnShowPanel;
 
-        private HandGenerator handGenerator;
+        private HandGenerator _handGenerator;
+        private CashCount _cashCount;
+        //private PoliceCaughtCounter _policeCaughtCounter;
 
         private void OnEnable()
         {
@@ -35,7 +41,9 @@ namespace UI
         private void Awake()
         {
             panelAnimator = levelPanel.GetComponent<Animator>();
-            handGenerator = FindObjectOfType<HandGenerator>();
+            _handGenerator = FindObjectOfType<HandGenerator>();
+            _cashCount = FindObjectOfType<CashCount>();
+           // _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
         }
 
         private void Start()
@@ -46,19 +54,24 @@ namespace UI
         public void ShowPanel(int dayNumber, float cashEarned, int caughtTimes)
         {
             dayNumberText.SetText("День " + dayNumber.ToString() + " завершен");
-            cashEarnedText.SetText("Заработанно: " + cashEarned.ToString());
-            caughtTimesText.SetText("Пойман сегодня: " + caughtTimes.ToString() + " раз");
+            cashEarnedText.SetText(cashEarned.ToString());
+            cashEarnedTotalText.SetText(_cashCount.GetEarnedCash().ToString());
+            caughtTimesText.SetText(caughtTimes.ToString());
+
             levelPanel.SetActive(true);
             panelAnimator.SetBool(Hide, false);
-            handGenerator.BlockHandGenerator();
+            _handGenerator.BlockHandGenerator();
         }
-
+        public void DeactivatePanel()
+        {
+            levelPanel.SetActive(false);
+        }
         //call from inspector (button event)
         public void NextLevel()
         {
             panelAnimator.SetBool(Hide, true);
-            levelPanel.SetActive(false);
-            handGenerator.UnblockHandGeneratorAfterWait();
+            //levelPanel.SetActive(false);
+            _handGenerator.UnblockHandGeneratorAfterWait();
         }
     }
 }
