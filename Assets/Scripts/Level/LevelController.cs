@@ -17,10 +17,9 @@ namespace Level
         [SerializeField] private GameFinisher gameFinisher;
         [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
         [SerializeField] private ProgressBar progressBar;
-        [SerializeField]
-        private HandGenerator _handGenerator;
+        [SerializeField] private HandGenerator _handGenerator;
         private GameFinisher _gameFinisher;
-        
+
         public float _currentTimerValue;
 
         private LevelItemGenerator itemGenerator;
@@ -40,7 +39,7 @@ namespace Level
             LevelTimer();
         }
 
-        
+
         // overall piece of a shit method, cause calling it in f* update
         // Rename method name
         private void LevelTimer()
@@ -70,10 +69,9 @@ namespace Level
                 gameFinisher.ShowMoralePanel();
             }
         }
-        
+
         public void StartNextLevel()
         {
-        
             currentLevel++;
             dayCount.SetDayUI(currentLevel);
             _currentTimerValue = maxTimerValue;
@@ -81,9 +79,8 @@ namespace Level
             itemGenerator.LoadItems();
             _handGenerator.DeactivateJail();
             _handGenerator.OnLevelUp();
-           
         }
-      
+
         public int GetCurrentLevel()
         {
             return currentLevel; // 

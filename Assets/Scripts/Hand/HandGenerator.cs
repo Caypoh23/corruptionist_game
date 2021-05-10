@@ -39,7 +39,7 @@ namespace Hand
         private static readonly int MoveUp = Animator.StringToHash("MoveUp");
 
         #endregion
-        
+
 
         private void Update()
         {

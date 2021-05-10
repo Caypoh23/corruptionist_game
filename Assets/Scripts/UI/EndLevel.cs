@@ -17,12 +17,13 @@ namespace UI
         [SerializeField] private TMP_Text cashEarnedTotalText;
         [SerializeField] private TMP_Text cashLostTotalText;
         [SerializeField] private TMP_Text caughtTimesText;
-       
+
         private Animator panelAnimator;
 
         public Action<int, float, int> OnShowPanel;
 
         private HandGenerator _handGenerator;
+
         private CashCount _cashCount;
         //private PoliceCaughtCounter _policeCaughtCounter;
 
@@ -43,7 +44,7 @@ namespace UI
             panelAnimator = levelPanel.GetComponent<Animator>();
             _handGenerator = FindObjectOfType<HandGenerator>();
             _cashCount = FindObjectOfType<CashCount>();
-           // _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
+            // _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
         }
 
         private void Start()
@@ -57,20 +58,24 @@ namespace UI
             cashEarnedText.SetText(cashEarned.ToString());
             cashEarnedTotalText.SetText(_cashCount.GetEarnedCash().ToString());
             caughtTimesText.SetText(caughtTimes.ToString());
-
             levelPanel.SetActive(true);
             panelAnimator.SetBool(Hide, false);
             _handGenerator.BlockHandGenerator();
         }
+
         public void DeactivatePanel()
         {
             levelPanel.SetActive(false);
         }
+
         //call from inspector (button event)
         public void NextLevel()
         {
             panelAnimator.SetBool(Hide, true);
-            //levelPanel.SetActive(false);
+            // Нужно 100% отключать панель след уровня. иначе кнопка паузы не работает во первых
+            // во вторых это неправльно оставлять включенным панель мне кажется
+            // если изначально он был неактивным
+            levelPanel.SetActive(false);
             _handGenerator.UnblockHandGeneratorAfterWait();
         }
     }

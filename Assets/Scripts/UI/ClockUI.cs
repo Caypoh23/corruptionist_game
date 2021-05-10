@@ -44,12 +44,10 @@ namespace UI
             clockMinuteHandTransform.eulerAngles = new Vector3(0, 0, 0);
 
             //clockHourHand.SetActive(false); // to avoid дергание стрелки
-            
         }
 
         public void StartClock()
         {
-
             //clockHourHand.SetActive(true);
             _isWorkingDayGoing = true;
         }
@@ -66,7 +64,8 @@ namespace UI
 
             //minute hand
             float hoursInDay = 12f;
-            clockMinuteHandTransform.eulerAngles = new Vector3(0, 0, (dayNormalized * rotationDegreesPerDay * hoursInDay));
+            clockMinuteHandTransform.eulerAngles =
+                new Vector3(0, 0, (dayNormalized * rotationDegreesPerDay * hoursInDay));
         }
 
         public float GetSecondsPerIngameWorkingDay()
@@ -76,7 +75,6 @@ namespace UI
 
         private IEnumerator StartClockInNewLevel()
         {
-           
             yield return new WaitForSeconds(3f);
             _isWorkingDayGoing = true;
         }
