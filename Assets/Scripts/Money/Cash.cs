@@ -8,7 +8,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Cash
+namespace Money
 {
     public class Cash : MonoBehaviour
     {
@@ -17,6 +17,8 @@ namespace Cash
         [SerializeField] private GameObject cashTextParent;
 
         [SerializeField] private bool isFlagged; // ment hand
+
+        private CashProgressBar _progressBar; //TODO: action/event 100%
 
         private CashCount _cashCount;
         private PoliceCaughtCounter _policeCaughtCounter;
@@ -28,13 +30,14 @@ namespace Cash
         private string _plusOrMinus;
         private Color _textColor;
 
+
         private void Awake()
         {
             _cashText = cashTextParent.GetComponentInChildren<TextMeshPro>();
             _cashCount = FindObjectOfType<CashCount>();
             _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
             _handGenerator = FindObjectOfType<HandGenerator>();
-
+            _progressBar = FindObjectOfType<CashProgressBar>();
             _canBeTaken = true;
 
             _plusOrMinus = isFlagged ? "-" : "+";
@@ -59,18 +62,25 @@ namespace Cash
             if (!isFlagged)
             {
                 _cashCount.OnCashAdd?.Invoke(amountCash); // + 200
+                _progressBar.AddValue(amountCash);
             }
             else
             {
                 _policeCaughtCounter.IncrementPoliceCaughtNumber();
                 _handGenerator.BlockHandGeneratorByMent();
                 _cashCount.OnCashRemove?.Invoke(amountCash); // - 200
+                _progressBar.RemoveValue(amountCash);
             }
         }
 
         public void CashCanBeTaken()
         {
             _canBeTaken = true;
+        }
+        //return cash amount
+        public float GetCashAmount()
+        {
+            return isFlagged ? 0 : amountCash;
         }
     }
 }

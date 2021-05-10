@@ -1,4 +1,4 @@
-﻿using Cash;
+﻿using Money;
 using Hand;
 using Level;
 using System;
@@ -57,6 +57,8 @@ namespace UI
             dayNumberText.SetText("День " + dayNumber.ToString() + " завершен");
             cashEarnedText.SetText(cashEarned.ToString());
             cashEarnedTotalText.SetText(_cashCount.GetEarnedCash().ToString());
+
+            cashLostTotalText.SetText(_cashCount.GetLostCash().ToString());
             caughtTimesText.SetText(caughtTimes.ToString());
             levelPanel.SetActive(true);
             panelAnimator.SetBool(Hide, false);
@@ -71,11 +73,11 @@ namespace UI
         //call from inspector (button event)
         public void NextLevel()
         {
-            panelAnimator.SetBool(Hide, true);
+            panelAnimator.SetBool(Hide, true); //setactive false from animator
             // Нужно 100% отключать панель след уровня. иначе кнопка паузы не работает во первых
             // во вторых это неправльно оставлять включенным панель мне кажется
             // если изначально он был неактивным
-            levelPanel.SetActive(false);
+            _cashCount.EmptyDailyCashAmount();
             _handGenerator.UnblockHandGeneratorAfterWait();
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Cash;
+using Money;
 using Level;
 using TMPro;
 using UI;

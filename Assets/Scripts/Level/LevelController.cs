@@ -1,4 +1,4 @@
-﻿using Cash;
+﻿using Money;
 using Hand;
 using System.Collections;
 using UI;
@@ -16,7 +16,7 @@ namespace Level
         [SerializeField] private DayCount dayCount;
         [SerializeField] private GameFinisher gameFinisher;
         [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
-        [SerializeField] private ProgressBar progressBar;
+    
         [SerializeField] private HandGenerator _handGenerator;
         private GameFinisher _gameFinisher;
 
@@ -40,7 +40,7 @@ namespace Level
         }
 
 
-        // overall piece of a shit method, cause calling it in f* update
+        // overall piece of a shit method, cause calling it in f* update - whatever
         // Rename method name
         private void LevelTimer()
         {
@@ -56,7 +56,7 @@ namespace Level
                 //loopNumber--;
                 //_currentTimerValue = maxTimerValue;
                 clock.StopClock();
-                endLevel.OnShowPanel?.Invoke(currentLevel, cashCount.GetEarnedCash(),
+                endLevel.OnShowPanel?.Invoke(currentLevel, cashCount.GetEarnedDailyCash(),
                     policeCaughtCounter.GetTodayCaughtNumber());
                 Debug.Log("Game over or start next level. Current level: " + currentLevel);
             }
@@ -74,6 +74,7 @@ namespace Level
         {
             currentLevel++;
             dayCount.SetDayUI(currentLevel);
+            clock.StartClock();
             _currentTimerValue = maxTimerValue;
             policeCaughtCounter.todayCaughtTimes = 0;
             itemGenerator.LoadItems();

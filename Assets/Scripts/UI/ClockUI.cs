@@ -6,12 +6,13 @@ namespace UI
 {
     public class ClockUI : MonoBehaviour
     {
-        [SerializeField] private float secondsPerIngameDay;
+        private float secondsPerIngameDay;
 
         [SerializeField] private GameObject clockHourHand;
 
         [SerializeField] private Transform clockHourHandTransform;
         [SerializeField] private Transform clockMinuteHandTransform;
+        [SerializeField] private Transform clockLateGameTransform;
         [SerializeField] private float dayStartDegrees = -90;
         [SerializeField] private float dayEndDegrees = 180;
         private float _day;
@@ -22,6 +23,7 @@ namespace UI
         {
             levelcontroller = FindObjectOfType<LevelController>();
             secondsPerIngameDay = levelcontroller.maxTimerValue;
+            
         }
 
         private void Start()
@@ -31,14 +33,20 @@ namespace UI
 
         private void Update()
         {
+          
             if (_isWorkingDayGoing)
             {
                 ClockTiking();
+            }
+            if(levelcontroller.currentLevel > 4)
+            {
+                gameObject.transform.position = clockLateGameTransform.position;
             }
         }
 
         public void StopClock()
         {
+            Debug.Log("Stop"+ secondsPerIngameDay);
             _isWorkingDayGoing = false;
             clockHourHandTransform.eulerAngles = new Vector3(0, 0, dayEndDegrees);
             clockMinuteHandTransform.eulerAngles = new Vector3(0, 0, 0);
@@ -48,6 +56,7 @@ namespace UI
 
         public void StartClock()
         {
+            Debug.Log("Start" + secondsPerIngameDay);
             //clockHourHand.SetActive(true);
             _isWorkingDayGoing = true;
         }
@@ -68,6 +77,7 @@ namespace UI
                 new Vector3(0, 0, (dayNormalized * rotationDegreesPerDay * hoursInDay));
         }
 
+        /*
         public float GetSecondsPerIngameWorkingDay()
         {
             return secondsPerIngameDay;
@@ -78,6 +88,7 @@ namespace UI
             yield return new WaitForSeconds(3f);
             _isWorkingDayGoing = true;
         }
+        */
         //TODP: 1 секунду перед началом уровнә (перед началом отсчета. тут и в левел контроллеер) (на затухание панели)
     }
 }

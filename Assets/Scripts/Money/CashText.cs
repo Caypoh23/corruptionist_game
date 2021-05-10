@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace Cash
+namespace Money
 {
     public class CashText : MonoBehaviour
     {

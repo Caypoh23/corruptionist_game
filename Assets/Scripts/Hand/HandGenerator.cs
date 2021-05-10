@@ -34,12 +34,13 @@ namespace Hand
         private float _elapsedHandGeneratorBlockTime = 0.0f;
         private float _handGeneratorBlockTime = 1f;
 
+     
         #region Cache
 
         private static readonly int MoveUp = Animator.StringToHash("MoveUp");
 
         #endregion
-
+      
 
         private void Update()
         {
@@ -74,7 +75,7 @@ namespace Hand
 
         private IEnumerator WaitAndUnblock(float time)
         {
-            hands[_index].handGO.SetActive(true);
+            //hands[_index].handGO.SetActive(true); зачем это?
             yield return new WaitForSeconds(time);
             _isBlocked = false;
         }
@@ -82,7 +83,8 @@ namespace Hand
         public void BlockHandGenerator()
         {
             _isBlocked = true;
-            hands[_index].handGO.SetActive(false);
+            // hands[_index].handGO.SetActive(false); зачем это? если isblocked он как обычно вернет руку назад 
+            //а щас если рука осталась она пропадает по дибильному
             Debug.Log("Should lock generaor");
         }
 
@@ -151,7 +153,7 @@ namespace Hand
                             () =>
                             {
                                 hands[_index].cashGO.SetActive(true);
-                                hands[_index].cashGO.GetComponent<Cash.Cash>().CashCanBeTaken();
+                                hands[_index].cashGO.GetComponent<Money.Cash>().CashCanBeTaken();
                                 _canMoveHands = true;
                             });
                     _elapsedMoveTime = 0.0f;
@@ -168,6 +170,12 @@ namespace Hand
             handMovementInterval -= 0.066f;
             handMovementTime -= 0.066f;
             handStayDuration -= 0.066f;
+        }
+
+        // this shouldnt be here but what ever
+        private void GetTotalCashValue()
+        {
+
         }
     }
 }
