@@ -17,6 +17,7 @@ public class GameFinisher : MonoBehaviour
     [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
     [SerializeField] private TMP_Text overallCaughtTimesText;
     [SerializeField] private TMP_Text cashEarnedText;
+    [SerializeField] private GameObject pulsePanel;
 
     #region Cache
 
@@ -27,6 +28,7 @@ public class GameFinisher : MonoBehaviour
     public void BurstPlayer()
     {
         Debug.Log("BOOOOM");
+        pulsePanel.SetActive(true);
         //player.SetTrigger("blowUp");
     }
 

@@ -11,7 +11,6 @@ namespace UI
     public class EndLevel : MonoBehaviour
     {
         [SerializeField] private GameObject levelPanel;
-
         [SerializeField] private TMP_Text dayNumberText;
         [SerializeField] private TMP_Text cashEarnedText;
         [SerializeField] private TMP_Text cashEarnedTotalText;

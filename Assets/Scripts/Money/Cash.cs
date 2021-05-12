@@ -17,6 +17,7 @@ namespace Money
         [SerializeField] private GameObject cashTextParent;
 
         [SerializeField] private bool isFlagged; // ment hand
+        [SerializeField] private GameObject clickParticle;
 
         private CashProgressBar _progressBar; //TODO: action/event 100%
 
@@ -50,6 +51,8 @@ namespace Money
         public void OnMouseDown()
         {
             gameObject.SetActive(false);
+            // дерьмово выглядит мой партикл
+            Instantiate(clickParticle, transform.position, Quaternion.identity);
 
             if (_canBeTaken)
             {
