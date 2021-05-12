@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class GameFinisher : MonoBehaviour
 {
+    [SerializeField] private float burstAnimTime;
     // думаю что можно было бы сделать это в level Controller или end level точно хз
     [SerializeField] private GameObject endGamePanel;
     [SerializeField] private Animator player;
@@ -25,20 +26,26 @@ public class GameFinisher : MonoBehaviour
 
     #endregion
 
-    public void BurstPlayer()
+    public void FinishGame()
+    {
+        pulsePanel.SetActive(true);
+        StartCoroutine(WaitAndBurst(2f)); // probably change that to timer
+        StartCoroutine(CloseOffice(burstAnimTime));
+    }
+    private void BurstPlayer()
     {
         Debug.Log("BOOOOM");
-        pulsePanel.SetActive(true);
-        //player.SetTrigger("blowUp");
+       
+        player.SetTrigger("burst");
     }
 
-    public void ShowMoralePanel()
+    private void ShowMoralePanel()
     {
         moralePanel.SetActive(true);
         moraleAnimator.SetTrigger(ShowText);
     }
 
-    public void ShowEndGamePanel()
+    private void ShowEndGamePanel()
     {
         endGamePanel.SetActive(true);
         // не деактивируется
@@ -46,5 +53,16 @@ public class GameFinisher : MonoBehaviour
         moralePanel.SetActive(false);
         cashEarnedText.SetText("Заработанно в общем: " + cashCount.GetEarnedCash());
         overallCaughtTimesText.SetText("Пойман в общем: " + policeCaughtCounter.GetOverallCaughtNumber() + " раз");
+    }
+
+    private IEnumerator CloseOffice(float time)
+    {
+        yield return new WaitForSeconds(time);
+        ShowMoralePanel();
+    }
+    private IEnumerator WaitAndBurst(float time)
+    {
+        yield return new WaitForSeconds(time);
+        BurstPlayer();
     }
 }
