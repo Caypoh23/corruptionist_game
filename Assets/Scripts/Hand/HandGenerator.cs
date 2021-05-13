@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using EZCameraShake;
 using Level;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -34,7 +35,7 @@ namespace Hand
         private float _elapsedHandGeneratorBlockTime = 0.0f;
         private float _handGeneratorBlockTime = 1f;
 
-     
+
         #region Cache
 
         private static readonly int MoveUp = Animator.StringToHash("MoveUp");
@@ -43,8 +44,12 @@ namespace Hand
 
         private void Start()
         {
+            // to set camera shaker to initial shake value
+            CameraShaker.Instance.DefaultPosInfluence = new Vector3(0, 1f, 0f);
+            CameraShaker.Instance.DefaultRotInfluence = new Vector3(0, 0, 0);
             _isBlocked = true;
         }
+
         private void Update()
         {
             _elapsedMoveTime += Time.deltaTime;
@@ -178,7 +183,6 @@ namespace Hand
         // this shouldnt be here but what ever
         private void GetTotalCashValue()
         {
-
         }
     }
 }
