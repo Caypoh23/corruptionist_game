@@ -65,12 +65,9 @@ namespace Level
             {
                 // stop hands movement
                 _handGenerator.StopHands();
-                gameFinisher.FinishGame();
-                // сначала анимация ударов сердца должа сыграться
-                // потом камера должна дергаться и в этот же момент 
-                // коррупционер играет анимацию смерти.
-                // после того как он умер останавливается музыка
-                // открывается панель морали
+                clock.StopClock();
+                gameFinisher.FinishGame(); // все методы тут
+                
                 //gameFinisher.ShowMoralePanel(); открываетсә с аниматора 
             }
         }

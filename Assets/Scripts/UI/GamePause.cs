@@ -7,21 +7,20 @@ namespace UI
     public class GamePause : MonoBehaviour
     {
         [SerializeField] private GameObject pausePanel;
-        [SerializeField] private GameObject tutorialPanel;
-        [SerializeField] private GameObject startGamePanel;
-        private bool _isPaused = true;
+        private bool _isPaused;
 
         private void Update()
         {
             Time.timeScale = _isPaused ? 0 : 1;
         }
 
-        public void CloseTutorialPanel()
-        {
-            tutorialPanel.SetActive(false);
-            startGamePanel.SetActive(true);
-            _isPaused = false;
-        }
+        // зачем панель туториала в паузе?
+        //public void CloseTutorialPanel()
+        //{
+        //    tutorialPanel.SetActive(false);
+        //    startGamePanel.SetActive(true);
+        //    _isPaused = false;
+        //}
 
         public void PauseGame()
         {

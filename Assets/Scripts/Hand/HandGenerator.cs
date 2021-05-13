@@ -40,8 +40,11 @@ namespace Hand
         private static readonly int MoveUp = Animator.StringToHash("MoveUp");
 
         #endregion
-      
 
+        private void Start()
+        {
+            _isBlocked = true;
+        }
         private void Update()
         {
             _elapsedMoveTime += Time.deltaTime;

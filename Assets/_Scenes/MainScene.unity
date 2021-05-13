@@ -1089,7 +1089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &297286699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1565,7 +1565,7 @@ GameObject:
   - component: {fileID: 425943437}
   - component: {fileID: 425943436}
   m_Layer: 5
-  m_Name: EndLevelPanel
+  m_Name: Statictics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3215,6 +3215,7 @@ GameObject:
   - component: {fileID: 658372634}
   - component: {fileID: 658372635}
   - component: {fileID: 658372637}
+  - component: {fileID: 658372636}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3234,7 +3235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c261cfba9e3b764c81151beda560517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimerValue: 3
+  maxTimerValue: 10
   clock: {fileID: 1122724198}
   endLevel: {fileID: 1780665720}
   cashCount: {fileID: 658372634}
@@ -3284,6 +3285,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   todayCaughtTimes: 0
+--- !u!114 &658372636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658372631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9d5a8cdfeff93445b053cb1b1e8d71d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showTutorialPanel: 1
+  tutorialPanel: {fileID: 297286698}
+  startGamePanel: {fileID: 1828504415}
 --- !u!114 &658372637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4317,8 +4333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1171777511}
-  tutorialPanel: {fileID: 297286698}
-  startGamePanel: {fileID: 1828504415}
 --- !u!1 &841949960
 GameObject:
   m_ObjectHideFlags: 0
@@ -7040,16 +7054,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2a8505aae0d8b4b814b12e6f7c4421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burstAnimTime: 5
   endGamePanel: {fileID: 425943434}
-  player: {fileID: 473526648}
   moralePanel: {fileID: 1099234552}
+  pulsePanel: {fileID: 2105699981}
+  playerAnim: {fileID: 473526648}
   moraleAnimator: {fileID: 1099234554}
   cashCount: {fileID: 658372634}
   policeCaughtCounter: {fileID: 658372635}
   overallCaughtTimesText: {fileID: 859671706}
   cashEarnedText: {fileID: 1878972901}
-  pulsePanel: {fileID: 2105699981}
+  timeBeforeHeartBeat: 2
+  timeForHeartBeat: 1
+  timeForBurst: 3
+  timeBeforeEnd: 1
 --- !u!4 &1246313326
 Transform:
   m_ObjectHideFlags: 0
@@ -9962,8 +9979,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 816760696}
-        m_MethodName: CloseTutorialPanel
+      - m_Target: {fileID: 658372636}
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9992,7 +10009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1828504416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11157,7 +11174,7 @@ GameObject:
   - component: {fileID: 2099138549}
   - component: {fileID: 2099138552}
   m_Layer: 5
-  m_Name: LevelPanel
+  m_Name: EndLevelPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

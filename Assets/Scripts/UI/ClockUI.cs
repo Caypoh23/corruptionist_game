@@ -28,7 +28,7 @@ namespace UI
 
         private void Start()
         {
-            StartClock();
+            //StartClock();
         }
 
         private void Update()
@@ -60,7 +60,7 @@ namespace UI
             //clockHourHand.SetActive(true);
             _isWorkingDayGoing = true;
         }
-
+      
         public void ClockTiking()
         {
             _day += Time.deltaTime / secondsPerIngameDay;
