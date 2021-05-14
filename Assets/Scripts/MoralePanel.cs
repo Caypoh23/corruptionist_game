@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Money;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,21 +8,32 @@ public class MoralePanel : MonoBehaviour
 {
   
     [SerializeField] private TMP_Text moraleTextField;
+    [TextArea]
     [SerializeField] private string moraleText;
+    [SerializeField] private Animator anim;
 
-    private void OnEnable()
+    [SerializeField] private GameObject statsPanel;
+
+    [SerializeField] private TMP_Text overallCaughtTimesText;
+    [SerializeField] private TMP_Text cashEarnedText;
+    private CashCount cashCount;
+    private PoliceCaughtCounter policeCaughtCounter;
+
+    private void Awake()
     {
-        StartCoroutine(TypeSentence(moraleText));
+        cashCount = FindObjectOfType<CashCount>();
+        policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
     }
-    private IEnumerator TypeSentence(string sentence)
+    private void Start()
     {
-        moraleTextField.SetText("");
-        foreach (char letter in sentence.ToCharArray())
-        {
-            moraleTextField.text += letter;
-            yield return null;
-        }
-
+        gameObject.SetActive(false);
+        moraleTextField.SetText(moraleText);
     }
-
+    public void ShowEndGamePanel()
+    {
+        cashEarnedText.SetText("Заработанно в общем: " + cashCount.GetEarnedCash());
+        overallCaughtTimesText.SetText("Пойман в общем: " + policeCaughtCounter.GetOverallCaughtNumber() + " раз");
+        statsPanel.SetActive(true);
+        gameObject.SetActive(false);
+    }
 }

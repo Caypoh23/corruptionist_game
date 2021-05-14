@@ -11,6 +11,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject startGamePanel;
 
     private HandGenerator handGenerator;
+    private GamePause gamePause;
     private ClockUI clock;
     private bool _isPaused;
 
@@ -18,17 +19,14 @@ public class Tutorial : MonoBehaviour
     {
         handGenerator = FindObjectOfType<HandGenerator>();
         clock = FindObjectOfType<ClockUI>();
-       
+        gamePause = FindObjectOfType<GamePause>();
         }
-    private void Update()
-    {
-        Time.timeScale = _isPaused ? 0 : 1;
-    }
+  
     private void Start()
     {
         if (showTutorialPanel)
         {
-            _isPaused = true;
+            gamePause.PauseGame();
             tutorialPanel.SetActive(true);
             
         }
@@ -42,7 +40,7 @@ public class Tutorial : MonoBehaviour
     }
     public void StartGame()
     {
-        _isPaused = false;
+        gamePause.UnpauseGame();
         tutorialPanel.SetActive(false);
         startGamePanel.SetActive(true);
         handGenerator.UnblockHandGeneratorAfterWait();

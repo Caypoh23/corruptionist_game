@@ -13,17 +13,14 @@ public class GameFinisher : MonoBehaviour
 {
     // думаю что можно было бы сделать это в level Controller или end level точно хз -хуйня идея
     [SerializeField] private GameObject endGamePanel;
-    [SerializeField] private GameObject endPanel; // nado razdelit eto dermo
+
 
     [SerializeField] private GameObject pulsePanel;
 
     [SerializeField] private Animator playerAnim;
-    [SerializeField] private Animator moraleAnimator;
 
-    [SerializeField] private CashCount cashCount;
-    [SerializeField] private PoliceCaughtCounter policeCaughtCounter; //статистику в отдельный скрипт
-    [SerializeField] private TMP_Text overallCaughtTimesText;
-    [SerializeField] private TMP_Text cashEarnedText;
+
+
     [SerializeField] private Camera camera;
 
 
@@ -80,12 +77,13 @@ public class GameFinisher : MonoBehaviour
                 {
                     //particles
                     BurstPlayer();
-
+                   
 
                     if (_elapsedTime >= timeBeforeEnd + timeForBurst + timeForHeartBeat + timeBeforeHeartBeat)
                     {
+                       
                         ShowClosingEndPanel();
-                        _elapsedTime = 0f;
+                       
                     }
                 }
             }
@@ -112,21 +110,13 @@ public class GameFinisher : MonoBehaviour
 
     private void ShowClosingEndPanel()
     {
-        endPanel.SetActive(true);
+        endGamePanel.SetActive(true);
         //moraleAnimator.SetTrigger(ShowText);
         //typing effect
         
         
     }
    
-    private void ShowEndGamePanel()
-    {
-        endGamePanel.SetActive(true);
-
-       
-        cashEarnedText.SetText("Заработанно в общем: " + cashCount.GetEarnedCash());
-        overallCaughtTimesText.SetText("Пойман в общем: " + policeCaughtCounter.GetOverallCaughtNumber() + " раз");
-    }
 
     
 }

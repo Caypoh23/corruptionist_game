@@ -65,6 +65,7 @@ namespace Level
             {
                 // stop hands movement
                 _handGenerator.StopHands();
+                _handGenerator.DeactivateJail();
                 clock.StopClock();
                 gameFinisher.FinishGame(); // все методы тут
                 

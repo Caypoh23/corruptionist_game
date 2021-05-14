@@ -6,7 +6,10 @@ public class EndGamePanel : MonoBehaviour
 {
     [SerializeField] private GameObject moralePanel;
 
-
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     // Start is called before the first frame update
     public void ShowMoralePanel()
     {

@@ -248,7 +248,7 @@ PrefabInstance:
     - target: {fileID: 7718881199181810141, guid: 61a82bb882e6c6d43ba7fc473b621298,
         type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61a82bb882e6c6d43ba7fc473b621298, type: 3}
