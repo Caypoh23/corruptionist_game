@@ -18,15 +18,19 @@ namespace Hand
         [SerializeField] private LevelController levelController;
         [SerializeField] private GameObject jailPanelGO;
         [SerializeField] private Animator jailAnimator;
+        [SerializeField] private AudioSource audioSource;
 
         private int _index;
 
+        #region Boollean
+
         public bool _isBlocked;
         private bool _isBlockedByMent;
-
+        private bool _isAudioPlayed;
         private bool _canGoBack;
-
         private bool _canMoveHands = true;
+
+        #endregion
 
         private float _elapsedMoveTime = 0.0f;
         private float _elapsedWaitTime = 0.0f;
@@ -117,6 +121,13 @@ namespace Hand
         private void ShowJail()
         {
             jailPanelGO.SetActive(true);
+
+            if (!_isAudioPlayed)
+            {
+                audioSource.Play();
+                _isAudioPlayed = true;
+            }
+
             _elapsedBlockTime += Time.deltaTime;
 
             if (_elapsedBlockTime >= blockDurationForMent)
@@ -139,6 +150,7 @@ namespace Hand
             if (_elapsedMoveTime >= handMovementInterval && _canMoveHands)
             {
                 _canMoveHands = false;
+                _isAudioPlayed = false;
                 _index = Random.Range(0, hands.Length);
                 // go to target
                 hands[_index].handGO.transform.DOMove(hands[_index].target.position, handMovementTime)
