@@ -572,6 +572,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &140746236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140746237}
+  m_Layer: 0
+  m_Name: BurstPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &140746237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140746236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 422409467}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140852343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1579,7 @@ Transform:
   - {fileID: 211855302}
   - {fileID: 1254392669}
   - {fileID: 473526647}
+  - {fileID: 140746237}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2013,13 +2044,14 @@ GameObject:
   - component: {fileID: 473526647}
   - component: {fileID: 473526646}
   - component: {fileID: 473526648}
+  - component: {fileID: 473526649}
   m_Layer: 0
   m_Name: Player7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &473526646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2064,7 +2096,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.54, y: 5.68}
+  m_Size: {x: 15.2, y: 10.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2103,6 +2135,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &473526649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473526645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e7d3feb5239ee4eaa98e0ad26f42ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burstParticles: {fileID: 3564947610110691590, guid: 0d022bb4c626ab8498b792da812bea68,
+    type: 3}
+  burstMoney: {fileID: 7721661322879510893, guid: 1e36f3f14daf1db47b5789bb406d3b08,
+    type: 3}
+  boobles: {fileID: 3534889189036394521, guid: 64869d1a89348d449b868dabfe643d94, type: 3}
+  burstPoint: {fileID: 140746237}
 --- !u!1 &496930903
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,7 +3285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c261cfba9e3b764c81151beda560517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimerValue: 10
+  maxTimerValue: 5
   clock: {fileID: 1122724198}
   endLevel: {fileID: 1780665720}
   cashCount: {fileID: 658372634}
@@ -3244,7 +3294,7 @@ MonoBehaviour:
   policeCaughtCounter: {fileID: 658372635}
   _handGenerator: {fileID: 1341336852}
   _currentTimerValue: 0
-  currentLevel: 1
+  currentLevel: 7
 --- !u!4 &658372633
 Transform:
   m_ObjectHideFlags: 0
@@ -3297,7 +3347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9d5a8cdfeff93445b053cb1b1e8d71d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showTutorialPanel: 1
+  showTutorialPanel: 0
   tutorialPanel: {fileID: 297286698}
   startGamePanel: {fileID: 1828504415}
 --- !u!114 &658372637
@@ -5862,8 +5912,9 @@ GameObject:
   - component: {fileID: 1099234556}
   - component: {fileID: 1099234555}
   - component: {fileID: 1099234554}
+  - component: {fileID: 1099234557}
   m_Layer: 5
-  m_Name: MoralePanel
+  m_Name: EndPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5879,9 +5930,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2040948165}
-  - {fileID: 2045833738}
+  m_Children: []
   m_Father: {fileID: 1780665724}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5946,6 +5995,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099234552}
   m_CullTransparentMesh: 0
+--- !u!114 &1099234557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099234552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42886282a5c9a7e4bab22853818dc316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moraleTextField: {fileID: 2040948166}
+  moraleText: Bobur pipor
 --- !u!1001 &1115167840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7040,7 +7103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endGamePanel: {fileID: 425943434}
-  moralePanel: {fileID: 1099234552}
+  endPanel: {fileID: 1099234552}
   pulsePanel: {fileID: 2105699981}
   playerAnim: {fileID: 473526648}
   moraleAnimator: {fileID: 1099234554}
@@ -7050,9 +7113,9 @@ MonoBehaviour:
   cashEarnedText: {fileID: 1878972901}
   camera: {fileID: 519420031}
   timeBeforeHeartBeat: 2
-  timeForHeartBeat: 1
+  timeForHeartBeat: 2
   timeForBurst: 3
-  timeBeforeEnd: 1
+  timeBeforeEnd: 3
 --- !u!4 &1246313326
 Transform:
   m_ObjectHideFlags: 0
@@ -9180,6 +9243,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1650988807
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650988808}
+  m_Layer: 5
+  m_Name: MoralePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1650988808
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650988807}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2040948165}
+  - {fileID: 2045833738}
+  m_Father: {fileID: 1780665724}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1672669667
 GameObject:
   m_ObjectHideFlags: 0
@@ -9532,7 +9632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1779195467
 Transform:
   m_ObjectHideFlags: 0
@@ -9728,6 +9828,7 @@ RectTransform:
   - {fileID: 2099138548}
   - {fileID: 1099234553}
   - {fileID: 425943435}
+  - {fileID: 1650988808}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10900,11 +11001,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040948164}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 1099234553}
+  m_Father: {fileID: 1650988808}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -11035,11 +11136,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045833737}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1099234553}
+  m_Father: {fileID: 1650988808}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -11130,8 +11231,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

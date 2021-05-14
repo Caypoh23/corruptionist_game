@@ -9,11 +9,6 @@ namespace UI
         [SerializeField] private GameObject pausePanel;
         private bool _isPaused;
 
-        private void Update()
-        {
-            Time.timeScale = _isPaused ? 0 : 1;
-        }
-
         // зачем панель туториала в паузе?
         //public void CloseTutorialPanel()
         //{
@@ -25,13 +20,13 @@ namespace UI
         public void PauseGame()
         {
             pausePanel.SetActive(true);
-            _isPaused = true;
+            Time.timeScale = 0;
         }
 
         public void ContinueGame()
         {
             pausePanel.SetActive(false);
-            _isPaused = false;
+            Time.timeScale = 1;
         }
     }
 }

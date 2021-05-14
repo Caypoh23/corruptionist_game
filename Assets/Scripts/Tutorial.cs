@@ -12,20 +12,29 @@ public class Tutorial : MonoBehaviour
 
     private HandGenerator handGenerator;
     private ClockUI clock;
+    private bool _isPaused;
 
     private void Awake()
     {
         handGenerator = FindObjectOfType<HandGenerator>();
         clock = FindObjectOfType<ClockUI>();
+       
+        }
+    private void Update()
+    {
+        Time.timeScale = _isPaused ? 0 : 1;
     }
     private void Start()
     {
         if (showTutorialPanel)
         {
+            _isPaused = true;
             tutorialPanel.SetActive(true);
+            
         }
         else
         {
+           
             tutorialPanel.SetActive(false);
             handGenerator.UnblockHandGeneratorAfterWait();
             clock.StartClock();
@@ -33,6 +42,7 @@ public class Tutorial : MonoBehaviour
     }
     public void StartGame()
     {
+        _isPaused = false;
         tutorialPanel.SetActive(false);
         startGamePanel.SetActive(true);
         handGenerator.UnblockHandGeneratorAfterWait();
