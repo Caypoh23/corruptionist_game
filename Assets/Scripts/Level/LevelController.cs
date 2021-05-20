@@ -16,6 +16,7 @@ namespace Level
         [SerializeField] private DayCount dayCount;
         [SerializeField] private GameFinisher gameFinisher;
         [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
+        
     
         [SerializeField] private HandGenerator _handGenerator;
         private GameFinisher _gameFinisher;
@@ -38,8 +39,7 @@ namespace Level
         {
             LevelTimer();
         }
-
-
+        
         // overall piece of a shit method, cause calling it in f* update - whatever
         // Rename method name
         private void LevelTimer()

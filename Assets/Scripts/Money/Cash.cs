@@ -18,6 +18,8 @@ namespace Money
 
         [SerializeField] private bool isFlagged; // ment hand
         [SerializeField] private GameObject clickParticle;
+        [SerializeField] private AudioSource audioSource;
+        
 
         private CashProgressBar _progressBar; //TODO: action/event 100%
 
@@ -34,6 +36,7 @@ namespace Money
 
         private void Awake()
         {
+            audioSource = GetComponentInParent<AudioSource>();
             _cashText = cashTextParent.GetComponentInChildren<TextMeshPro>();
             _cashCount = FindObjectOfType<CashCount>();
             _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
@@ -50,6 +53,7 @@ namespace Money
 
         public void OnMouseDown()
         {
+            audioSource.Play();
             gameObject.SetActive(false);
             // дерьмово выглядит мой партикл
             Instantiate(clickParticle, transform.position, Quaternion.identity);
