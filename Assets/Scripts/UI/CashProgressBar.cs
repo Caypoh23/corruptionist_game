@@ -14,12 +14,12 @@ namespace UI
         private float value;
         private float maxValue;
         private float maxCashBarPerLevel;
-       
 
         private void Awake()
         {
             levelController = FindObjectOfType<LevelController>();
         }
+
         public void SetMaxValue(float cash)
         {
             maxValue = cash;
@@ -29,20 +29,22 @@ namespace UI
 
             fill.color = gradient.Evaluate(0f);
         }
-         public void SetMaxValuePerLevel(float cash)
-         {
+
+        public void SetMaxValuePerLevel(float cash)
+        {
             maxCashBarPerLevel = cash;
-         }
+        }
+
         public void AddValue(float cash)
         {
             var prevValue = value;
             value += cash;
-           
+
             if (value > maxCashBarPerLevel * levelController.currentLevel)
             {
                 value = prevValue;
                 slider.value = prevValue;
-                if(levelController.currentLevel == 7)
+                if (levelController.currentLevel == 7)
                 {
                     slider.value = maxValue; // set progressbar full on 7 level
                 }
@@ -51,8 +53,10 @@ namespace UI
             {
                 slider.value = value;
             }
+
             fill.color = gradient.Evaluate(slider.normalizedValue);
         }
+
         public void RemoveValue(float cash)
         {
             var prevValue = value;
@@ -61,11 +65,12 @@ namespace UI
             if (value < 0)
             {
                 value = 0;
-              
             }
+
             slider.value = value;
             fill.color = gradient.Evaluate(slider.normalizedValue);
         }
+
         public float GetValue()
         {
             return slider.value;

@@ -16,8 +16,8 @@ namespace Level
         [SerializeField] private DayCount dayCount;
         [SerializeField] private GameFinisher gameFinisher;
         [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
-        
-    
+        private bool _canBeClicked;
+
         [SerializeField] private HandGenerator _handGenerator;
         private GameFinisher _gameFinisher;
 
@@ -39,7 +39,7 @@ namespace Level
         {
             LevelTimer();
         }
-        
+
         // overall piece of a shit method, cause calling it in f* update - whatever
         // Rename method name
         private void LevelTimer()
@@ -58,6 +58,7 @@ namespace Level
                 clock.StopClock();
                 endLevel.OnShowPanel?.Invoke(currentLevel, cashCount.GetEarnedDailyCash(),
                     policeCaughtCounter.GetTodayCaughtNumber());
+                _canBeClicked = true;
                 Debug.Log("Game over or start next level. Current level: " + currentLevel);
             }
 
@@ -68,21 +69,25 @@ namespace Level
                 _handGenerator.DeactivateJail();
                 clock.StopClock();
                 gameFinisher.FinishGame(); // все методы тут
-                
+
                 //gameFinisher.ShowMoralePanel(); открываетсә с аниматора 
             }
         }
 
         public void StartNextLevel()
         {
-            currentLevel++;
-            dayCount.SetDayUI(currentLevel);
-            clock.StartClock();
-            _currentTimerValue = maxTimerValue;
-            policeCaughtCounter.todayCaughtTimes = 0;
-            itemGenerator.LoadItems();
-            _handGenerator.DeactivateJail();
-            _handGenerator.OnLevelUp();
+            if (_canBeClicked)
+            {
+                currentLevel++;
+                dayCount.SetDayUI(currentLevel);
+                clock.StartClock();
+                _currentTimerValue = maxTimerValue;
+                policeCaughtCounter.todayCaughtTimes = 0;
+                itemGenerator.LoadItems();
+                _handGenerator.DeactivateJail();
+                _handGenerator.OnLevelUp();
+                _canBeClicked = false;
+            }
         }
 
         public int GetCurrentLevel()
