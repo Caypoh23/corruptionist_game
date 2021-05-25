@@ -6,8 +6,4 @@ using UnityEngine;
 public class PlayerSpriteChanger : MonoBehaviour
 {
     [SerializeField] private LevelController levelController;
-
-    
-
-
 }

@@ -62,7 +62,7 @@ namespace Money
             {
                 audioSourceMoney.Play();
             }
-           
+
             gameObject.SetActive(false);
             // дерьмово выглядит мой партикл
             Instantiate(clickParticle, transform.position, Quaternion.identity);
@@ -93,6 +93,7 @@ namespace Money
         {
             _canBeTaken = true;
         }
+
         //return cash amount
         public float GetCashAmount()
         {

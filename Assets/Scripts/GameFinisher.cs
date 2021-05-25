@@ -11,21 +11,13 @@ using Random = UnityEngine.Random;
 
 public class GameFinisher : MonoBehaviour
 {
-    // думаю что можно было бы сделать это в level Controller или end level точно хз -хуйня идея
     [SerializeField] private GameObject endGamePanel;
-
-
     [SerializeField] private GameObject pulsePanel;
 
     [SerializeField] private Animator playerAnim;
 
 
-
-    [SerializeField] private Camera camera;
-
-
-    [Header("Timers")] 
-    [SerializeField]
+    [Header("Timers")] [SerializeField]
     private float timeBeforeHeartBeat; // sidebar shake - and red/white (indicating that is super full)
 
     [SerializeField] private float timeForHeartBeat;
@@ -39,14 +31,6 @@ public class GameFinisher : MonoBehaviour
     private static readonly int ShowText = Animator.StringToHash("ShowText");
 
     #endregion
-
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-    }
 
     public void FinishGame()
     {
@@ -64,43 +48,42 @@ public class GameFinisher : MonoBehaviour
             {
                 ShakeCamera();
             }
-        
+
 
             if (_elapsedTime >= timeForHeartBeat + timeBeforeHeartBeat)
             {
                 pulsePanel.SetActive(false);
                 StopCamera();
                 //camera
-              
+
 
                 if (_elapsedTime >= timeForBurst + timeForHeartBeat + timeBeforeHeartBeat)
                 {
                     //particles
                     BurstPlayer();
-                   
+
 
                     if (_elapsedTime >= timeBeforeEnd + timeForBurst + timeForHeartBeat + timeBeforeHeartBeat)
                     {
-                       
                         ShowClosingEndPanel();
-                       
                     }
                 }
             }
         }
     }
-   
+
     private void ShakeCamera()
     {
         CameraShaker.Instance.DefaultPosInfluence = new Vector3(.02f, .02f, .02f);
         CameraShaker.Instance.DefaultRotInfluence = new Vector3(.02f, .02f, .02f);
         CameraShaker.Instance.ShakeOnce(5f, 10f, .1f, .2f);
-      
     }
+
     private void StopCamera()
     {
         _hasShaken = true;
     }
+
     private void BurstPlayer()
     {
         Debug.Log("BOOOOM");
@@ -113,10 +96,5 @@ public class GameFinisher : MonoBehaviour
         endGamePanel.SetActive(true);
         //moraleAnimator.SetTrigger(ShowText);
         //typing effect
-        
-        
     }
-   
-
-    
 }

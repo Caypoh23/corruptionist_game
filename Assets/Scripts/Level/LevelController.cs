@@ -1,6 +1,8 @@
-﻿using Money;
+﻿using System;
+using Money;
 using Hand;
 using System.Collections;
+using Data;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -24,24 +26,23 @@ namespace Level
         public float _currentTimerValue;
 
         private LevelItemGenerator itemGenerator;
-        public int currentLevel = 1;
+        public int currentLevel;
 
         private void Awake()
         {
+            currentLevel = DataManager.Instance.LoadLevelNumber();
             _gameFinisher = FindObjectOfType<GameFinisher>();
             _handGenerator = FindObjectOfType<HandGenerator>();
             //maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
             _currentTimerValue = maxTimerValue;
             itemGenerator = FindObjectOfType<LevelItemGenerator>();
         }
-
+        
         private void Update()
         {
             LevelTimer();
         }
 
-        // overall piece of a shit method, cause calling it in f* update - whatever
-        // Rename method name
         private void LevelTimer()
         {
             if (_currentTimerValue > 0)
@@ -69,6 +70,7 @@ namespace Level
                 _handGenerator.DeactivateJail();
                 clock.StopClock();
                 gameFinisher.FinishGame(); // все методы тут
+                DataManager.Instance.DeleteLevelNumber();
 
                 //gameFinisher.ShowMoralePanel(); открываетсә с аниматора 
             }
@@ -79,6 +81,7 @@ namespace Level
             if (_canBeClicked)
             {
                 currentLevel++;
+                DataManager.Instance.SaveLevelNumber(currentLevel);
                 dayCount.SetDayUI(currentLevel);
                 clock.StartClock();
                 _currentTimerValue = maxTimerValue;
@@ -92,7 +95,7 @@ namespace Level
 
         public int GetCurrentLevel()
         {
-            return currentLevel; // 
+            return currentLevel;
         }
     }
 }

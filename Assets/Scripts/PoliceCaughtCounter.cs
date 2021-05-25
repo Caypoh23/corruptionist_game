@@ -12,12 +12,12 @@ public class PoliceCaughtCounter : MonoBehaviour
         todayCaughtTimes++;
         _overallCaughtTimes++;
     }
-    
+
     public int GetOverallCaughtNumber()
     {
         return _overallCaughtTimes;
     }
-    
+
     public int GetTodayCaughtNumber()
     {
         return todayCaughtTimes;

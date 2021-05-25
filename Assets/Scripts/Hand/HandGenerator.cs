@@ -191,10 +191,6 @@ namespace Hand
             handMovementTime -= 0.066f;
             handStayDuration -= 0.066f;
         }
-
-        // this shouldnt be here but what ever
-        private void GetTotalCashValue()
-        {
-        }
+        
     }
 }

@@ -10,12 +10,10 @@ public class EndGamePanel : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
     // Start is called before the first frame update
     public void ShowMoralePanel()
     {
         moralePanel.SetActive(true);
-       
     }
-
- 
 }

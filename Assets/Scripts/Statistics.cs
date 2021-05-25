@@ -6,8 +6,5 @@ using UnityEngine;
 
 public class Statistics : MonoBehaviour
 {
-
     // Start is called before the first frame update
- 
-
 }
