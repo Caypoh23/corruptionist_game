@@ -7,13 +7,14 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     [SerializeField] private bool showTutorialPanel;
-    [SerializeField] private GameObject tutorialPanel;
+    [SerializeField] private GameObject[] tutorialPanels;
     [SerializeField] private GameObject startGamePanel;
 
     private HandGenerator handGenerator;
     private GamePause gamePause;
     private ClockUI clock;
     private bool _isPaused;
+    private int currentPanelIndex = 0;
 
     private void Awake()
     {
@@ -27,13 +28,20 @@ public class Tutorial : MonoBehaviour
         if (showTutorialPanel)
         {
             gamePause.PauseGame();
-            tutorialPanel.SetActive(true);
+            foreach (var panel in tutorialPanels)
+            {
+                panel.SetActive(false);
+            }
+            tutorialPanels[currentPanelIndex].SetActive(true);
             
         }
         else
         {
-           
-            tutorialPanel.SetActive(false);
+            foreach (var panel in tutorialPanels)
+            {
+                panel.SetActive(false);
+            }
+            
             handGenerator.UnblockHandGeneratorAfterWait();
             clock.StartClock();
         }
@@ -41,9 +49,18 @@ public class Tutorial : MonoBehaviour
     public void StartGame()
     {
         gamePause.UnpauseGame();
-        tutorialPanel.SetActive(false);
+        foreach (var panel in tutorialPanels)
+        {
+            panel.SetActive(false);
+        }
         startGamePanel.SetActive(true);
         handGenerator.UnblockHandGeneratorAfterWait();
         clock.StartClock();
+    }
+    public void NextPanel()
+    {
+        tutorialPanels[currentPanelIndex].SetActive(false);
+        currentPanelIndex++;
+        tutorialPanels[currentPanelIndex].SetActive(true);
     }
 }

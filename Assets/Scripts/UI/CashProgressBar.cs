@@ -9,6 +9,7 @@ namespace UI
         [SerializeField] private Slider slider;
         [SerializeField] private Gradient gradient;
         [SerializeField] private Image fill;
+        [SerializeField] private Image animatedPart;
 
         private LevelController levelController;
         private float value;
@@ -28,6 +29,7 @@ namespace UI
             slider.value = value;
 
             fill.color = gradient.Evaluate(0f);
+            animatedPart.color = gradient.Evaluate(0f);
         }
 
         public void SetMaxValuePerLevel(float cash)
@@ -53,8 +55,9 @@ namespace UI
             {
                 slider.value = value;
             }
-
+           
             fill.color = gradient.Evaluate(slider.normalizedValue);
+            animatedPart.color = gradient.Evaluate(slider.normalizedValue);
         }
 
         public void RemoveValue(float cash)
@@ -69,6 +72,7 @@ namespace UI
 
             slider.value = value;
             fill.color = gradient.Evaluate(slider.normalizedValue);
+            animatedPart.color = gradient.Evaluate(slider.normalizedValue);
         }
 
         public float GetValue()

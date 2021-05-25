@@ -17,9 +17,10 @@ namespace Money
         [SerializeField] private GameObject cashTextParent;
 
         [SerializeField] private bool isFlagged; // ment hand
+        [SerializeField] private bool isCandy; // child hand
         [SerializeField] private GameObject clickParticle;
-        [SerializeField] private AudioSource audioSource;
-        
+        private AudioSource audioSourceMoney;
+        [CanBeNull] [SerializeField] private AudioSource audioSourceCandy;
 
         private CashProgressBar _progressBar; //TODO: action/event 100%
 
@@ -36,7 +37,7 @@ namespace Money
 
         private void Awake()
         {
-            audioSource = GetComponentInParent<AudioSource>();
+            audioSourceMoney = GetComponentInParent<AudioSource>();
             _cashText = cashTextParent.GetComponentInChildren<TextMeshPro>();
             _cashCount = FindObjectOfType<CashCount>();
             _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
@@ -53,7 +54,15 @@ namespace Money
 
         public void OnMouseDown()
         {
-            audioSource.Play();
+            if (isCandy)
+            {
+                audioSourceCandy.Play();
+            }
+            else
+            {
+                audioSourceMoney.Play();
+            }
+           
             gameObject.SetActive(false);
             // дерьмово выглядит мой партикл
             Instantiate(clickParticle, transform.position, Quaternion.identity);
