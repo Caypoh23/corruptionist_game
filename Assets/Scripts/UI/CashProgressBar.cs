@@ -36,7 +36,13 @@ namespace UI
         {
             maxCashBarPerLevel = cash;
         }
-
+        public void FillMaxValuePerLevel(float cash)
+        {
+            value = cash;
+            slider.value = value;
+            fill.color = gradient.Evaluate(slider.normalizedValue);
+            animatedPart.color = gradient.Evaluate(slider.normalizedValue);
+        }
         public void AddValue(float cash)
         {
             var prevValue = value;

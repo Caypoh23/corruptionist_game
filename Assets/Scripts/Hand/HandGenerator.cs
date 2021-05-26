@@ -10,10 +10,11 @@ namespace Hand
     public class HandGenerator : MonoBehaviour
     {
         [SerializeField] private HandStruct[] hands;
+
         [SerializeField] private float handMovementInterval = 2;
         [SerializeField] private float handMovementTime = .5f;
-
         [SerializeField] private float handStayDuration = .5f;
+
         [SerializeField] private float blockDurationForMent = 3;
         [SerializeField] private LevelController levelController;
         [SerializeField] private GameObject jailPanelGO;
@@ -39,6 +40,12 @@ namespace Hand
         private float _elapsedHandGeneratorBlockTime = 0.0f;
         private float _handGeneratorBlockTime = 1f;
 
+        // to keep default values unchanged
+        private float _handMovementInterval;
+        private float _handMovementTime;
+        private float _handStayDuration;
+        private int _currentLevel;
+
 
         #region Cache
 
@@ -46,12 +53,24 @@ namespace Hand
 
         #endregion
 
+
         private void Start()
         {
             // to set camera shaker to initial shake value
             CameraShaker.Instance.DefaultPosInfluence = new Vector3(0, 1f, 0f);
             CameraShaker.Instance.DefaultRotInfluence = new Vector3(0, 0, 0);
             _isBlocked = true;
+
+            //_handMovementInterval = handMovementInterval;
+            //_handMovementTime = handMovementTime;
+            //_handStayDuration = handStayDuration;
+
+            //BOBUR LOOK HERE
+            _currentLevel = levelController.currentLevel; // load current level here
+            _handMovementInterval = handMovementInterval - (_currentLevel * 0.066f);
+            _handMovementTime = handMovementTime - (_currentLevel * 0.066f);
+            _handStayDuration = handStayDuration - (_currentLevel * 0.066f);
+            //lets suppose we do it when game loads once
         }
 
         private void Update()
@@ -147,13 +166,13 @@ namespace Hand
 
         private void MoveHandForward()
         {
-            if (_elapsedMoveTime >= handMovementInterval && _canMoveHands)
+            if (_elapsedMoveTime >= _handMovementInterval && _canMoveHands)
             {
                 _canMoveHands = false;
                 _isAudioPlayed = false;
                 _index = Random.Range(0, hands.Length);
                 // go to target
-                hands[_index].handGO.transform.DOMove(hands[_index].target.position, handMovementTime)
+                hands[_index].handGO.transform.DOMove(hands[_index].target.position, _handMovementTime)
                     .SetEase(Ease.OutCubic).OnComplete(() => { _canGoBack = true; });
             }
         }
@@ -165,10 +184,10 @@ namespace Hand
             {
                 _elapsedWaitTime += Time.deltaTime;
 
-                if (_elapsedWaitTime >= handStayDuration)
+                if (_elapsedWaitTime >= _handStayDuration)
                 {
                     // go to initial position
-                    hands[_index].handGO.transform.DOMove(hands[_index].initialPosition.position, handMovementTime)
+                    hands[_index].handGO.transform.DOMove(hands[_index].initialPosition.position, _handMovementTime)
                         .OnComplete(
                             () =>
                             {
@@ -187,10 +206,19 @@ namespace Hand
         {
             // accelerates hand movement speed according to current level
             // called in level controller
-            handMovementInterval -= 0.066f;
-            handMovementTime -= 0.066f;
-            handStayDuration -= 0.066f;
+            _handMovementInterval -= 0.066f;
+            _handMovementTime -= 0.066f;
+            _handStayDuration -= 0.066f;
+            //this would still work, ты можешь вставить тоже самое что в Старте но я не уверена в порядке: тип что первое Лвл повышается или ускоряются руки
+            //probably need to remove this
+            //0.066f
+
+            //_handMovementInterval = handMovementInterval - (currentlevel * 0.066f)
+            //_handMovementTime = handMovementTime - (currentlevel * 0.066f)
+            //_handStayDuration = handStayDuration - (currentlevel * 0.066f)
+
+            // i put this in start
         }
-        
+
     }
 }

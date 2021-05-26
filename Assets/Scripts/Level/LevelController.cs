@@ -22,6 +22,9 @@ namespace Level
 
         [SerializeField] private HandGenerator _handGenerator;
         private GameFinisher _gameFinisher;
+        private CashManager _cashManager;
+        private CashProgressBar _cashProgressBar;
+
 
         public float _currentTimerValue;
 
@@ -37,6 +40,9 @@ namespace Level
             //maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
             _currentTimerValue = maxTimerValue;
             itemGenerator = FindObjectOfType<LevelItemGenerator>();
+
+            _cashManager = FindObjectOfType<CashManager>();
+            _cashProgressBar = FindObjectOfType<CashProgressBar>();
         }
 
         private void Update()
@@ -90,6 +96,7 @@ namespace Level
                 itemGenerator.LoadItems();
                 _handGenerator.DeactivateJail();
                 _handGenerator.OnLevelUp();
+                _cashProgressBar.FillMaxValuePerLevel(_cashManager.totalCashCount * currentLevel);
                 _canBeClicked = false;
             }
         }

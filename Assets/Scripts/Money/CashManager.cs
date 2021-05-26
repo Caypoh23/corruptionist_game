@@ -7,8 +7,8 @@ namespace Money
 {
     public class CashManager : MonoBehaviour
     {
+        public float totalCashCount;
         [SerializeField] private CashProgressBar progressBar;
-        [SerializeField] private float totalCashCount;
 
         private void Awake()
         {
