@@ -10,7 +10,7 @@ namespace Data
 
         public int Cash { get; private set; }
         public int LaunchCount { get; private set; }
-        public int LevelNumber { get; private set; }
+        public int LevelNumber { get; set; } = 1;
 
         public override void Awake()
         {
@@ -54,7 +54,7 @@ namespace Data
                 return LevelNumber = ES3.Load<int>(LevelConstant);
             }
 
-            return LevelNumber;
+            return 1;
         }
 
         #endregion

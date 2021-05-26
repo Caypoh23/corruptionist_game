@@ -23,6 +23,7 @@ public class GameFinisher : MonoBehaviour
     [SerializeField] private float timeForHeartBeat;
     [SerializeField] private float timeForBurst;
     [SerializeField] private float timeBeforeEnd;
+    [SerializeField] private AudioSource heartbeatSound;
     private float _elapsedTime = 0f;
     private bool _hasShaken;
 
@@ -41,6 +42,8 @@ public class GameFinisher : MonoBehaviour
         // открывается панель морали
 
         _elapsedTime += Time.deltaTime;
+        
+        heartbeatSound.Play();
         if (_elapsedTime >= timeBeforeHeartBeat)
         {
             pulsePanel.SetActive(true);

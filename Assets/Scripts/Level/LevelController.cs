@@ -31,13 +31,14 @@ namespace Level
         private void Awake()
         {
             currentLevel = DataManager.Instance.LoadLevelNumber();
+            dayCount.SetDayUI(currentLevel);
             _gameFinisher = FindObjectOfType<GameFinisher>();
             _handGenerator = FindObjectOfType<HandGenerator>();
             //maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
             _currentTimerValue = maxTimerValue;
             itemGenerator = FindObjectOfType<LevelItemGenerator>();
         }
-        
+
         private void Update()
         {
             LevelTimer();
@@ -91,11 +92,6 @@ namespace Level
                 _handGenerator.OnLevelUp();
                 _canBeClicked = false;
             }
-        }
-
-        public int GetCurrentLevel()
-        {
-            return currentLevel;
         }
     }
 }
