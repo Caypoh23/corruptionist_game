@@ -82,4 +82,9 @@ public class Tutorial : MonoBehaviour
         currentPanelIndex++;
         tutorialPanels[currentPanelIndex].SetActive(true);
     }
+    
+    public void ToggleTutorial(bool isOn)
+    {
+        showTutorialPanel = isOn;
+    }
 }

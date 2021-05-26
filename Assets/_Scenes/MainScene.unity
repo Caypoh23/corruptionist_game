@@ -14728,7 +14728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2736706567615677311, guid: 28a05d6e5906ded45b1498b48e4e95a4,
+  m_Sprite: {fileID: -3442651064256334182, guid: 28a05d6e5906ded45b1498b48e4e95a4,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -20046,8 +20046,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1171777511}
   switchSprites:
-  - {fileID: -2736706567615677311, guid: 28a05d6e5906ded45b1498b48e4e95a4, type: 3}
   - {fileID: -3442651064256334182, guid: 28a05d6e5906ded45b1498b48e4e95a4, type: 3}
+  - {fileID: -3217112596106952277, guid: 28a05d6e5906ded45b1498b48e4e95a4, type: 3}
   button: {fileID: 1303488936}
 --- !u!114 &1777195117
 MonoBehaviour:
