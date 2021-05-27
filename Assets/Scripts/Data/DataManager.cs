@@ -4,7 +4,7 @@ namespace Data
 {
     public class DataManager : SingletonClass<DataManager>
     {
-        private const string CoinsConstant = "Cash";
+        private const string CashConstant = "Cash";
         private const string LaunchCountConstant = "LaunchCount";
         private const string LevelConstant = "LevelNumber";
 
@@ -18,20 +18,22 @@ namespace Data
             LoadAllData();
         }
 
-        public void SaveCoinState(int cashCount) => ES3.Save(CoinsConstant, Cash = cashCount);
+        public void SaveCashState(int cashCount) => ES3.Save(CashConstant, Cash = cashCount);
+
         public void SaveLaunchCount(int launchCount) => ES3.Save(LaunchCountConstant, LaunchCount = launchCount);
 
         public void SaveLevelNumber(int levelNumber) => ES3.Save(LevelConstant, LevelNumber = levelNumber);
 
-        
+
         // can be made as 1 method
+
         #region Load Saved Value
 
         public int LoadCash()
         {
-            if (ES3.KeyExists(CoinsConstant))
+            if (ES3.KeyExists(CashConstant))
             {
-                return Cash = ES3.Load<int>(CoinsConstant);
+                return Cash = ES3.Load<int>(CashConstant);
             }
 
             return 0;
@@ -71,6 +73,14 @@ namespace Data
             if (ES3.KeyExists(LevelConstant))
             {
                 ES3.DeleteKey(LevelConstant);
+            }
+        }
+
+        public void DeleteCashState()
+        {
+            if (ES3.KeyExists(CashConstant))
+            {
+                ES3.DeleteKey(CashConstant);
             }
         }
     }

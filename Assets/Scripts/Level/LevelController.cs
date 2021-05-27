@@ -45,6 +45,12 @@ namespace Level
             _cashProgressBar = FindObjectOfType<CashProgressBar>();
         }
 
+        private void Start()
+        {
+            // progress bar fixing 
+            //_cashProgressBar.AddValue();
+        }
+
         private void Update()
         {
             LevelTimer();
@@ -77,7 +83,9 @@ namespace Level
                 _handGenerator.DeactivateJail();
                 clock.StopClock();
                 gameFinisher.FinishGame(); // все методы тут
+                DataManager.Instance.DeleteCashState();
                 DataManager.Instance.DeleteLevelNumber();
+                
 
                 //gameFinisher.ShowMoralePanel(); открываетсә с аниматора 
             }

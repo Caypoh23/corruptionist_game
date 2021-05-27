@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Data;
 using TMPro;
 using UnityEngine;
 
@@ -17,13 +18,11 @@ namespace Money
         public Action<float> OnCashAdd;
         public Action<float> OnCashRemove;
 
-
-
-
-        //TODO: mb event
+        // TODO: mb event
         private void Start()
         {
-            cashCountText.SetText("0");
+            cashCount = DataManager.Instance.LoadCash();
+            cashCountText.SetText(cashCount.ToString());
         }
 
         private void OnEnable()
@@ -37,23 +36,24 @@ namespace Money
             OnCashAdd -= AddCash;
             OnCashRemove -= RemoveCash;
         }
-        
+
         private void AddCash(float amount)
         {
             StartCoroutine(Pulse(amount));
         }
-        
+
         private void RemoveCash(float amount)
         {
             cashCount -= amount;
-            if(cashCount < 0)
+            if (cashCount < 0)
             {
                 cashCount = 0;
             }
+
             cashCountLost += amount;
             cashCountText.SetText(cashCount.ToString());
         }
-        
+
         private IEnumerator Pulse(float amount)
         {
             for (float i = 1f; i < 1.2f; i += 0.05f)
@@ -81,17 +81,25 @@ namespace Money
         {
             return cashCount >= 0 ? cashCount : 0;
         }
+
         public float GetEarnedDailyCash()
         {
             return dailyCashCount >= 0 ? dailyCashCount : 0;
         }
+
         public float GetLostCash()
         {
             return cashCountLost;
         }
+
         public void EmptyDailyCashAmount()
         {
             dailyCashCount = 0;
+        }
+
+        private void OnApplicationQuit()
+        {
+            DataManager.Instance.SaveCashState((int) cashCount);
         }
     }
 }
