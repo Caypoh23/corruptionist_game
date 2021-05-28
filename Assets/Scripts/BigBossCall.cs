@@ -70,6 +70,8 @@ public class BigBossCall : MonoBehaviour
                         {
                             _canGoBack = true;
                             phone.ResetPhone(); // isPickedUp = false
+                            _elapsedWaitBeforeShowTime = 0.0f;
+                            _elapsedPhoneTalkTime = 0.0f;
                         }
                     }
                   
