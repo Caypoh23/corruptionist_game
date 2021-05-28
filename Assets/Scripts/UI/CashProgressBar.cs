@@ -65,7 +65,13 @@ namespace UI
             fill.color = gradient.Evaluate(slider.normalizedValue);
             animatedPart.color = gradient.Evaluate(slider.normalizedValue);
         }
-
+        public void SetValueForLevel(int level)
+        {
+            value = maxCashBarPerLevel * levelController.currentLevel - maxCashBarPerLevel;
+            slider.value = value;
+            fill.color = gradient.Evaluate(slider.normalizedValue);
+            animatedPart.color = gradient.Evaluate(slider.normalizedValue);
+        }
         public void RemoveValue(float cash)
         {
             var prevValue = value;

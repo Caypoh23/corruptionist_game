@@ -48,7 +48,7 @@ namespace Level
         private void Start()
         {
             // progress bar fixing 
-            //_cashProgressBar.AddValue();
+            _cashProgressBar.SetValueForLevel(currentLevel);
         }
 
         private void Update()

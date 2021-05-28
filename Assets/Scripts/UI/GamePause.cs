@@ -8,6 +8,7 @@ namespace UI
     public class GamePause : MonoBehaviour
     {
         [SerializeField] private GameObject pausePanel;
+        [SerializeField] private GameObject[] panelsToHide;
         [SerializeField] private Sprite[] switchSprites;
         [SerializeField] private Button button;
 
@@ -35,17 +36,23 @@ namespace UI
         }
         public void TogglePause()
         {
-            _isPaused = !_isPaused;
+          
             _switchState = 1 - _switchState;
             switchImage.sprite = switchSprites[_switchState];
-            if (pausePanel.activeSelf)
+            if (_isPaused)
             {
                 pausePanel.SetActive(false);
+                foreach (var panel in panelsToHide)
+                {
+                    panel.SetActive(false);
+                }
             }
             else
             {
                 pausePanel.SetActive(true);
             }
+
+            _isPaused = !_isPaused;
         }
     
 

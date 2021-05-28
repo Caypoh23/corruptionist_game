@@ -16,5 +16,7 @@ namespace Money
             progressBar.SetMaxValuePerLevel(totalCashCount);
             Debug.Log(totalCashCount);
         }
+
+       
     }
 }
