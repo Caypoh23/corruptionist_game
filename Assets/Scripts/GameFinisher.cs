@@ -23,7 +23,8 @@ public class GameFinisher : MonoBehaviour
     [SerializeField] private float timeForHeartBeat;
     [SerializeField] private float timeForBurst;
     [SerializeField] private float timeBeforeEnd;
-    [SerializeField] private AudioSource heartbeatSound;
+    // звук для камера шейк
+    [SerializeField] private AudioSource cameraShakeSound;
     private float _elapsedTime = 0f;
     private bool _hasShaken;
 
@@ -42,16 +43,13 @@ public class GameFinisher : MonoBehaviour
         // открывается панель морали
 
         _elapsedTime += Time.deltaTime;
-        
-        heartbeatSound.Play();
+
         if (_elapsedTime >= timeBeforeHeartBeat)
         {
-            pulsePanel.SetActive(true);
             if (!_hasShaken)
             {
                 ShakeCamera();
             }
-
 
             if (_elapsedTime >= timeForHeartBeat + timeBeforeHeartBeat)
             {
@@ -63,8 +61,8 @@ public class GameFinisher : MonoBehaviour
                 if (_elapsedTime >= timeForBurst + timeForHeartBeat + timeBeforeHeartBeat)
                 {
                     //particles
+                    
                     BurstPlayer();
-
 
                     if (_elapsedTime >= timeBeforeEnd + timeForBurst + timeForHeartBeat + timeBeforeHeartBeat)
                     {
@@ -90,7 +88,6 @@ public class GameFinisher : MonoBehaviour
     private void BurstPlayer()
     {
         Debug.Log("BOOOOM");
-
         playerAnim.SetTrigger("burst");
     }
 
