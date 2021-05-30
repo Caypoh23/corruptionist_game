@@ -6,13 +6,12 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    [SerializeField] AudioMixer _audioMixer;
-    [SerializeField] Toggle _showTutorialToggle;
-    [SerializeField] Toggle _isSoundOnToggle;
+    [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private Toggle _showTutorialToggle;
 
     private float _originalSoundVolume;
     private bool _isTutorialOn;
-    private Tutorial _tutorial; 
+    private Tutorial _tutorial;
 
 
     private void Start()
@@ -21,34 +20,12 @@ public class SettingsMenu : MonoBehaviour
         _tutorial =  FindObjectOfType<Tutorial>();
     }
 
-    // called from canvas
-
-    //for general sound
     public void SetVolume(float volume)
     {
         _audioMixer.SetFloat("Volume", volume);
-    }
-    // for music
-    /*
-    public void SetBgVolume(float volume)
-    {
-        _audioMixer.SetFloat("BgVolume", volume);
-    }
-    */
-    // to turn off bg music
-    public void SetSound(bool isSoundOff)
-    {
-        //float originalVolume = _audioMixer.GetFloat("BgVolume");
-        if (isSoundOff)
-        {
-            _audioMixer.SetFloat("Volume", -80f);
-        }
-        else
-        {
-            _audioMixer.SetFloat("Volume", _originalSoundVolume);
-        }
 
     }
+   
     public void SetTutorial(bool isOn)
     {
         _tutorial.ToggleTutorial(isOn);

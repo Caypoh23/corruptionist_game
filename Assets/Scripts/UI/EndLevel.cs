@@ -19,11 +19,13 @@ namespace UI
 
         private Animator panelAnimator;
 
+
         public Action<int, float, int> OnShowPanel;
 
         private HandGenerator _handGenerator;
 
         private CashCount _cashCount;
+
         //private PoliceCaughtCounter _policeCaughtCounter;
 
         private void OnEnable()
@@ -43,6 +45,8 @@ namespace UI
             panelAnimator = levelPanel.GetComponent<Animator>();
             _handGenerator = FindObjectOfType<HandGenerator>();
             _cashCount = FindObjectOfType<CashCount>();
+          
+     
             // _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
         }
 
@@ -59,9 +63,12 @@ namespace UI
 
             cashLostTotalText.SetText(_cashCount.GetLostCash().ToString());
             caughtTimesText.SetText(caughtTimes.ToString());
-            levelPanel.SetActive(true);
+            levelPanel.SetActive(true); 
+            
+            
             panelAnimator.SetBool(Hide, false);
             _handGenerator.BlockHandGenerator();
+           
         }
 
         public void DeactivatePanel()
@@ -77,6 +84,7 @@ namespace UI
             // во вторых это неправльно оставлять включенным панель мне кажется
             // если изначально он был неактивным
             _cashCount.EmptyDailyCashAmount();
+       
             _handGenerator.UnblockHandGeneratorAfterWait();
         }
     }

@@ -12,6 +12,7 @@ using Random = UnityEngine.Random;
 public class GameFinisher : MonoBehaviour
 {
     [SerializeField] private GameObject endGamePanel;
+    [SerializeField] private GameObject flashGamePanel;
     [SerializeField] private GameObject pulsePanel;
 
     [SerializeField] private Animator playerAnim;
@@ -24,15 +25,23 @@ public class GameFinisher : MonoBehaviour
     [SerializeField] private float timeForBurst;
     [SerializeField] private float timeBeforeEnd;
     // звук для камера шейк
-    [SerializeField] private AudioSource cameraShakeSound;
+    private AudioManager _audioManager;
+    private CashProgressBar _cashProgressBar;
     private float _elapsedTime = 0f;
     private bool _hasShaken;
-
+    private bool _hasFlashed;
+    private bool _hasDoomBellPlayed;
     #region Cache
 
     private static readonly int ShowText = Animator.StringToHash("ShowText");
 
     #endregion
+    private void Awake()
+    {
+        flashGamePanel.SetActive(false);
+        _audioManager = FindObjectOfType<AudioManager>();
+        _cashProgressBar = FindObjectOfType<CashProgressBar>();
+    }
 
     public void FinishGame()
     {
@@ -42,27 +51,51 @@ public class GameFinisher : MonoBehaviour
         // после того как он умер останавливается музыка
         // открывается панель морали
 
+        // doom sound + fill progress bar
+        // text "you are fucked"
+        // shaking 
+        // text "thats it"
+        if (!_hasDoomBellPlayed)
+        {
+            _audioManager.Play("doomBell");
+            _hasDoomBellPlayed = true;
+        }
+        _cashProgressBar.AddValue(1000);
+        _audioManager.Stop("officeBg");
+        _audioManager.Stop("clockTicking");
+
         _elapsedTime += Time.deltaTime;
 
         if (_elapsedTime >= timeBeforeHeartBeat)
         {
-            if (!_hasShaken)
+            if (!_hasFlashed)
             {
-                ShakeCamera();
+                flashGamePanel.SetActive(true);
+                
             }
 
             if (_elapsedTime >= timeForHeartBeat + timeBeforeHeartBeat)
             {
-                pulsePanel.SetActive(false);
-                StopCamera();
+                _hasFlashed = true;
+                flashGamePanel.SetActive(false);
+
+                if (!_hasShaken)
+                { 
+
+                    ShakeCamera();
+                    
+                    BurstPlayer();
+                }
+             
                 //camera
 
 
                 if (_elapsedTime >= timeForBurst + timeForHeartBeat + timeBeforeHeartBeat)
                 {
                     //particles
-                    
-                    BurstPlayer();
+
+                    StopCamera();
+
 
                     if (_elapsedTime >= timeBeforeEnd + timeForBurst + timeForHeartBeat + timeBeforeHeartBeat)
                     {
@@ -90,9 +123,10 @@ public class GameFinisher : MonoBehaviour
         Debug.Log("BOOOOM");
         playerAnim.SetTrigger("burst");
     }
-
+  
     private void ShowClosingEndPanel()
     {
+       
         endGamePanel.SetActive(true);
         //moraleAnimator.SetTrigger(ShowText);
         //typing effect

@@ -14,24 +14,19 @@ namespace Hand
         [SerializeField] private float handMovementInterval = 2;
         [SerializeField] private float handMovementTime = .5f;
         [SerializeField] private float handStayDuration = .5f;
-
+        [SerializeField] private float handSpeedMultiplier = 0.066f;
         [SerializeField] private float blockDurationForMent = 3;
         [SerializeField] private LevelController levelController;
         [SerializeField] private GameObject jailPanelGO;
         [SerializeField] private Animator jailAnimator;
-        [SerializeField] private AudioSource audioSource;
 
         private int _index;
 
-        #region Boollean
-
-        public bool _isBlocked;
+        [HideInInspector] public bool _isBlocked;
         private bool _isBlockedByMent;
         private bool _isAudioPlayed;
         private bool _canGoBack;
         private bool _canMoveHands = true;
-
-        #endregion
 
         private float _elapsedMoveTime = 0.0f;
         private float _elapsedWaitTime = 0.0f;
@@ -46,16 +41,20 @@ namespace Hand
         private float _handStayDuration;
         private int _currentLevel;
 
-
+        private AudioManager _audioManager;
         #region Cache
 
         private static readonly int MoveUp = Animator.StringToHash("MoveUp");
 
         #endregion
 
-
+        private void Awake()
+        {
+            
+        }
         private void Start()
         {
+            _audioManager = FindObjectOfType<AudioManager>();
             // to set camera shaker to initial shake value
             CameraShaker.Instance.DefaultPosInfluence = new Vector3(0, 1f, 0f);
             CameraShaker.Instance.DefaultRotInfluence = new Vector3(0, 0, 0);
@@ -67,9 +66,9 @@ namespace Hand
 
             //BOBUR LOOK HERE
             _currentLevel = levelController.currentLevel; // load current level here
-            _handMovementInterval = handMovementInterval - (_currentLevel * 0.066f);
-            _handMovementTime = handMovementTime - (_currentLevel * 0.066f);
-            _handStayDuration = handStayDuration - (_currentLevel * 0.066f);
+            _handMovementInterval = handMovementInterval - (_currentLevel * handSpeedMultiplier);
+            _handMovementTime = handMovementTime - (_currentLevel * handSpeedMultiplier);
+            _handStayDuration = handStayDuration - (_currentLevel * handSpeedMultiplier);
             //lets suppose we do it when game loads once
         }
 
@@ -141,9 +140,11 @@ namespace Hand
         {
             jailPanelGO.SetActive(true);
 
+           
             if (!_isAudioPlayed)
             {
-                audioSource.Play();
+                // audioSource.Play();
+                _audioManager.Play("jail");
                 _isAudioPlayed = true;
             }
 
@@ -170,6 +171,7 @@ namespace Hand
             {
                 _canMoveHands = false;
                 _isAudioPlayed = false;
+                _audioManager.Play("handSwoosh");
                 _index = Random.Range(0, hands.Length);
                 // go to target
                 hands[_index].handGO.transform.DOMove(hands[_index].target.position, _handMovementTime)
@@ -206,10 +208,10 @@ namespace Hand
         {
             // accelerates hand movement speed according to current level
             // called in level controller
-            _handMovementInterval -= 0.066f;
-            _handMovementTime -= 0.066f;
-            _handStayDuration -= 0.066f;
-            //this would still work, ты можешь вставить тоже самое что в Старте но я не уверена в порядке: тип что первое Лвл повышается или ускоряются руки
+            _handMovementInterval -= handSpeedMultiplier;
+            _handMovementTime -= handSpeedMultiplier;
+            _handStayDuration -= handSpeedMultiplier;
+            //this would still work, ты можешь вставить тоже самое что в Старте но я не уверена в порядке: тип что первое? Лвл повышается или ускоряются руки
             //probably need to remove this
             //0.066f
 

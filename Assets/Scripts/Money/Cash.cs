@@ -19,8 +19,7 @@ namespace Money
         [SerializeField] private bool isFlagged; // ment hand
         [SerializeField] private bool isCandy; // child hand
         [SerializeField] private GameObject clickParticle;
-        private AudioSource audioSourceMoney;
-        [CanBeNull] [SerializeField] private AudioSource audioSourceCandy;
+   
 
         private CashProgressBar _progressBar; //TODO: action/event 100%
 
@@ -28,7 +27,7 @@ namespace Money
         private PoliceCaughtCounter _policeCaughtCounter;
 
         private HandGenerator _handGenerator;
-
+        private AudioManager _audioManager;
         private TextMeshPro _cashText;
         private bool _canBeTaken;
         private string _plusOrMinus;
@@ -37,7 +36,7 @@ namespace Money
 
         private void Awake()
         {
-            audioSourceMoney = GetComponentInParent<AudioSource>();
+            _audioManager = FindObjectOfType<AudioManager>();
             _cashText = cashTextParent.GetComponentInChildren<TextMeshPro>();
             _cashCount = FindObjectOfType<CashCount>();
             _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
@@ -56,11 +55,15 @@ namespace Money
         {
             if (isCandy)
             {
-                audioSourceCandy.Play();
+                _audioManager.Play("candy");
+            }
+            else if (isFlagged)
+            {
+                _audioManager.Play("police");
             }
             else
             {
-                audioSourceMoney.Play();
+                _audioManager.Play("cash");
             }
 
             gameObject.SetActive(false);
