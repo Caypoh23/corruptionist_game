@@ -42,16 +42,13 @@ namespace Hand
         private int _currentLevel;
 
         private AudioManager _audioManager;
+
         #region Cache
 
         private static readonly int MoveUp = Animator.StringToHash("MoveUp");
 
         #endregion
 
-        private void Awake()
-        {
-            
-        }
         private void Start()
         {
             _audioManager = FindObjectOfType<AudioManager>();
@@ -140,7 +137,7 @@ namespace Hand
         {
             jailPanelGO.SetActive(true);
 
-           
+
             if (!_isAudioPlayed)
             {
                 // audioSource.Play();
@@ -221,6 +218,5 @@ namespace Hand
 
             // i put this in start
         }
-
     }
 }

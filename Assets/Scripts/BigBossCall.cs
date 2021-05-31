@@ -19,9 +19,7 @@ public class BigBossCall : MonoBehaviour
     [SerializeField] private HandStruct handStruct;
     [SerializeField] private Animator anim;
     [SerializeField] private PhonePickUp phone;
-    [Header("Cash Text")]
-
-    [SerializeField] private float amountCashToMinus;
+    [Header("Cash Text")] [SerializeField] private float amountCashToMinus;
     [SerializeField] private GameObject cashTextParent;
     [SerializeField] private Transform cashTextTransform;
     private LevelController _levelController;
@@ -42,18 +40,17 @@ public class BigBossCall : MonoBehaviour
     private float _elapsedHoldTime = 0.0f;
     private float _elapsedWaitBeforeShowTime = 0.0f;
     private float _elapsedPhoneTalkTime = 0.0f;
-  
+
 
     private void Awake()
     {
-       
         _cashCount = FindObjectOfType<CashCount>();
         _levelController = FindObjectOfType<LevelController>();
         _cashText = cashTextParent.GetComponentInChildren<TextMeshPro>();
         _progressBar = FindObjectOfType<CashProgressBar>();
         _audioManager = FindObjectOfType<AudioManager>();
 
-        _cashText.SetText("- "+ amountCashToMinus.ToString()); // - 200
+        _cashText.SetText("- " + amountCashToMinus.ToString()); // - 200
         _cashText.color = new Color32(255, 0, 0, 255);
         _cashText.fontSize = 200;
         _penaltyWasShown = false;
@@ -70,12 +67,10 @@ public class BigBossCall : MonoBehaviour
 
     private void Update()
     {
-       
         foreach (var level in showLevels)
         {
-            if(level == _levelController.currentLevel)
+            if (level == _levelController.currentLevel)
             {
-               
                 //_wasShown = false;
                 // _penaltyWasShown = false;
 
@@ -88,33 +83,31 @@ public class BigBossCall : MonoBehaviour
                         _hasCallRang = true;
                     }
                 }
+
                 if (_elapsedWaitBeforeShowTime >= _levelController.maxTimerValue / 2)
                 {
                     //_elapsedHoldTime = 0.0f;
                     MoveForward();
                     _canMoveHand = true;
-                   
+
                     //if phone is answered
                     if (phone.CheckIfPhoneIsPickedUp())
                     {
-                        
                         if (_hasCallRang)
                         {
-                           _audioManager.Stop("secretaryCall");
+                            _audioManager.Stop("secretaryCall");
                         }
-                       
+
                         _canPlayAnim = false;
                         _elapsedPhoneTalkTime += Time.deltaTime;
                         _canGoBack = false;
-                        if(_elapsedPhoneTalkTime >= phoneTalkTime)
+                        if (_elapsedPhoneTalkTime >= phoneTalkTime)
                         {
                             _canGoBack = true;
                             phone.ResetPhone(); // isPickedUp = false
-                         
-                           
                         }
                     }
-                   
+
                     // if call was not answered - show text - 300
                     if (_wasShown && !_penaltyWasShown)
                     {
@@ -126,34 +119,29 @@ public class BigBossCall : MonoBehaviour
                         cashTextParent.SetActive(true);
                         _cashCount.OnCashRemove?.Invoke(amountCashToMinus); // - 200
                         _progressBar.RemoveValue(amountCashToMinus);
+
                         _penaltyWasShown = true;
-                        
                     }
-                        
-                    
-                  
+
                     MoveBack();
                     //sound
                     anim.SetBool("wiggle", _canPlayAnim);
-
                 }
-
-
             }
-          
         }
-    
-     
     }
- 
+
     private void MoveForward()
     {
-
         _elapsedWaitBeforeShowTime += Time.deltaTime;
-        if (_canMoveHand && !_wasShown )
+        if (_canMoveHand && !_wasShown)
         {
             handStruct.handGO.transform.DOMove(handStruct.target.position, handMovementTime)
-                   .SetEase(Ease.OutCubic).OnComplete(() => { _canPlayAnim = true; _canGoBack = true;  }) ;
+                .SetEase(Ease.OutCubic).OnComplete(() =>
+                {
+                    _canPlayAnim = true;
+                    _canGoBack = true;
+                });
         }
     }
 
@@ -169,13 +157,15 @@ public class BigBossCall : MonoBehaviour
             _canPlayAnim = false;
             // go to initial position
             handStruct.handGO.transform.DOMove(handStruct.initialPosition.position, handMovementTime).OnComplete(
-                () => { _canMoveHand = false; _canGoBack = false; _wasShown = true;  });
-
-            
+                () =>
+                {
+                    _canMoveHand = false;
+                    _canGoBack = false;
+                    _wasShown = true;
+                });
         }
-        
-        
     }
+
     public void ResetTimers()
     {
         _elapsedWaitBeforeShowTime = 0.0f;
@@ -184,5 +174,4 @@ public class BigBossCall : MonoBehaviour
         _wasShown = false;
         _hasCallRang = false;
     }
-    
 }
