@@ -81,7 +81,7 @@ namespace Level
                 _audioManager.Stop("clockTicking");
 
                 clock.StopClock();
-                _audioManager.Play("folderSwoosh");
+                _audioManager.Play("folderSwoosh"); // BOBUR: вызывает пердеж
                 endLevel.OnShowPanel?.Invoke(currentLevel, cashCount.GetEarnedDailyCash(),
                     policeCaughtCounter.GetTodayCaughtNumber());
                 _canBeClicked = true;

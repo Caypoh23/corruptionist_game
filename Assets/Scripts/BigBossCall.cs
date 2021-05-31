@@ -19,7 +19,11 @@ public class BigBossCall : MonoBehaviour
     [SerializeField] private HandStruct handStruct;
     [SerializeField] private Animator anim;
     [SerializeField] private PhonePickUp phone;
-    [Header("Cash Text")] [SerializeField] private float amountCashToMinus;
+
+
+    [Header("Cash Text")] 
+    
+    [SerializeField] private float amountCashToMinus;
     [SerializeField] private GameObject cashTextParent;
     [SerializeField] private Transform cashTextTransform;
     private LevelController _levelController;
@@ -173,5 +177,8 @@ public class BigBossCall : MonoBehaviour
         _elapsedPhoneTalkTime = 0.0f;
         _wasShown = false;
         _hasCallRang = false;
+        _penaltyWasShown = false;
+        _canPlayAnim = false;
+        // если и это не сработало то еще по обнулять надо будет
     }
 }
