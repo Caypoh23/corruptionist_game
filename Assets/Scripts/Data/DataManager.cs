@@ -7,10 +7,14 @@ namespace Data
         private const string CashConstant = "Cash";
         private const string LaunchCountConstant = "LaunchCount";
         private const string LevelConstant = "LevelNumber";
+        private const string VolumeConstant = "VolumeValue";
+        private const string ShowTutorialConstant = "ShowTutorial";
 
         public int Cash { get; private set; }
         public int LaunchCount { get; private set; }
         public int LevelNumber { get; set; } = 1;
+        public float VolumeValue { get; set; }
+        public bool CanShowTutorial { get; set; }
 
         public override void Awake()
         {
@@ -23,6 +27,10 @@ namespace Data
         public void SaveLaunchCount(int launchCount) => ES3.Save(LaunchCountConstant, LaunchCount = launchCount);
 
         public void SaveLevelNumber(int levelNumber) => ES3.Save(LevelConstant, LevelNumber = levelNumber);
+        public void SaveVolumeValue(float volumeValue) => ES3.Save(VolumeConstant, VolumeValue = volumeValue);
+
+        public void SaveTutorialState(bool canShowTutorial) =>
+            ES3.Save(ShowTutorialConstant, CanShowTutorial = canShowTutorial);
 
 
         // can be made as 1 method

@@ -97,6 +97,8 @@ public class BigBossCall : MonoBehaviour
                     //if phone is answered
                     if (phone.CheckIfPhoneIsPickedUp())
                     {
+                        _wasAnswered = true;
+                        
                         if (_hasCallRang)
                         {
                             _audioManager.Stop("secretaryCall");
@@ -113,7 +115,7 @@ public class BigBossCall : MonoBehaviour
                     }
 
                     // if call was not answered - show text - 300
-                    if (_wasShown && !_penaltyWasShown)
+                    if (_wasShown && !_penaltyWasShown && !_wasAnswered)
                     {
                         _elapsedWaitBeforeShowTime = 0.0f;
                         _elapsedPhoneTalkTime = 0.0f;
@@ -177,6 +179,7 @@ public class BigBossCall : MonoBehaviour
         _elapsedPhoneTalkTime = 0.0f;
         _wasShown = false;
         _hasCallRang = false;
+        _wasAnswered = false;
         _penaltyWasShown = false;
         _canPlayAnim = false;
         // если и это не сработало то еще по обнулять надо будет

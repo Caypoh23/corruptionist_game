@@ -17,12 +17,12 @@ namespace UI
         [SerializeField] private float dayEndDegrees = 180;
         private float _day;
         private bool _isWorkingDayGoing;
-        private LevelController levelcontroller;
+        private LevelController levelController;
 
         private void Awake()
         {
-            levelcontroller = FindObjectOfType<LevelController>();
-            secondsPerIngameDay = levelcontroller.maxTimerValue;
+            levelController = FindObjectOfType<LevelController>();
+            secondsPerIngameDay = levelController.maxTimerValue;
             
         }
 
@@ -38,7 +38,7 @@ namespace UI
             {
                 ClockTiking();
             }
-            if(levelcontroller.currentLevel > 4)
+            if(levelController.currentLevel > 4)
             {
                 gameObject.transform.position = clockLateGameTransform.position;
             }

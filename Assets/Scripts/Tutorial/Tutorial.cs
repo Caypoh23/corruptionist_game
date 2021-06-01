@@ -29,7 +29,7 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        if (_currentLaunchNumber == 0 || showTutorialPanel)
+        if (showTutorialPanel || _currentLaunchNumber == 0)
         {
             gamePause.PauseGame();
 
