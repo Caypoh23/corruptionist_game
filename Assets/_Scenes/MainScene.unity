@@ -1432,7 +1432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -11.399872}
+  m_AnchoredPosition: {x: 0, y: -11.399841}
   m_SizeDelta: {x: 0, y: -22.73169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &140852345
@@ -4450,7 +4450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &473526646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4583,8 +4583,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad516027f50bc646b697d64c1674082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
+  audioMixer: {fileID: 0}
   _showTutorialToggle: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!114 &486076852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10551,8 +10552,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad516027f50bc646b697d64c1674082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
+  audioMixer: {fileID: 24100000, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
   _showTutorialToggle: {fileID: 1948649897}
+  slider: {fileID: 2128625320}
 --- !u!114 &934523384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20133,7 +20135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -25.000015}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: 20.820671}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &1628871245
@@ -21433,7 +21435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1717550970
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22229,7 +22231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1779195467
 Transform:
   m_ObjectHideFlags: 0
@@ -24256,9 +24258,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ToggleSprites
-        m_Mode: 1
+      - m_Target: {fileID: 934523383}
+        m_MethodName: SetTutorial
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

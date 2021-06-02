@@ -6,6 +6,7 @@ using Level;
 using TMPro;
 using UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
 namespace Money
@@ -19,7 +20,7 @@ namespace Money
         [SerializeField] private bool isFlagged; // ment hand
         [SerializeField] private bool isCandy; // child hand
         [SerializeField] private GameObject clickParticle;
-   
+
 
         private CashProgressBar _progressBar; //TODO: action/event 100%
 
@@ -53,42 +54,45 @@ namespace Money
 
         public void OnMouseDown()
         {
-            if (isCandy)
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
-                _audioManager.Play("candy");
-            }
-            else if (isFlagged)
-            {
-                _audioManager.Play("police");
-            }
-            else
-            {
-                _audioManager.Play("cash");
-            }
+                if (isCandy)
+                {
+                    _audioManager.Play("candy");
+                }
+                else if (isFlagged)
+                {
+                    _audioManager.Play("police");
+                }
+                else
+                {
+                    _audioManager.Play("cash");
+                }
 
-            gameObject.SetActive(false);
-            // дерьмово выглядит мой партикл
-            Instantiate(clickParticle, transform.position, Quaternion.identity);
+                gameObject.SetActive(false);
+                // дерьмово выглядит мой партикл
+                Instantiate(clickParticle, transform.position, Quaternion.identity);
 
-            if (_canBeTaken)
-            {
-                // displaying text +/- 200
-                cashTextParent.transform.position = transform.position;
-                cashTextParent.SetActive(true);
-                _canBeTaken = false; // no text will appear on second click
-            }
+                if (_canBeTaken)
+                {
+                    // displaying text +/- 200
+                    cashTextParent.transform.position = transform.position;
+                    cashTextParent.SetActive(true);
+                    _canBeTaken = false; // no text will appear on second click
+                }
 
-            if (!isFlagged)
-            {
-                _cashCount.OnCashAdd?.Invoke(amountCash); // + 200
-                _progressBar.AddValue(amountCash);
-            }
-            else
-            {
-                _policeCaughtCounter.IncrementPoliceCaughtNumber();
-                _handGenerator.BlockHandGeneratorByMent();
-                _cashCount.OnCashRemove?.Invoke(amountCash); // - 200
-                _progressBar.RemoveValue(amountCash);
+                if (!isFlagged)
+                {
+                    _cashCount.OnCashAdd?.Invoke(amountCash); // + 200
+                    _progressBar.AddValue(amountCash);
+                }
+                else
+                {
+                    _policeCaughtCounter.IncrementPoliceCaughtNumber();
+                    _handGenerator.BlockHandGeneratorByMent();
+                    _cashCount.OnCashRemove?.Invoke(amountCash); // - 200
+                    _progressBar.RemoveValue(amountCash);
+                }
             }
         }
 

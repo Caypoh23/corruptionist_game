@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] private bool showTutorialPanel;
+    [SerializeField] private bool showTutorialPanel = false;
     [SerializeField] private GameObject[] tutorialPanels;
     [SerializeField] private GameObject startGamePanel;
 
@@ -20,6 +20,7 @@ public class Tutorial : MonoBehaviour
 
     private void Awake()
     {
+        showTutorialPanel = false;
         _currentLaunchNumber = DataManager.Instance.LoadLaunchNumber();
         currentPanelIndex = 0;
         handGenerator = FindObjectOfType<HandGenerator>();
@@ -29,7 +30,7 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        if (showTutorialPanel || _currentLaunchNumber == 0)
+        if (_currentLaunchNumber == 0 || showTutorialPanel)
         {
             gamePause.PauseGame();
 
@@ -82,7 +83,7 @@ public class Tutorial : MonoBehaviour
         currentPanelIndex++;
         tutorialPanels[currentPanelIndex].SetActive(true);
     }
-    
+
     public void ToggleTutorial(bool isOn)
     {
         showTutorialPanel = isOn;

@@ -66,6 +66,16 @@ namespace Data
 
             return 1;
         }
+        
+        public float LoadVolumeValue()
+        {
+            if (ES3.KeyExists(VolumeConstant))
+            {
+                return VolumeValue = ES3.Load<float>(VolumeConstant);
+            }
+
+            return 1;
+        }
 
         #endregion
 
@@ -74,6 +84,7 @@ namespace Data
             LoadCash();
             LoadLaunchNumber();
             LoadLevelNumber();
+            LoadVolumeValue();
         }
 
         public void DeleteLevelNumber()
