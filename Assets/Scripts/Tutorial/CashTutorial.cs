@@ -34,6 +34,6 @@ public class CashTutorial : MonoBehaviour
         cashTextParent.SetActive(true);
 
         // move hand back
-        _interactiveTutorial.MoveHandBack();
+       // _interactiveTutorial.MoveHandBack();
     }
 }

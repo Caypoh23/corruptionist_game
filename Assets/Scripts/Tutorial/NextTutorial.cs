@@ -18,7 +18,7 @@ public class NextTutorial : MonoBehaviour
     {
         currentTutorialNumber++;
         
-        _interactiveTutorial.MoveHandForward();
+        //_interactiveTutorial.MoveHandForward();
         // do your stuff
         // like if(currentTutorialNumber == 3) { interactiveTutorial.MoveHandForward(); }
         // do your stuff
