@@ -8,137 +8,85 @@ using UnityEngine;
 
 public class InteractiveTutorial : MonoBehaviour
 {
-    [SerializeField] private InteractiveTutorialStruct[] interactiveTutorials;
-    [SerializeField] private GameObject curruptionist;
-    [SerializeField] private GameObject dialog;
-    [SerializeField] private Animator dialogAnim;
-    [SerializeField] private TMP_Text dialogTextField;
+    [SerializeField] private HandStruct[] hands;
+    [SerializeField] private float handMovementTime;
+    public int currentTutorialNumber;
+    [SerializeField] private TMP_Text instructionsText;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject dialogPanel;
     [SerializeField] private GameObject fadePanel;
-
-    [SerializeField] private float readTime;
-
-    private Collider2D _collider;
-    private bool _panelIsShown;
-
-    private int _tutorialIndex = 0;
-    private int _instructionIndex = 0;
-    private int _handIndex = 0;
-
-    private float _panelShowTime = 0.5f;
-
-    private float _elapsedTime = 0.0f;
-    private float _elapsedReadTime = 0.0f;
-    private float _elapsedShowHandTime = 0.0f;
-
+    [SerializeField] private BoxCollider2D panelCollider2D;
     private AudioManager _audioManager;
 
     private void Awake()
     {
-        _collider = GetComponent<BoxCollider2D>();
+        instructionsText.SetText("С первым рабочим днём, коллега!");
+        fadePanel.SetActive(false);
         _audioManager = FindObjectOfType<AudioManager>();
     }
-    private void Start()
-    {
-        _collider.enabled = false;
 
-        _tutorialIndex = 0;
-        _instructionIndex = 0;
-
-        dialog.SetActive(false);
-        curruptionist.SetActive(false);
-        fadePanel.SetActive(false);
-
-        dialogTextField.SetText(interactiveTutorials[_tutorialIndex].instructions[_instructionIndex]);// first string of text
-    }
-    private void Update()
-    {
-        curruptionist.SetActive(true);
-
-
-        _elapsedTime += Time.deltaTime;
-        if(_elapsedTime >= _panelShowTime)
-        {
-            dialogTextField.SetText(interactiveTutorials[_tutorialIndex].instructions[_instructionIndex]);// first string of text
-            dialog.SetActive(true);
-           
-        }
-
-        _elapsedReadTime += Time.deltaTime;
-        if(_elapsedReadTime >= readTime)
-        {
-            if (interactiveTutorials[_tutorialIndex].hands.Length == 0)
-            {
-                _collider.enabled = true; // next tutprial step can be clicked
-            }
-            else
-            {
-                fadePanel.SetActive(true);
-
-                MoveHandForward(
-                    interactiveTutorials[_tutorialIndex].hands[_handIndex],
-                    interactiveTutorials[_tutorialIndex].handMovementTime
-                    );
-            }
-           
-        }
-
-    }
     private void OnMouseDown()
     {
-        if (_instructionIndex >= interactiveTutorials[_tutorialIndex].instructions.Length - 1)
+        currentTutorialNumber++;
+        switch (currentTutorialNumber)
         {
-            _tutorialIndex++;
-            _instructionIndex = 0;
+            case 1:
+                dialogPanel.SetActive(false);
+                dialogPanel.SetActive(true);
+                instructionsText.SetText("Давай я введу тебя в курс дела.");
+                break;
+            case 2:
+                dialogPanel.SetActive(false);
+                dialogPanel.SetActive(true);
+                instructionsText.SetText("Принимай взятку как должное. Размер взятки не имеет значения.");
+                
+                panelCollider2D.enabled = false;
+                fadePanel.SetActive(true);
+                MoveHandForward(0);
+                break;
+            case 3:
+                dialogPanel.SetActive(false);
+                dialogPanel.SetActive(true);
+                instructionsText.SetText("Среди взяткодателей есть оборотни. Будь осторожен.");
+                panelCollider2D.enabled = false;
+                MoveHandForward(1);
+                break;
+            case 4:
+                dialogPanel.SetActive(false);
+                dialogPanel.SetActive(true);
+                instructionsText.SetText("Хочешь оставаться в нём долго? Поднимай трубку, когда босс звонит.");
+                panelCollider2D.enabled = false;
+                MoveHandForward(2);
+                break;
         }
-        else
-        {
-            _instructionIndex++;
-        }
 
-
-        _elapsedTime = 0.0f;
-
-        dialogAnim.SetTrigger("hideDialog");
-    
-
+        // do your stuff
+        // like if(currentTutorialNumber == 3) { interactiveTutorial.MoveHandForward(); }
+        // do your stuff
+        // like if(currentTutorialNumber == 4) { interactiveTutorial.MovePoliceHand(); }
+        // or after the player took the ordinary hand we increment the currentTutorialNumber
+        // maybe we should also disable collider of this object to be able to click hand collider
     }
- 
-    //[SerializeField] private HandStruct[] hands;
-    //[SerializeField] private float handMovementTime;
-    //private AudioManager _audioManager;
 
-    //private void Awake()
-    //{
-    //    _audioManager = FindObjectOfType<AudioManager>();
-    //}
-
-    public void MoveHandForward(HandStruct hand, float handMovementTime)
+    private void MoveHandForward(int index)
     {
         _audioManager.Play("handSwoosh");
         // go to target
-        hand.handGO.transform.DOMove(hand.target.position, handMovementTime)
+        hands[index].handGO.transform.DOMove(hands[index].target.position, handMovementTime)
             .SetEase(Ease.OutCubic);
     }
 
-    //public void MovePoliceHand()
-    //{
-    //    _audioManager.Play("handSwoosh");
-    //    hands[1].handGO.transform.DOMove(hands[1].target.position, handMovementTime)
-    //        .SetEase(Ease.OutCubic);
-    //}
-
-
-    public void MoveHandBack(HandStruct hand, float handMovementTime)
+    public void MoveHandBack(int index)
     {
         // go to initial position
-        hand.handGO.transform
-            .DOMove(hand.initialPosition.position, handMovementTime)
+        hands[index].handGO.transform
+            .DOMove(hands[index].initialPosition.position, handMovementTime)
             .OnComplete(
                 () =>
                 {
                     // takes the last element from array
-                    hand.cashGO.SetActive(true);
-                    hand.cashGO.GetComponent<Money.Cash>().CashCanBeTaken();
+                    hands[index].cashGO.SetActive(true);
+                    hands[index].cashGO.GetComponent<Money.Cash>().CashCanBeTaken();
                 });
     }
 }

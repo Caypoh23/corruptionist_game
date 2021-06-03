@@ -1116,9 +1116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad516027f50bc646b697d64c1674082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
+  audioMixer: {fileID: 0}
   _showTutorialToggle: {fileID: 0}
-  _isSoundOnToggle: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!114 &473507264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2935,9 +2935,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad516027f50bc646b697d64c1674082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixer: {fileID: 24100000, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
+  audioMixer: {fileID: 0}
   _showTutorialToggle: {fileID: 1622798502}
-  _isSoundOnToggle: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!1 &1731674967
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,13 +8,18 @@ namespace Data
         private const string LaunchCountConstant = "LaunchCount";
         private const string LevelConstant = "LevelNumber";
         private const string VolumeConstant = "VolumeValue";
+        private const string PoliceCaughtConstant = "PoliceCaughtTimes";
+        private const string LostMoneyConstant = "LostCash";
         private const string ShowTutorialConstant = "ShowTutorial";
 
         public int Cash { get; private set; }
         public int LaunchCount { get; private set; }
         public int LevelNumber { get; set; } = 1;
+        public int LostCashValue { get; set; }
         public float VolumeValue { get; set; }
         public bool CanShowTutorial { get; set; }
+
+        public int PoliceCaughtNumber { get; set; }
 
         public override void Awake()
         {
@@ -31,6 +36,11 @@ namespace Data
 
         public void SaveTutorialState(bool canShowTutorial) =>
             ES3.Save(ShowTutorialConstant, CanShowTutorial = canShowTutorial);
+
+        public void SavePoliceCaughtNumber(int policeCaughtNumber) =>
+            ES3.Save(PoliceCaughtConstant, PoliceCaughtNumber = policeCaughtNumber);
+
+        public void SaveLostCashValue(int lostCashValue) => ES3.Save(LostMoneyConstant, LostCashValue = lostCashValue);
 
 
         // can be made as 1 method
@@ -66,7 +76,7 @@ namespace Data
 
             return 1;
         }
-        
+
         public float LoadVolumeValue()
         {
             if (ES3.KeyExists(VolumeConstant))
@@ -77,6 +87,26 @@ namespace Data
             return 1;
         }
 
+        public int LoadPoliceCaughtNumber()
+        {
+            if (ES3.KeyExists(PoliceCaughtConstant))
+            {
+                return PoliceCaughtNumber = ES3.Load<int>(PoliceCaughtConstant);
+            }
+
+            return 0;
+        }
+
+        public int LoadLostCashValue()
+        {
+            if (ES3.KeyExists(LostMoneyConstant))
+            {
+                return LostCashValue = ES3.Load<int>(LostMoneyConstant);
+            }
+
+            return 0;
+        }
+
         #endregion
 
         public void LoadAllData()
@@ -85,6 +115,8 @@ namespace Data
             LoadLaunchNumber();
             LoadLevelNumber();
             LoadVolumeValue();
+            LoadPoliceCaughtNumber();
+            LoadLostCashValue();
         }
 
         public void DeleteLevelNumber()

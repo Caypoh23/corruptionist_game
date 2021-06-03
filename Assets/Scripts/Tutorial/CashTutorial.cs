@@ -8,21 +8,38 @@ public class CashTutorial : MonoBehaviour
 {
     [SerializeField] private GameObject clickParticle;
     [SerializeField] private GameObject cashTextParent;
+    [SerializeField] private InteractiveTutorial interactiveTutorial;
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private BoxCollider2D panelCollider2D;
     private TextMeshPro _cashText;
-    private AudioManager _audioManager;
-    private InteractiveTutorial _interactiveTutorial;
+    [SerializeField] private bool isFlagged; 
+    
+    private bool _moneyAreTaken;
 
     private void Awake()
     {
-        _audioManager = FindObjectOfType<AudioManager>();
-        _interactiveTutorial = FindObjectOfType<InteractiveTutorial>();
+        audioManager = FindObjectOfType<AudioManager>();
         _cashText = cashTextParent.GetComponentInChildren<TextMeshPro>();
     }
 
     private void OnMouseDown()
     {
-        _audioManager.Play("cash");
-
+        if (!isFlagged)
+        {
+          
+            audioManager.Play("cash");
+            _cashText.SetText("+100");
+            _cashText.color = Color.green;
+            interactiveTutorial.MoveHandBack(0);
+        }
+        else
+        {
+            audioManager.Play("police");
+            _cashText.SetText("-200");
+            _cashText.color = Color.red;
+            interactiveTutorial.MoveHandBack(1);
+        }
+        panelCollider2D.enabled = true;
         // deactivate cash
         gameObject.SetActive(false);
         
@@ -35,5 +52,13 @@ public class CashTutorial : MonoBehaviour
 
         // move hand back
        // _interactiveTutorial.MoveHandBack();
+       _moneyAreTaken = true;
+
+    }
+
+    public void CashCanBeTaken()
+    {
+        gameObject.SetActive(true);
+        _moneyAreTaken = false;
     }
 }

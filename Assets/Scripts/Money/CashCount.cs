@@ -18,6 +18,11 @@ namespace Money
         public Action<float> OnCashAdd;
         public Action<float> OnCashRemove;
 
+        private void Awake()
+        {
+            cashCountLost = DataManager.Instance.LoadLostCashValue();
+        }
+
         // TODO: mb event
         private void Start()
         {
@@ -100,6 +105,7 @@ namespace Money
         private void OnApplicationQuit()
         {
             DataManager.Instance.SaveCashState((int) cashCount);
+            DataManager.Instance.SaveLostCashValue((int) cashCountLost);
         }
     }
 }
