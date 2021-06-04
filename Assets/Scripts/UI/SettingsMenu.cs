@@ -11,19 +11,15 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private Slider slider;
 
-    private float _originalSoundVolume;
-    private float _currentVolumeValue = -50;
+    private float _currentVolumeValue;
  
 
-    private void Awake()
-    {
-        _currentVolumeValue = DataManager.Instance.LoadVolumeValue();
-    
-        slider.value = _currentVolumeValue;
-    }
 
     private void Start()
     {
+        _currentVolumeValue = DataManager.Instance.LoadVolumeValue();
+
+        slider.value = _currentVolumeValue;
         audioMixer.SetFloat("Volume", _currentVolumeValue);
     }
 
@@ -38,7 +34,7 @@ public class SettingsMenu : MonoBehaviour
         _currentVolumeValue = volume;
     }
 
-    private void OnDisable()
+    public void SaveVolume()
     {
         DataManager.Instance.SaveVolumeValue(_currentVolumeValue);
     }
