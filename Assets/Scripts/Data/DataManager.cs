@@ -134,5 +134,21 @@ namespace Data
                 ES3.DeleteKey(CashConstant);
             }
         }
+        
+        public void DeletePoliceCaughtNumber()
+        {
+            if (ES3.KeyExists(PoliceCaughtConstant))
+            {
+                ES3.DeleteKey(PoliceCaughtConstant);
+            }
+        }
+        
+        public void DeleteLostMoney()
+        {
+            if (ES3.KeyExists(LostMoneyConstant))
+            {
+                ES3.DeleteKey(LostMoneyConstant);
+            }
+        }
     }
 }

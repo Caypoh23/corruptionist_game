@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0410\u0445\u043C\u0435\u0434\u043E\u0432\u0430 \u0418\u043D\u043D\u0430"
+  m_text: "\u0418\u043D\u043D\u0430 \u0410\u0445\u043C\u0435\u0434\u043E\u0432\u0430 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6be139eeb3623aa46817a3b7302a98e5, type: 2}
   m_sharedMaterial: {fileID: -2894180469417211633, guid: 6be139eeb3623aa46817a3b7302a98e5,
@@ -7239,7 +7239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c261cfba9e3b764c81151beda560517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTimerValue: 4
+  maxTimerValue: 10
   clock: {fileID: 1122724198}
   endLevel: {fileID: 1780665720}
   cashCount: {fileID: 658372634}

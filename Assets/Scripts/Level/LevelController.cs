@@ -4,6 +4,7 @@ using Hand;
 using System.Collections;
 using Data;
 using UI;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -97,12 +98,17 @@ namespace Level
                 _handGenerator.DeactivateJail();
                 clock.StopClock();
                 gameFinisher.FinishGame(); // все методы тут
-                DataManager.Instance.DeleteCashState();
-                DataManager.Instance.DeleteLevelNumber();
-                
-
                 //gameFinisher.ShowMoralePanel(); открываетсә с аниматора 
+                DeleteData();
             }
+        }
+
+        private void DeleteData()
+        {
+            DataManager.Instance.DeleteCashState();
+            DataManager.Instance.DeleteLevelNumber();
+            DataManager.Instance.DeleteLostMoney();
+            DataManager.Instance.DeletePoliceCaughtNumber();
         }
 
         public void StartNextLevel()

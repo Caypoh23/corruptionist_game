@@ -38,7 +38,7 @@ public class SettingsMenu : MonoBehaviour
         _currentVolumeValue = volume;
     }
 
-    private void OnApplicationQuit()
+    private void OnDisable()
     {
         DataManager.Instance.SaveVolumeValue(_currentVolumeValue);
     }

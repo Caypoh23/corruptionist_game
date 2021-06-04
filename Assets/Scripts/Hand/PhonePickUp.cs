@@ -43,7 +43,7 @@ public class PhonePickUp : MonoBehaviour
     {
         _isPickedUp = false;
         _handGenerator.UnblockHandGenerator();
-        collider2D.enabled = false;
+        collider2D.enabled = true;
         _audioManager.Stop("secretaryTalk");
     }
     //TODO If not taken -200$

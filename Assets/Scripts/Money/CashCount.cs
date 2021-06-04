@@ -40,6 +40,7 @@ namespace Money
         {
             OnCashAdd -= AddCash;
             OnCashRemove -= RemoveCash;
+            SaveCashState();
         }
 
         private void AddCash(float amount)
@@ -47,6 +48,7 @@ namespace Money
             StartCoroutine(Pulse(amount));
         }
 
+        
         private void RemoveCash(float amount)
         {
             cashCount -= amount;
@@ -54,9 +56,9 @@ namespace Money
             {
                 cashCount = 0;
             }
-
             cashCountLost += amount;
             cashCountText.SetText(cashCount.ToString());
+            
         }
 
         private IEnumerator Pulse(float amount)
@@ -101,11 +103,12 @@ namespace Money
         {
             dailyCashCount = 0;
         }
-
-        private void OnApplicationQuit()
+        
+        private void SaveCashState()
         {
             DataManager.Instance.SaveCashState((int) cashCount);
             DataManager.Instance.SaveLostCashValue((int) cashCountLost);
         }
+
     }
 }
