@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Money;
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -13,9 +14,9 @@ namespace UI
         [SerializeField] private GameObject[] panelsToHide;
         [SerializeField] private Sprite[] switchSprites;
         [SerializeField] private Button button;
+        [SerializeField] private CashCount cashCount;
 
-     
-   
+
 
         private Image switchImage;
         private SettingsMenu _settingsMenu;
@@ -71,6 +72,7 @@ namespace UI
                 pausePanel.SetActive(true);
                 _audioManager.Stop("officeBg");
                 _audioManager.Stop("clockTicking");
+                cashCount.SaveCashState();
             }
 
             _isPaused = !_isPaused;

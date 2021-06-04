@@ -20,7 +20,7 @@ public class PoliceCaughtCounter : MonoBehaviour
         _overallCaughtTimes++;
         DataManager.Instance.SavePoliceCaughtNumber(_overallCaughtTimes);
     }
-
+  
     public int GetOverallCaughtNumber()
     {
         return _overallCaughtTimes;

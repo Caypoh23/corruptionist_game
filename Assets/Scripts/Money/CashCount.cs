@@ -40,7 +40,7 @@ namespace Money
         {
             OnCashAdd -= AddCash;
             OnCashRemove -= RemoveCash;
-            SaveCashState();
+            
         }
 
         private void AddCash(float amount)
@@ -104,7 +104,7 @@ namespace Money
             dailyCashCount = 0;
         }
         
-        private void SaveCashState()
+        public void SaveCashState()
         {
             DataManager.Instance.SaveCashState((int) cashCount);
             DataManager.Instance.SaveLostCashValue((int) cashCountLost);
