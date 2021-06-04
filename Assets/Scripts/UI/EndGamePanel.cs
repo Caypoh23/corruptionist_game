@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class EndGamePanel : MonoBehaviour
 {
-    [SerializeField] private GameObject moralePanel;
-
-    private void Start()
-    {
-        gameObject.SetActive(false);
-    }
+    [SerializeField] private GameObject otherPanel;
 
     // Start is called before the first frame update
     public void ShowMoralePanel()
     {
-        moralePanel.SetActive(true);
+        otherPanel.SetActive(true);
     }
 }

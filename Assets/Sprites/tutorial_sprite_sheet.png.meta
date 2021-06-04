@@ -23,12 +23,6 @@ TextureImporter:
   - first:
       213: 7736162150337188928
     second: tutorial_sprite_sheet_6
-  - first:
-      213: -2761625610987684728
-    second: tutorial_sprite_sheet_7
-  - first:
-      213: -9147514162524898756
-    second: tutorial_sprite_sheet_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -129,12 +123,12 @@ TextureImporter:
       name: tutorial_sprite_sheet_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 721
-        width: 276
-        height: 354
+        x: 0
+        y: 368
+        width: 478
+        height: 283
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +144,12 @@ TextureImporter:
       name: tutorial_sprite_sheet_1
       rect:
         serializedVersion: 2
-        x: 462
-        y: 735
-        width: 850
-        height: 295
+        x: 775
+        y: 395
+        width: 127
+        height: 189
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,12 +165,12 @@ TextureImporter:
       name: tutorial_sprite_sheet_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 363
-        width: 279
-        height: 354
+        x: 959
+        y: 452
+        width: 145
+        height: 129
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -192,12 +186,12 @@ TextureImporter:
       name: tutorial_sprite_sheet_3
       rect:
         serializedVersion: 2
-        x: 492
-        y: 390
-        width: 478
-        height: 283
+        x: 1138
+        y: 425
+        width: 138
+        height: 172
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,12 +207,12 @@ TextureImporter:
       name: tutorial_sprite_sheet_4
       rect:
         serializedVersion: 2
-        x: 1267
-        y: 417
-        width: 127
-        height: 189
+        x: 0
+        y: 30
+        width: 688
+        height: 259
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -234,12 +228,12 @@ TextureImporter:
       name: tutorial_sprite_sheet_5
       rect:
         serializedVersion: 2
-        x: 1451
-        y: 477
-        width: 145
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 775
+        y: 59
+        width: 245
+        height: 201
+      alignment: 9
+      pivot: {x: 0.12651716, y: 0.7357492}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -255,12 +249,12 @@ TextureImporter:
       name: tutorial_sprite_sheet_6
       rect:
         serializedVersion: 2
-        x: 1630
-        y: 447
-        width: 138
-        height: 172
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1078
+        y: 2
+        width: 320
+        height: 331
+      alignment: 9
+      pivot: {x: 0.48697776, y: 0.4298885}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,48 +262,6 @@ TextureImporter:
       bones: []
       spriteID: 0449bafdc7e5c5b60800000000000000
       internalID: 7736162150337188928
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tutorial_sprite_sheet_7
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 5
-        width: 276
-        height: 354
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88c3576732cbca9d0800000000000000
-      internalID: -2761625610987684728
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tutorial_sprite_sheet_8
-      rect:
-        serializedVersion: 2
-        x: 492
-        y: 52
-        width: 688
-        height: 259
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3a39d4b5508d0180800000000000000
-      internalID: -9147514162524898756
       vertices: []
       indices: 
       edges: []

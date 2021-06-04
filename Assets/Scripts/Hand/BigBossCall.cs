@@ -172,6 +172,12 @@ public class BigBossCall : MonoBehaviour
         }
     }
 
+    public void RemoveHand()
+    {
+        _audioManager.Stop("phoneRing");
+        _audioManager.Stop("secretaryCall");
+        MoveBack();
+    }
     public void ResetTimers()
     {
         _elapsedWaitBeforeShowTime = 0.0f;

@@ -18,6 +18,7 @@ namespace Level
         [SerializeField] private DayCount dayCount;
         [SerializeField] private GameFinisher gameFinisher;
         [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
+        [SerializeField] private GameObject circleGameStartPanel;
         private bool _canBeClicked;
 
         [SerializeField] private HandGenerator _handGenerator;

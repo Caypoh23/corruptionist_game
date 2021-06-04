@@ -31,6 +31,8 @@ public class CashTutorial : MonoBehaviour
             _cashText.SetText("+100");
             _cashText.color = Color.green;
             interactiveTutorial.MoveHandBack(0);
+          
+           
         }
         else
         {

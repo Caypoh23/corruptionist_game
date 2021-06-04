@@ -16,6 +16,7 @@ namespace UI
         [SerializeField] private TMP_Text cashEarnedTotalText;
         [SerializeField] private TMP_Text cashLostTotalText;
         [SerializeField] private TMP_Text caughtTimesText;
+        [SerializeField] private BigBossCall secretaryHand;
 
         private Animator panelAnimator;
 
@@ -57,6 +58,7 @@ namespace UI
 
         public void ShowPanel(int dayNumber, float cashEarned, int caughtTimes)
         {
+            secretaryHand.RemoveHand();
             dayNumberText.SetText("День " + dayNumber.ToString() + " завершен");
             cashEarnedText.SetText(cashEarned.ToString());
             cashEarnedTotalText.SetText(_cashCount.GetEarnedCash().ToString());
