@@ -11,6 +11,8 @@ public class PhonePickUp : MonoBehaviour
     private HandGenerator _handGenerator;
     private AudioManager _audioManager;
     [SerializeField] private CircleCollider2D collider2D;
+    [SerializeField] private GameObject clickParticle;
+    private bool _isPickedUp;
 
     private void Awake()
     {
@@ -19,10 +21,11 @@ public class PhonePickUp : MonoBehaviour
         // do we need to block hand generator when we talk to secretary?
     }
 
-    private bool _isPickedUp;
+
 
     private void OnMouseDown()
     {
+        Instantiate(clickParticle, transform.position, Quaternion.identity);
         _isPickedUp = true;
         _handGenerator.BlockHandGenerator();
         collider2D.enabled = false;

@@ -99,17 +99,11 @@ namespace Level
                 clock.StopClock();
                 gameFinisher.FinishGame(); // все методы тут
                 //gameFinisher.ShowMoralePanel(); открываетсә с аниматора 
-                DeleteData();
+             
             }
         }
 
-        private void DeleteData()
-        {
-            DataManager.Instance.DeleteCashState();
-            DataManager.Instance.DeleteLevelNumber();
-            DataManager.Instance.DeleteLostMoney();
-            DataManager.Instance.DeletePoliceCaughtNumber();
-        }
+      
 
         public void StartNextLevel()
         {

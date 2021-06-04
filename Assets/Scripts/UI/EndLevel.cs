@@ -86,6 +86,7 @@ namespace UI
             // во вторых это неправльно оставлять включенным панель мне кажется
             // если изначально он был неактивным
             _cashCount.EmptyDailyCashAmount();
+            _cashCount.SaveCashState();
        
             _handGenerator.UnblockHandGeneratorAfterWait();
         }

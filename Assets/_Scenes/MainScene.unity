@@ -2368,7 +2368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9041743c7e8ab40af35090a77e7e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 288
+  amountCash: 388
   cashTextParent: {fileID: 1104649021}
   isFlagged: 0
   isCandy: 0
@@ -6763,7 +6763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 91.855865, y: -84.94156}
+  m_AnchoredPosition: {x: 91.85596, y: -84.94153}
   m_SizeDelta: {x: 102, y: 97.028625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &617451123
@@ -9266,7 +9266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9041743c7e8ab40af35090a77e7e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 133
+  amountCash: 333
   cashTextParent: {fileID: 1312200157}
   isFlagged: 0
   isCandy: 0
@@ -11649,7 +11649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9041743c7e8ab40af35090a77e7e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 68
+  amountCash: 168
   cashTextParent: {fileID: 268298369}
   isFlagged: 0
   isCandy: 0
@@ -12235,6 +12235,17 @@ MonoBehaviour:
       - m_Target: {fileID: 695458518}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1780665725}
+        m_MethodName: DeleteAllData
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13931,7 +13942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9041743c7e8ab40af35090a77e7e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 49
+  amountCash: 149
   cashTextParent: {fileID: 990274451}
   isFlagged: 0
   isCandy: 0
@@ -14278,7 +14289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 92.07846, y: -85.0318}
+  m_AnchoredPosition: {x: 92.07837, y: -85.03174}
   m_SizeDelta: {x: 102, y: 97.028625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1248853187
@@ -16177,6 +16188,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider2D: {fileID: 1359203219}
+  clickParticle: {fileID: 4341960276058375757, guid: 4a7e2996a2b8c1c49853d2c347931571,
+    type: 3}
 --- !u!1 &1374394437
 GameObject:
   m_ObjectHideFlags: 0
@@ -19993,7 +20006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9041743c7e8ab40af35090a77e7e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 43
+  amountCash: 143
   cashTextParent: {fileID: 972496732}
   isFlagged: 0
   isCandy: 0
@@ -20385,7 +20398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9041743c7e8ab40af35090a77e7e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 43
+  amountCash: 243
   cashTextParent: {fileID: 1068506883}
   isFlagged: 0
   isCandy: 0
@@ -20901,7 +20914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9041743c7e8ab40af35090a77e7e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 70
+  amountCash: 170
   cashTextParent: {fileID: 974743705}
   isFlagged: 0
   isCandy: 0
@@ -21467,6 +21480,7 @@ GameObject:
   - component: {fileID: 1780665722}
   - component: {fileID: 1780665721}
   - component: {fileID: 1780665720}
+  - component: {fileID: 1780665725}
   m_Layer: 5
   m_Name: LevelEndScreen
   m_TagString: Untagged
@@ -21577,6 +21591,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1780665725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780665719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f8bb464f20f614c84f4108efd84dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1785177588
 GameObject:
   m_ObjectHideFlags: 0
@@ -22051,7 +22077,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1828504417
