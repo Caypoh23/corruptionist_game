@@ -34,10 +34,10 @@ public class SettingsMenu : MonoBehaviour
         _currentVolumeValue = volume;
     }
 
+    //called on button click
     public void SaveVolume()
     {
         DataManager.Instance.SaveVolumeValue(_currentVolumeValue);
     }
 
-  
 }
