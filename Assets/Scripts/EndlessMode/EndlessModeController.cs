@@ -1,5 +1,4 @@
 ﻿using Data;
-using Hand;
 using Money;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +16,7 @@ public class EndlessModeController : MonoBehaviour
     [SerializeField] private GameObject circleGameStartPanel;
     private bool _canBeClicked;
 
-    [SerializeField] private HandGenerator _handGenerator;
+    [SerializeField] private EndlessHandGenerator _handGenerator;
     [SerializeField] private GameFinisher _gameFinisher;
     [SerializeField]  private GamePause _gamePause;
     [SerializeField]  private CashManager _cashManager;
@@ -31,11 +30,6 @@ public class EndlessModeController : MonoBehaviour
 
     private void Awake()
     {
-        currentDay = DataManager.Instance.LoadLevelNumber();
-
-        dayCount.SetDayUI(currentDay);
-
-        //maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
         _currentTimerValue = workingDayTime;
       
     }

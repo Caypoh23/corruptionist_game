@@ -55,9 +55,9 @@ public class EndlessHandGenerator : MonoBehaviour
         CameraShaker.Instance.DefaultRotInfluence = new Vector3(0, 0, 0);
         _isBlocked = true;
 
-        //_handMovementInterval = handMovementInterval;
-        //_handMovementTime = handMovementTime;
-        //_handStayDuration = handStayDuration;
+        _handMovementInterval = handMovementInterval;
+        _handMovementTime = handMovementTime;
+        _handStayDuration = handStayDuration;
 
         //BOBUR LOOK HERE
         //_currentLevel = levelController.currentLevel; // load current level here
