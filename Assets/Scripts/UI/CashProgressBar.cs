@@ -36,7 +36,7 @@ namespace UI
         {
             maxCashBarPerLevel = cash;
         }
-     
+
         public void AddValue(float cash)
         {
             var prevValue = value;
@@ -55,10 +55,11 @@ namespace UI
             {
                 slider.value = value;
             }
-           
+
             fill.color = gradient.Evaluate(slider.normalizedValue);
             animatedPart.color = gradient.Evaluate(slider.normalizedValue);
         }
+
         public void SetValueForLevel(int level)
         {
             value = maxCashBarPerLevel * levelController.currentLevel - maxCashBarPerLevel;
@@ -66,6 +67,7 @@ namespace UI
             fill.color = gradient.Evaluate(slider.normalizedValue);
             animatedPart.color = gradient.Evaluate(slider.normalizedValue);
         }
+
         public void RemoveValue(float cash)
         {
             var prevValue = value;

@@ -14,13 +14,13 @@ public class EndlessStartGame : MonoBehaviour
 
     private void Awake()
     {
-        
     }
 
     private void Start()
     {
         StartGame();
     }
+
     public void StartGame()
     {
         gamePause.UnpauseGame();

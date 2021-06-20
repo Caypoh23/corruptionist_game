@@ -189,7 +189,7 @@ public class EndlessHandGenerator : MonoBehaviour
                         () =>
                         {
                             hands[_index].cashGO.SetActive(true);
-                            hands[_index].cashGO.GetComponent<Money.Cash>().CashCanBeTaken();
+                            hands[_index].cashGO.GetComponent<EndlessCash>().CashCanBeTaken();
                             _canMoveHands = true;
                         });
                 _elapsedMoveTime = 0.0f;
@@ -224,4 +224,3 @@ public class EndlessHandGenerator : MonoBehaviour
         _handStayDuration -= handSpeedMultiplier;
     }
 }
-

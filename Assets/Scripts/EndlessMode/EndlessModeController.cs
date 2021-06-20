@@ -18,26 +18,26 @@ public class EndlessModeController : MonoBehaviour
 
     [SerializeField] private EndlessHandGenerator _handGenerator;
     [SerializeField] private GameFinisher _gameFinisher;
-    [SerializeField]  private GamePause _gamePause;
-    [SerializeField]  private CashManager _cashManager;
-    [SerializeField]  private CashProgressBar _cashProgressBar;
-    [SerializeField]  private AudioManager _audioManager;
+    [SerializeField] private GamePause _gamePause;
+    [SerializeField] private CashManager _cashManager;
+    [SerializeField] private CashProgressBar _cashProgressBar;
+    [SerializeField] private AudioManager _audioManager;
 
 
     public float _currentTimerValue;
 
-    public int currentDay;
+    [HideInInspector] public int currentDay = 1;
 
     private void Awake()
     {
+        dayCount.SetDayUI(currentDay);
         _currentTimerValue = workingDayTime;
-      
     }
 
     private void Start()
     {
         // progress bar fixing 
-    
+
         _audioManager.Play("officeBg");
         _audioManager.Play("clockTicking");
     }
@@ -59,18 +59,15 @@ public class EndlessModeController : MonoBehaviour
         {
             //currentLevel++;
             //loopNumber--;
-            
+
             currentDay++;
+            dayCount.SetDayUI(currentDay);
             _currentTimerValue = workingDayTime;
         }
-
-  
     }
 
     public float GetWorkingDayTime()
     {
         return workingDayTime;
     }
-
-
 }

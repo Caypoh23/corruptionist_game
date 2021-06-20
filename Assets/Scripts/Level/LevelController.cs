@@ -87,7 +87,7 @@ namespace Level
                 endLevel.OnShowPanel?.Invoke(currentLevel, cashCount.GetEarnedDailyCash(),
                     policeCaughtCounter.GetTodayCaughtNumber());
                 _canBeClicked = true;
-            
+
                 Debug.Log("Game over or start next level. Current level: " + currentLevel);
             }
 
@@ -99,11 +99,9 @@ namespace Level
                 clock.StopClock();
                 gameFinisher.FinishGame(); // все методы тут
                 //gameFinisher.ShowMoralePanel(); открываетсә с аниматора 
-             
             }
         }
 
-      
 
         public void StartNextLevel()
         {
@@ -124,7 +122,6 @@ namespace Level
                 _audioManager.Play("officeBg");
                 _audioManager.Play("clockTicking");
                 _bigBossCall.ResetTimers();
-
             }
         }
     }

@@ -6,12 +6,7 @@ using UnityEngine;
 
 public class GameBlocker : MonoBehaviour
 {
-    private HandGenerator handGenerator;
-
-    private void Awake()
-    {
-        handGenerator = FindObjectOfType<HandGenerator>();
-    }
+    [SerializeField] private EndlessHandGenerator handGenerator;
 
     public void ShakeCamera()
     {

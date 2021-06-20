@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 7802142754ccf0d46a3c0d0f2ac0f86b,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -2709,6 +2710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50c5762bcc0c8d42afc4c248707c9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handGenerator: {fileID: 527657099}
 --- !u!95 &456759373
 Animator:
   serializedVersion: 3
@@ -3002,7 +3004,7 @@ MonoBehaviour:
   cashTextParent: {fileID: 837814891}
   isFlagged: 0
   isCandy: 0
-  clickParticle: {fileID: 4341960276058375757, guid: 4a7e2996a2b8c1c49853d2c347931571,
+  clickParticle: {fileID: 4341960276058375757, guid: d56d46215f789834aab6a91a5cfe1fbb,
     type: 3}
   _progressBar: {fileID: 659167220}
 --- !u!50 &485424957
@@ -3176,7 +3178,7 @@ GameObject:
   - component: {fileID: 527657101}
   - component: {fileID: 527657099}
   m_Layer: 0
-  m_Name: HandGenerator
+  m_Name: EndlessHandGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3204,7 +3206,7 @@ MonoBehaviour:
     target: {fileID: 795441393}
     cashGO: {fileID: 1882661585}
   - handGO: {fileID: 1422846124}
-    initialPosition: {fileID: 523310080}
+    initialPosition: {fileID: 1972656374}
     target: {fileID: 1713066215}
     cashGO: {fileID: 669800176}
   - handGO: {fileID: 1675724240}
@@ -4344,7 +4346,7 @@ MonoBehaviour:
   cashTextParent: {fileID: 2059448756}
   isFlagged: 0
   isCandy: 0
-  clickParticle: {fileID: 4341960276058375757, guid: 4a7e2996a2b8c1c49853d2c347931571,
+  clickParticle: {fileID: 4341960276058375757, guid: d56d46215f789834aab6a91a5cfe1fbb,
     type: 3}
   _progressBar: {fileID: 659167220}
 --- !u!50 &669800180
@@ -5048,11 +5050,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d07682fe8890644f8330c83d0cc020f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 500
+  amountCash: 91
   cashTextParent: {fileID: 497979932}
   isFlagged: 1
   isCandy: 0
-  clickParticle: {fileID: 4341960276058375757, guid: 4a7e2996a2b8c1c49853d2c347931571,
+  clickParticle: {fileID: 4341960276058375757, guid: 71b9286f1b68cd34a8af94eff025088b,
     type: 3}
   _progressBar: {fileID: 659167220}
 --- !u!50 &765293969
@@ -7298,14 +7300,14 @@ MonoBehaviour:
   dayCount: {fileID: 1893525135}
   policeCaughtCounter: {fileID: 266411042}
   circleGameStartPanel: {fileID: 701084546}
-  _handGenerator: {fileID: 0}
+  _handGenerator: {fileID: 527657099}
   _gameFinisher: {fileID: 1780934720}
   _gamePause: {fileID: 1500735571}
   _cashManager: {fileID: 266411044}
   _cashProgressBar: {fileID: 659167220}
   _audioManager: {fileID: 278207153}
   _currentTimerValue: 0
-  currentDay: 0
+  currentDay: 1
 --- !u!4 &1296902223
 Transform:
   m_ObjectHideFlags: 0
@@ -9352,11 +9354,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d07682fe8890644f8330c83d0cc020f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 3453
+  amountCash: 53
   cashTextParent: {fileID: 1947506957}
   isFlagged: 1
   isCandy: 0
-  clickParticle: {fileID: 4341960276058375757, guid: 4a7e2996a2b8c1c49853d2c347931571,
+  clickParticle: {fileID: 4341960276058375757, guid: 71b9286f1b68cd34a8af94eff025088b,
     type: 3}
   _progressBar: {fileID: 659167220}
 --- !u!1 &1713066214
@@ -10532,11 +10534,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d07682fe8890644f8330c83d0cc020f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 300
+  amountCash: 1
   cashTextParent: {fileID: 1146551940}
   isFlagged: 0
   isCandy: 1
-  clickParticle: {fileID: 4341960276058375757, guid: 4a7e2996a2b8c1c49853d2c347931571,
+  clickParticle: {fileID: 4341960276058375757, guid: d56d46215f789834aab6a91a5cfe1fbb,
     type: 3}
   _progressBar: {fileID: 659167220}
 --- !u!50 &1882661589

@@ -17,13 +17,13 @@ public class EndlessCash : MonoBehaviour
     [SerializeField] private GameObject clickParticle;
 
 
-    [SerializeField]  private CashProgressBar _progressBar; //TODO: action/event 100%
+    [SerializeField] private CashProgressBar _progressBar; //TODO: action/event 100%
 
-      private CashCount _cashCount;
-      private PoliceCaughtCounter _policeCaughtCounter;
+    private CashCount _cashCount;
+    private PoliceCaughtCounter _policeCaughtCounter;
 
-     private EndlessHandGenerator _handGenerator;
-     private AudioManager _audioManager;
+    private EndlessHandGenerator _handGenerator;
+    private AudioManager _audioManager;
     private TextMeshPro _cashText;
     private bool _canBeTaken;
     private string _plusOrMinus;
@@ -89,7 +89,7 @@ public class EndlessCash : MonoBehaviour
             if (!isFlagged)
             {
                 _cashCount.OnCashAdd?.Invoke(amountCash); // + 200
-               // _progressBar.AddValue(amountCash);
+                // _progressBar.AddValue(amountCash);
             }
             else
             {
