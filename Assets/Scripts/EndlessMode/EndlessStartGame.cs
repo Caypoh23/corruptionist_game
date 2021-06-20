@@ -9,7 +9,7 @@ public class EndlessStartGame : MonoBehaviour
 
     [SerializeField] private EndlessHandGenerator handGenerator;
     [SerializeField] private GamePause gamePause;
-
+    [SerializeField] private EndlessCashProgressBar endlessCashProgressBar;
     [SerializeField] private Clock clock;
 
     private void Awake()
@@ -24,9 +24,11 @@ public class EndlessStartGame : MonoBehaviour
     public void StartGame()
     {
         gamePause.UnpauseGame();
-
+       
         startGamePanel.SetActive(true);
+    
         handGenerator.UnblockHandGeneratorAfterWait();
         clock.StartClock();
+        endlessCashProgressBar.StartDecrementValue();
     }
 }

@@ -17,7 +17,7 @@ public class EndlessCash : MonoBehaviour
     [SerializeField] private GameObject clickParticle;
 
 
-    [SerializeField] private CashProgressBar _progressBar; //TODO: action/event 100%
+    [SerializeField] private EndlessCashProgressBar _progressBar; //TODO: action/event 100%
 
     private CashCount _cashCount;
     private PoliceCaughtCounter _policeCaughtCounter;
@@ -36,7 +36,7 @@ public class EndlessCash : MonoBehaviour
         _cashCount = FindObjectOfType<CashCount>();
         _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
         _handGenerator = FindObjectOfType<EndlessHandGenerator>();
-        _progressBar = FindObjectOfType<CashProgressBar>();
+        _progressBar = FindObjectOfType<EndlessCashProgressBar>();
 
         _cashText = cashTextParent.GetComponentInChildren<TextMeshPro>();
         _canBeTaken = true;
@@ -68,10 +68,12 @@ public class EndlessCash : MonoBehaviour
             else if (isFlagged)
             {
                 _audioManager.Play("police");
+                Debug.Log("Lose");
             }
             else
             {
                 _audioManager.Play("cash");
+
             }
 
             gameObject.SetActive(false);
@@ -89,14 +91,14 @@ public class EndlessCash : MonoBehaviour
             if (!isFlagged)
             {
                 _cashCount.OnCashAdd?.Invoke(amountCash); // + 200
-                // _progressBar.AddValue(amountCash);
+                 _progressBar.AddValue(amountCash);
             }
             else
             {
                 _policeCaughtCounter.IncrementPoliceCaughtNumber();
                 _handGenerator.BlockHandGeneratorByMent();
                 _cashCount.OnCashRemove?.Invoke(amountCash); // - 200
-                //_progressBar.RemoveValue(amountCash);
+                _progressBar.RemoveValue(amountCash);
             }
         }
     }

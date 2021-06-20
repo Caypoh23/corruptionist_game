@@ -1207,7 +1207,7 @@ GameObject:
   - component: {fileID: 266411045}
   - component: {fileID: 266411043}
   - component: {fileID: 266411042}
-  - component: {fileID: 266411044}
+  - component: {fileID: 266411041}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1215,6 +1215,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &266411041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266411040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8034642078624834cb56a2ffdbaf78ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxValue: 1000
+  progressBar: {fileID: 659167220}
 --- !u!114 &266411042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1241,20 +1255,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cashCountText: {fileID: 247704341}
---- !u!114 &266411044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 266411040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a53bfcb88d61b44b4f71ac4fab9cc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalCashCount: 300
-  progressBar: {fileID: 659167220}
 --- !u!4 &266411045
 Transform:
   m_ObjectHideFlags: 0
@@ -3000,13 +3000,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d07682fe8890644f8330c83d0cc020f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 20
+  amountCash: 300
   cashTextParent: {fileID: 837814891}
   isFlagged: 0
   isCandy: 0
   clickParticle: {fileID: 4341960276058375757, guid: d56d46215f789834aab6a91a5cfe1fbb,
     type: 3}
-  _progressBar: {fileID: 659167220}
+  _progressBar: {fileID: 0}
 --- !u!50 &485424957
 Rigidbody2D:
   serializedVersion: 4
@@ -3220,7 +3220,7 @@ MonoBehaviour:
   handMovementInterval: 0.5
   handMovementTime: 0.5
   handStayDuration: 0.5
-  handSpeedMultiplier: 0.001
+  handSpeedMultiplier: 0.01
   blockDurationForMent: 3
   endlessModeController: {fileID: 1296902222}
   jailPanelGO: {fileID: 456759370}
@@ -4122,41 +4122,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 659167218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4930138f074c80249a729a917db685ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 04c4736178edcb84e9722fe9a6217020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 659167221}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.036445368, g: 0.5943396, b: 0.14442493, a: 1}
-    key1: {r: 0.56298214, g: 0.735849, b: 0, a: 1}
-    key2: {r: 1, g: 0.79510856, b: 0, a: 0}
-    key3: {r: 1, g: 0.34411663, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 15613
-    ctime1: 42212
-    ctime2: 54356
-    ctime3: 65535
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.49108696, b: 0, a: 1}
+    key2: {r: 1, g: 0.8138783, b: 0.16328016, a: 1}
+    key3: {r: 1, g: 0.94113964, b: 0.13679248, a: 0}
+    key4: {r: 0.71790785, g: 0.8867924, b: 0.26352793, a: 0}
+    key5: {r: 0.10513635, g: 0.5566038, b: 0, a: 0}
+    key6: {r: 0.10513635, g: 0.5566038, b: 0, a: 0}
+    key7: {r: 0.10513635, g: 0.5566038, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 11758
+    ctime2: 22745
+    ctime3: 32960
+    ctime4: 42212
+    ctime5: 52235
+    ctime6: 52235
+    ctime7: 52235
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 13493
+    atime2: 65535
     atime3: 0
     atime4: 0
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 4
-    m_NumAlphaKeys: 2
+    m_Mode: 0
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 3
   fill: {fileID: 2112040263}
   animatedPart: {fileID: 1836101142}
+  endlessModeController: {fileID: 1296902222}
+  coef: 20
 --- !u!114 &659167221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4342,13 +4344,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d07682fe8890644f8330c83d0cc020f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCash: 50
+  amountCash: 300
   cashTextParent: {fileID: 2059448756}
   isFlagged: 0
   isCandy: 0
   clickParticle: {fileID: 4341960276058375757, guid: d56d46215f789834aab6a91a5cfe1fbb,
     type: 3}
-  _progressBar: {fileID: 659167220}
+  _progressBar: {fileID: 0}
 --- !u!50 &669800180
 Rigidbody2D:
   serializedVersion: 4
@@ -5056,7 +5058,7 @@ MonoBehaviour:
   isCandy: 0
   clickParticle: {fileID: 4341960276058375757, guid: 71b9286f1b68cd34a8af94eff025088b,
     type: 3}
-  _progressBar: {fileID: 659167220}
+  _progressBar: {fileID: 0}
 --- !u!50 &765293969
 Rigidbody2D:
   serializedVersion: 4
@@ -7294,7 +7296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8c31df128594a40b12728d26ebb101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  workingDayTime: 30
+  workingDayTime: 10
   clock: {fileID: 465167837}
   cashCount: {fileID: 266411043}
   dayCount: {fileID: 1893525135}
@@ -7303,8 +7305,8 @@ MonoBehaviour:
   _handGenerator: {fileID: 527657099}
   _gameFinisher: {fileID: 1780934720}
   _gamePause: {fileID: 1500735571}
-  _cashManager: {fileID: 266411044}
-  _cashProgressBar: {fileID: 659167220}
+  _cashManager: {fileID: 0}
+  _cashProgressBar: {fileID: 0}
   _audioManager: {fileID: 278207153}
   _currentTimerValue: 0
   currentDay: 1
@@ -9360,7 +9362,7 @@ MonoBehaviour:
   isCandy: 0
   clickParticle: {fileID: 4341960276058375757, guid: 71b9286f1b68cd34a8af94eff025088b,
     type: 3}
-  _progressBar: {fileID: 659167220}
+  _progressBar: {fileID: 0}
 --- !u!1 &1713066214
 GameObject:
   m_ObjectHideFlags: 0
@@ -10010,7 +10012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -25}
+  m_AnchoredPosition: {x: 0, y: -25.000008}
   m_SizeDelta: {x: 0, y: 20.820671}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &1836101141
@@ -10540,7 +10542,7 @@ MonoBehaviour:
   isCandy: 1
   clickParticle: {fileID: 4341960276058375757, guid: d56d46215f789834aab6a91a5cfe1fbb,
     type: 3}
-  _progressBar: {fileID: 659167220}
+  _progressBar: {fileID: 0}
 --- !u!50 &1882661589
 Rigidbody2D:
   serializedVersion: 4
@@ -11710,6 +11712,7 @@ MonoBehaviour:
   startGamePanel: {fileID: 701084546}
   handGenerator: {fileID: 527657099}
   gamePause: {fileID: 1500735571}
+  endlessCashProgressBar: {fileID: 0}
   clock: {fileID: 465167837}
 --- !u!1 &1967872047
 GameObject:

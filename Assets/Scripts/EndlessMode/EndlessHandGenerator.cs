@@ -37,7 +37,7 @@ public class EndlessHandGenerator : MonoBehaviour
     private float _handMovementInterval;
     private float _handMovementTime;
     private float _handStayDuration;
-    private int _currentLevel;
+    private int _currentDay;
 
     private AudioManager _audioManager;
 
@@ -60,10 +60,10 @@ public class EndlessHandGenerator : MonoBehaviour
         _handStayDuration = handStayDuration;
 
         //BOBUR LOOK HERE
-        //_currentLevel = levelController.currentLevel; // load current level here
-        //_handMovementInterval = handMovementInterval - (_currentLevel * handSpeedMultiplier);
-        //_handMovementTime = handMovementTime - (_currentLevel * handSpeedMultiplier);
-        //_handStayDuration = handStayDuration - (_currentLevel * handSpeedMultiplier);
+        //_currentDay = endlessModeController.currentDay; // load current level here
+        //_handMovementInterval = handMovementInterval - (_currentDay * handSpeedMultiplier);
+        //_handMovementTime = handMovementTime - (_currentDay * handSpeedMultiplier);
+        //_handStayDuration = handStayDuration - (_currentDay * handSpeedMultiplier);
         //lets suppose we do it when game loads once
     }
 

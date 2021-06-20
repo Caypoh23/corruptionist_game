@@ -61,6 +61,7 @@ public class EndlessModeController : MonoBehaviour
             //loopNumber--;
 
             currentDay++;
+            _handGenerator.SpeedUpHands();
             dayCount.SetDayUI(currentDay);
             _currentTimerValue = workingDayTime;
         }
