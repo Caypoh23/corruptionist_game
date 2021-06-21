@@ -11,6 +11,7 @@ public class EndlessCashProgressBar : MonoBehaviour
     [SerializeField] private Image animatedPart;
 
     [SerializeField] private EndlessModeController endlessModeController;
+    [SerializeField] private EndlessGameOver gameOver;
     [SerializeField] private float coef = 0.2f;
     private float value;
     private float maxValue;
@@ -23,7 +24,7 @@ public class EndlessCashProgressBar : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (value != 0 && _canDecrement)
+        if (value > 0 && _canDecrement)
         {
             value -= coef * Time.deltaTime;
             slider.value = value;
@@ -33,7 +34,7 @@ public class EndlessCashProgressBar : MonoBehaviour
         else
         {
             _canDecrement = false;
-            Debug.Log("Lose");
+            gameOver.EndGame("К сожалению, вы обанкротились");
         }
         
     }

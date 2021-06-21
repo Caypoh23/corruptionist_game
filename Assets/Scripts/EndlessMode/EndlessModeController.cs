@@ -2,6 +2,7 @@
 using Money;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UI;
 using UnityEngine;
 
@@ -11,16 +12,14 @@ public class EndlessModeController : MonoBehaviour
     [SerializeField] private Clock clock;
 
     [SerializeField] private CashCount cashCount; //TODO: mb event
-    [SerializeField] private DayCount dayCount;
+    [SerializeField] private TMP_Text dayNumberText;
     [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
     [SerializeField] private GameObject circleGameStartPanel;
     private bool _canBeClicked;
 
     [SerializeField] private EndlessHandGenerator _handGenerator;
-    [SerializeField] private GameFinisher _gameFinisher;
     [SerializeField] private GamePause _gamePause;
-    [SerializeField] private CashManager _cashManager;
-    [SerializeField] private CashProgressBar _cashProgressBar;
+
     [SerializeField] private AudioManager _audioManager;
 
 
@@ -28,9 +27,10 @@ public class EndlessModeController : MonoBehaviour
 
     [HideInInspector] public int currentDay = 1;
 
+
     private void Awake()
     {
-        dayCount.SetDayUI(currentDay);
+        dayNumberText.SetText(currentDay.ToString());
         _currentTimerValue = workingDayTime;
     }
 
@@ -60,9 +60,9 @@ public class EndlessModeController : MonoBehaviour
             //currentLevel++;
             //loopNumber--;
 
-            currentDay++;
+            StartCoroutine(Pulse());
             _handGenerator.SpeedUpHands();
-            dayCount.SetDayUI(currentDay);
+
             _currentTimerValue = workingDayTime;
         }
     }
@@ -71,4 +71,28 @@ public class EndlessModeController : MonoBehaviour
     {
         return workingDayTime;
     }
+
+    private IEnumerator Pulse()
+    {
+        for (float i = 1f; i < 1.2f; i += 0.05f)
+        {
+            dayNumberText.rectTransform.localScale = new Vector3(i, i, i);
+            yield return new WaitForEndOfFrame();
+        }
+
+        dayNumberText.rectTransform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+
+        currentDay++;
+      
+        dayNumberText.SetText(currentDay.ToString());
+
+        for (float i = 1.2f; i >= 1f; i -= 0.05f)
+        {
+            dayNumberText.rectTransform.localScale = new Vector3(i, i, i);
+            yield return new WaitForEndOfFrame();
+        }
+
+        dayNumberText.rectTransform.localScale = new Vector3(1f, 1f, 1f);
+    }
+
 }

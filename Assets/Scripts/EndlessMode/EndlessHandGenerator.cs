@@ -18,6 +18,7 @@ public class EndlessHandGenerator : MonoBehaviour
     [SerializeField] private GameObject jailPanelGO;
     [SerializeField] private Animator jailAnimator;
 
+
     private int _index;
 
     [HideInInspector] public bool _isBlocked;
@@ -50,6 +51,7 @@ public class EndlessHandGenerator : MonoBehaviour
     private void Start()
     {
         _audioManager = FindObjectOfType<AudioManager>();
+        jailPanelGO.SetActive(false);
         // to set camera shaker to initial shake value
         CameraShaker.Instance.DefaultPosInfluence = new Vector3(0, 1f, 0f);
         CameraShaker.Instance.DefaultRotInfluence = new Vector3(0, 0, 0);
@@ -117,6 +119,7 @@ public class EndlessHandGenerator : MonoBehaviour
     {
         _isBlockedByMent = true;
         _isBlocked = true;
+  
     }
 
     public void StopHands()
@@ -149,7 +152,7 @@ public class EndlessHandGenerator : MonoBehaviour
         {
             Debug.Log("MoveUP");
             _elapsedBlockTime = 0.0f;
-            jailAnimator.SetTrigger(MoveUp);
+          //  jailAnimator.SetTrigger(MoveUp);
             _isBlocked = false;
         }
     }

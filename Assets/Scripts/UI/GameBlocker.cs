@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class GameBlocker : MonoBehaviour
 {
-    [SerializeField] private EndlessHandGenerator handGenerator;
+    [SerializeField] private HandGenerator handGenerator;
+
 
     public void ShakeCamera()
     {
@@ -16,6 +17,7 @@ public class GameBlocker : MonoBehaviour
     public void SetActiveFalse()
     {
         handGenerator.UnblockHandGenerator();
+
         gameObject.SetActive(false);
     }
 }
