@@ -1,2 +1,4 @@
 # corruptionist_game
-Incubator 
+Goethe GameDev Incubator 
+
+### bobs pidor
