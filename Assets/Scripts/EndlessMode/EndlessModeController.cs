@@ -25,6 +25,8 @@ public class EndlessModeController : MonoBehaviour
 
     public float _currentTimerValue;
 
+    private bool _canSpeedUpHands;
+
     [HideInInspector] public int currentDay = 1;
 
 
@@ -37,7 +39,7 @@ public class EndlessModeController : MonoBehaviour
     private void Start()
     {
         // progress bar fixing 
-
+        _canSpeedUpHands = true;
         _audioManager.Play("officeBg");
         _audioManager.Play("clockTicking");
     }
@@ -45,6 +47,11 @@ public class EndlessModeController : MonoBehaviour
     private void Update()
     {
         LevelTimer();
+        
+        if (currentDay == 8)
+        {
+            _canSpeedUpHands = false;
+        }
     }
 
     private void LevelTimer()
@@ -61,8 +68,12 @@ public class EndlessModeController : MonoBehaviour
             //loopNumber--;
 
             StartCoroutine(Pulse());
-            _handGenerator.SpeedUpHands();
-
+            
+            if (_canSpeedUpHands)
+            {
+                _handGenerator.SpeedUpHands();
+            }
+            
             _currentTimerValue = workingDayTime;
         }
     }

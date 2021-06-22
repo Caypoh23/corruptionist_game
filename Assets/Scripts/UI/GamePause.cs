@@ -15,6 +15,7 @@ namespace UI
         [SerializeField] private Sprite[] switchSprites;
         [SerializeField] private Button button;
         [SerializeField] private CashCount cashCount;
+        [SerializeField] private bool isEndless;
 
 
 
@@ -72,7 +73,10 @@ namespace UI
                 pausePanel.SetActive(true);
                 _audioManager.Stop("officeBg");
                 _audioManager.Stop("clockTicking");
-                cashCount.SaveCashState();
+                if (!isEndless)
+                {
+                    cashCount.SaveCashState();
+                }
             }
 
             _isPaused = !_isPaused;
