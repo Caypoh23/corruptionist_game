@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class EndlessGameBlocker : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private EndlessHandGenerator endlessHandGenerator;
+
+    public void ShakeCamera()
     {
+        EZCameraShake.CameraShaker.Instance.ShakeOnce(2f, 5f, 0.1f, 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
+    // a method to unblock endless hand generator.
+    // should have been called from the animation event
+    // also plays jail up animation
+    /*public void SetActiveFalse()
     {
-    }
+        endlessHandGenerator.UnblockHandGenerator();
+
+        gameObject.SetActive(false);
+    }*/
 }

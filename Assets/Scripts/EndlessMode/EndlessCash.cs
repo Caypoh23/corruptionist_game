@@ -19,7 +19,7 @@ public class EndlessCash : MonoBehaviour
 
     [SerializeField] private EndlessCashProgressBar _progressBar; //TODO: action/event 100%
 
-    private CashCount _cashCount;
+    private EndlessCashCount _endlessCashCount;
     private PoliceCaughtCounter _policeCaughtCounter;
 
     private EndlessHandGenerator _handGenerator;
@@ -33,7 +33,7 @@ public class EndlessCash : MonoBehaviour
     private void Awake()
     {
         _audioManager = FindObjectOfType<AudioManager>();
-        _cashCount = FindObjectOfType<CashCount>();
+        _endlessCashCount = FindObjectOfType<EndlessCashCount>();
         _policeCaughtCounter = FindObjectOfType<PoliceCaughtCounter>();
         _handGenerator = FindObjectOfType<EndlessHandGenerator>();
         _progressBar = FindObjectOfType<EndlessCashProgressBar>();
@@ -90,14 +90,15 @@ public class EndlessCash : MonoBehaviour
 
             if (!isFlagged)
             {
-                _cashCount.OnCashAdd?.Invoke(amountCash); // + 200
+                _endlessCashCount.OnCashAdd?.Invoke(amountCash); // + 200
                  _progressBar.AddValue(amountCash);
             }
             else
             {
                 _policeCaughtCounter.IncrementPoliceCaughtNumber();
                 _handGenerator.BlockHandGeneratorByMent();
-                _cashCount.OnCashRemove?.Invoke(amountCash); // - 200
+                // there is no need to remove money in endless mode
+                //_endlessCashCount.OnCashRemove?.Invoke(amountCash); // - 200
                 _progressBar.RemoveValue(amountCash);
             }
         }

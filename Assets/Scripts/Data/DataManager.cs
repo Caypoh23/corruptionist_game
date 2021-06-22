@@ -11,8 +11,13 @@ namespace Data
         private const string PoliceCaughtConstant = "PoliceCaughtTimes";
         private const string LostMoneyConstant = "LostCash";
         private const string ShowTutorialConstant = "ShowTutorial";
+        
+        private const string RecordConstant = "Record";
 
         public int Cash { get; private set; }
+        
+        public int Record { get; private set; }
+        
         public int LaunchCount { get; private set; }
         public int LevelNumber { get; set; } = 1;
         public int LostCashValue { get; set; }
@@ -28,6 +33,7 @@ namespace Data
         }
 
         public void SaveCashState(int cashCount) => ES3.Save(CashConstant, Cash = cashCount);
+        public void SaveRecordState(int recordCashCount) => ES3.Save(RecordConstant, Record = recordCashCount);
 
         public void SaveLaunchCount(int launchCount) => ES3.Save(LaunchCountConstant, LaunchCount = launchCount);
 
@@ -52,6 +58,16 @@ namespace Data
             if (ES3.KeyExists(CashConstant))
             {
                 return Cash = ES3.Load<int>(CashConstant);
+            }
+
+            return 0;
+        }
+        
+        public int LoadRecord()
+        {
+            if (ES3.KeyExists(RecordConstant))
+            {
+                return Record = ES3.Load<int>(RecordConstant);
             }
 
             return 0;
@@ -117,6 +133,7 @@ namespace Data
             LoadVolumeValue();
             LoadPoliceCaughtNumber();
             LoadLostCashValue();
+            LoadRecord();
         }
 
         public void DeleteLevelNumber()

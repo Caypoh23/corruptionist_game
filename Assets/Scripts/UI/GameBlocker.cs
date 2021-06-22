@@ -8,7 +8,6 @@ public class GameBlocker : MonoBehaviour
 {
     [SerializeField] private HandGenerator handGenerator;
 
-
     public void ShakeCamera()
     {
         EZCameraShake.CameraShaker.Instance.ShakeOnce(2f, 5f, 0.1f, 1.0f);

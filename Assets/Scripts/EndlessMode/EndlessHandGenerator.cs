@@ -152,7 +152,7 @@ public class EndlessHandGenerator : MonoBehaviour
         {
             Debug.Log("MoveUP");
             _elapsedBlockTime = 0.0f;
-          //  jailAnimator.SetTrigger(MoveUp);
+            //jailAnimator.SetTrigger(MoveUp);
             _isBlocked = false;
         }
     }

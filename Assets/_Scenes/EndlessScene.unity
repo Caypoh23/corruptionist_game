@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 456759372}
+      - m_Target: {fileID: 0}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -1435,9 +1435,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 266411045}
-  - component: {fileID: 266411043}
   - component: {fileID: 266411042}
   - component: {fileID: 266411041}
+  - component: {fileID: 266411043}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1481,10 +1481,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 266411040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 852cc53489f7d6e419d08ddbf3128c4f, type: 3}
+  m_Script: {fileID: 11500000, guid: a3bbd5db701af974485d85c4a30d253f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cashCountText: {fileID: 247704341}
+  currentCashCount: 0
 --- !u!4 &266411045
 Transform:
   m_ObjectHideFlags: 0
@@ -2937,14 +2938,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 456759370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d9951a16ab3a7459332b51f34c5dbe, type: 3}
+  m_Script: {fileID: 11500000, guid: 7920290585b5b5f41871029381c21593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endGamePanel: {fileID: 128720510}
-  endExitPanel: {fileID: 802523575}
-  reasonText: {fileID: 1458235771}
-  handGenerator: {fileID: 527657099}
-  clock: {fileID: 465167837}
+  endlessHandGenerator: {fileID: 527657099}
 --- !u!95 &456759373
 Animator:
   serializedVersion: 3
@@ -7902,7 +7899,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 456759372}
+      - m_Target: {fileID: 0}
         m_MethodName: GoHome
         m_Mode: 1
         m_Arguments:
@@ -8081,7 +8078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   workingDayTime: 20
   clock: {fileID: 465167837}
-  cashCount: {fileID: 266411043}
+  endlessCashCount: {fileID: 266411043}
   dayNumberText: {fileID: 1893525136}
   policeCaughtCounter: {fileID: 266411042}
   circleGameStartPanel: {fileID: 701084546}
@@ -8829,8 +8826,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u0431\u043E\u0431\u0441
-    \u043F\u0435\u0434\u0438\u043A"
+  m_text: "\u041F\u0440\u0438\u0447\u0438\u043D\u0430:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 43133ca3c4e8f5f4fbfe9d95e0719d5d, type: 2}
   m_sharedMaterial: {fileID: 8768660402600522326, guid: 43133ca3c4e8f5f4fbfe9d95e0719d5d,
@@ -9122,7 +9118,7 @@ MonoBehaviour:
   - {fileID: -3442651064256334182, guid: 28a05d6e5906ded45b1498b48e4e95a4, type: 3}
   - {fileID: -3217112596106952277, guid: 28a05d6e5906ded45b1498b48e4e95a4, type: 3}
   button: {fileID: 626510330}
-  cashCount: {fileID: 266411043}
+  cashCount: {fileID: 0}
 --- !u!224 &1500735572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12154,7 +12150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1905593814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d9951a16ab3a7459332b51f34c5dbe, type: 3}
+  m_Script: {fileID: 11500000, guid: f03b647984d231545a3fc664d6f71308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   endGamePanel: {fileID: 128720510}
@@ -12162,6 +12158,8 @@ MonoBehaviour:
   reasonText: {fileID: 1458235771}
   handGenerator: {fileID: 527657099}
   clock: {fileID: 465167837}
+  endlessCashCount: {fileID: 266411043}
+  cashRecord: {fileID: 1761528634}
 --- !u!114 &1905593818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13684,7 +13682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -11.399872}
+  m_AnchoredPosition: {x: 0, y: -11.399902}
   m_SizeDelta: {x: 0, y: -22.73169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2112040262

@@ -11,7 +11,7 @@ public class EndlessModeController : MonoBehaviour
     [SerializeField] private float workingDayTime;
     [SerializeField] private Clock clock;
 
-    [SerializeField] private CashCount cashCount; //TODO: mb event
+    [SerializeField] private EndlessCashCount endlessCashCount; //TODO: mb event
     [SerializeField] private TMP_Text dayNumberText;
     [SerializeField] private PoliceCaughtCounter policeCaughtCounter;
     [SerializeField] private GameObject circleGameStartPanel;

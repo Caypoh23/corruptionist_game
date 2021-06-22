@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4341960276058375759}
   - component: {fileID: 4341960276058375756}
   m_Layer: 0
-  m_Name: ClickParticlePolic
+  m_Name: ClickParticlePolice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -975,8 +975,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 80
-        minScalar: 50
+        scalar: 40
+        minScalar: 20
         maxCurve:
           serializedVersion: 2
           m_Curve:
