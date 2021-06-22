@@ -59,11 +59,19 @@ public class EndlessCashProgressBar : MonoBehaviour
     }
     public void AddValue(float cash)
     {
-        var prevValue = value;
-        value += cash;
+        
+            var prevValue = value;
+            value += cash;
 
-        fill.color = gradient.Evaluate(slider.normalizedValue);
-        animatedPart.color = gradient.Evaluate(slider.normalizedValue);
+            fill.color = gradient.Evaluate(slider.normalizedValue);
+            animatedPart.color = gradient.Evaluate(slider.normalizedValue);
+        
+        if(value > slider.maxValue)
+        {
+            value = slider.maxValue;
+            
+        }
+        
     }
 
 

@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1905593816}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
@@ -2941,7 +2941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7920290585b5b5f41871029381c21593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endlessHandGenerator: {fileID: 527657099}
+  gameOver: {fileID: 1905593816}
 --- !u!95 &456759373
 Animator:
   serializedVersion: 3
@@ -7899,7 +7899,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1905593816}
         m_MethodName: GoHome
         m_Mode: 1
         m_Arguments:
@@ -10502,7 +10502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 131, y: 209.00003}
+  m_AnchoredPosition: {x: 230, y: 209.00003}
   m_SizeDelta: {x: 389.58838, y: 113.46735}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1761528634
@@ -10561,7 +10561,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0

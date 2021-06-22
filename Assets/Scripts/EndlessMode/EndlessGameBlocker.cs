@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EndlessGameBlocker : MonoBehaviour
 {
-    [SerializeField] private EndlessHandGenerator endlessHandGenerator;
+    [SerializeField] private EndlessGameOver gameOver;
 
     public void ShakeCamera()
     {
@@ -14,10 +14,10 @@ public class EndlessGameBlocker : MonoBehaviour
     // a method to unblock endless hand generator.
     // should have been called from the animation event
     // also plays jail up animation
-    /*public void SetActiveFalse()
+    public void EndGame()
     {
-        endlessHandGenerator.UnblockHandGenerator();
+        gameOver.EndGame("Вас поймали");
 
-        gameObject.SetActive(false);
-    }*/
+       // gameObject.SetActive(false);
+    }
 }
