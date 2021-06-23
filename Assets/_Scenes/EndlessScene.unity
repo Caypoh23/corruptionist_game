@@ -8194,7 +8194,7 @@ MonoBehaviour:
   animatedPart: {fileID: 1836101142}
   endlessModeController: {fileID: 1296902222}
   gameOver: {fileID: 1905593816}
-  coef: 10
+  coef: 80
 --- !u!114 &659167221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22191,7 +22191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -25.000008}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: 20.820671}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &1836101141
@@ -24005,6 +24005,7 @@ MonoBehaviour:
   clock: {fileID: 465167837}
   endlessCashCount: {fileID: 266411043}
   cashRecord: {fileID: 1761528634}
+  pauseCanvas: {fileID: 1500735575}
 --- !u!114 &1905593818
 MonoBehaviour:
   m_ObjectHideFlags: 0

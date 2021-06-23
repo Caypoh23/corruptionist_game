@@ -16,6 +16,7 @@ public class EndlessGameOver : MonoBehaviour
     [SerializeField] private Clock clock;
     [SerializeField] private EndlessCashCount endlessCashCount;
     [SerializeField] private TMP_Text cashRecord;
+    [SerializeField] private Canvas pauseCanvas;
 
 
     private float _recordCashCount;
@@ -23,6 +24,7 @@ public class EndlessGameOver : MonoBehaviour
     private void Awake()
     {
         _recordCashCount = DataManager.Instance.LoadRecord();
+        pauseCanvas.enabled = true;
         endExitPanel.SetActive(false);
     }
 
@@ -52,6 +54,7 @@ public class EndlessGameOver : MonoBehaviour
         
         DataManager.Instance.LoadRecord();
         cashRecord.SetText(_recordCashCount.ToString());
+        pauseCanvas.enabled = false;
         endGamePanel.SetActive(true);
         Time.timeScale = 0;
         clock.StopClock();
