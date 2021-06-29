@@ -109,7 +109,7 @@ public class InteractiveTutorial : MonoBehaviour
                 _audioManager.Play("phoneRing");
                 dialogPanel.SetActive(false);
                 dialogPanel.SetActive(true);
-                instructionsText.SetText("Хочешь оставаться в нём долго? Поднимай трубку, когда босс звонит.");
+                instructionsText.SetText("Хочешь оставаться в нём долго? Поднимай трубку, когда начальство звонит.");
                 panelCollider2D.enabled = false;
                 MoveHandForward(2);
              

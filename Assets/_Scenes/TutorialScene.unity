@@ -2117,7 +2117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802bd5533b40cde48b9e4f4112aff4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickParticle: {fileID: 4341960276058375757, guid: 4a7e2996a2b8c1c49853d2c347931571,
+  clickParticle: {fileID: 4341960276058375757, guid: 71b9286f1b68cd34a8af94eff025088b,
     type: 3}
   cashTextParent: {fileID: 2138882299}
   interactiveTutorial: {fileID: 1105889082}
@@ -4666,7 +4666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802bd5533b40cde48b9e4f4112aff4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickParticle: {fileID: 4341960276058375757, guid: 4a7e2996a2b8c1c49853d2c347931571,
+  clickParticle: {fileID: 4341960276058375757, guid: d56d46215f789834aab6a91a5cfe1fbb,
     type: 3}
   cashTextParent: {fileID: 1652669978}
   interactiveTutorial: {fileID: 1105889082}
