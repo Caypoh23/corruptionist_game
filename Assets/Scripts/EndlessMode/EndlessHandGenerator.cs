@@ -92,6 +92,7 @@ public class EndlessHandGenerator : MonoBehaviour
     public void UnblockHandGenerator()
     {
         _isBlockedByMent = false;
+        jailPanelGO.SetActive(false);
         _isBlocked = false;
     }
 

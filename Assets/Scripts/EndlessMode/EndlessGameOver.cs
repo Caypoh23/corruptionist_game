@@ -17,6 +17,12 @@ public class EndlessGameOver : MonoBehaviour
     [SerializeField] private EndlessCashCount endlessCashCount;
     [SerializeField] private TMP_Text cashRecord;
     [SerializeField] private Canvas pauseCanvas;
+    [SerializeField] private EndlessCashProgressBar progressBar;
+
+    // maybe to add ads play time (counter) and limit to 3 continues
+    // (if died 3 times and watched 3 ads to continues, there is no more chance watch ad again)
+
+    [SerializeField] private ContinueGameAds continueGameAds;
 
 
     private float _recordCashCount;
@@ -61,6 +67,23 @@ public class EndlessGameOver : MonoBehaviour
         handGenerator.BlockHandGenerator();
         reasonText.SetText(reason);
     }
+
+    public void ShowAd()
+    {
+        continueGameAds.PlayContinueGameAd(ContinueGame);
+    }
+
+    public void ContinueGame()
+    {
+        Time.timeScale = 1;
+        endGamePanel.SetActive(false);
+        // dunno which method to use to set max value
+        progressBar.AddValue(1000);
+        clock.StartClock();
+        progressBar.StartDecrementValue();
+        handGenerator.UnblockHandGenerator();
+    }
+    
 
     public void GoHome()
     {
