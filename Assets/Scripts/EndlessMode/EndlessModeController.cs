@@ -25,9 +25,10 @@ public class EndlessModeController : MonoBehaviour
 
     public float _currentTimerValue;
 
-    private bool _canSpeedUpHands;
+    //private bool _canSpeedUpHands;
+    private bool _timeCanTick;
 
-    [HideInInspector] public int currentDay = 1;
+    public int currentDay = 1;
 
 
     private void Awake()
@@ -39,7 +40,8 @@ public class EndlessModeController : MonoBehaviour
     private void Start()
     {
         // progress bar fixing 
-        _canSpeedUpHands = true;
+        //_canSpeedUpHands = true;
+        _timeCanTick = true;
         _audioManager.Play("officeBg");
         _audioManager.Play("clockTicking");
     }
@@ -47,16 +49,16 @@ public class EndlessModeController : MonoBehaviour
     private void Update()
     {
         LevelTimer();
-        
-        if (currentDay == 8)
-        {
-            _canSpeedUpHands = false;
-        }
+
+        //if (currentDay == 8)
+        //{
+        //    _canSpeedUpHands = false;
+        //}
     }
 
     private void LevelTimer()
     {
-        if (_currentTimerValue > 0)
+        if (_currentTimerValue > 0 && _timeCanTick)
         {
             _currentTimerValue -= Time.deltaTime;
             // progress bar start
@@ -67,12 +69,17 @@ public class EndlessModeController : MonoBehaviour
             //currentLevel++;
             //loopNumber--;
 
-            StartCoroutine(Pulse());
-            
-            if (_canSpeedUpHands)
+            if (_timeCanTick)
             {
-                _handGenerator.SpeedUpHands();
+                StartCoroutine(Pulse());
             }
+           
+            _handGenerator.SpeedUpHands();
+
+            //if (_canSpeedUpHands)
+            //{
+                //speed up hands
+            //}
             
             _currentTimerValue = workingDayTime;
         }
@@ -81,6 +88,16 @@ public class EndlessModeController : MonoBehaviour
     public float GetWorkingDayTime()
     {
         return workingDayTime;
+    }
+
+    public void StopTimer()
+    {
+        _timeCanTick = false;
+    }
+
+    public void StartTimer()
+    {
+        _timeCanTick = true;
     }
 
     private IEnumerator Pulse()

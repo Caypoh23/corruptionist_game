@@ -97,9 +97,10 @@ public class EndlessCash : MonoBehaviour
             {
                 _policeCaughtCounter.IncrementPoliceCaughtNumber();
                 _handGenerator.BlockHandGeneratorByMent();
+              
                 // there is no need to remove money in endless mode
                 //_endlessCashCount.OnCashRemove?.Invoke(amountCash); // - 200
-                _progressBar.RemoveValue(amountCash);
+                //_progressBar.RemoveValue(amountCash);
             }
         }
     }

@@ -13,6 +13,9 @@ public class EndlessCashProgressBar : MonoBehaviour
     [SerializeField] private EndlessModeController endlessModeController;
     [SerializeField] private EndlessGameOver gameOver;
     [SerializeField] private float coef = 0.2f;
+
+    [SerializeField] private Animator playerAnim;
+
     private float value;
     private float maxValue;
 
@@ -30,8 +33,9 @@ public class EndlessCashProgressBar : MonoBehaviour
             slider.value = value;
             fill.color = gradient.Evaluate(slider.normalizedValue);
             animatedPart.color = gradient.Evaluate(slider.normalizedValue);
+            playerAnim.SetFloat("weight", value);
         }
-        else
+        else if(value <= 0)
         {
             _canDecrement = false;
             gameOver.EndGame("К сожалению, вы обанкротились");
@@ -98,5 +102,10 @@ public class EndlessCashProgressBar : MonoBehaviour
    public void StartDecrementValue()
     {
         _canDecrement = true;
+    }
+
+    public void StopDecrementValue()
+    {
+        _canDecrement = false;
     }
 }
