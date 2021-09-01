@@ -33,7 +33,14 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
             s.source.outputAudioMixerGroup = s.mixer;
+
+            if (s.playOnAwake)
+            {
+                Play(s.name);
         }
+        }
+
+        
     }
 
     public void Play(string name)

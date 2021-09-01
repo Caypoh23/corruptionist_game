@@ -80,6 +80,7 @@ namespace Level
                 //_currentTimerValue = maxTimerValue;
 
                 _audioManager.Stop("officeBg");
+                _audioManager.Stop("musicBg");
                 _audioManager.Stop("clockTicking");
 
                 clock.StopClock();
@@ -120,6 +121,7 @@ namespace Level
                 _cashProgressBar.SetValueForLevel(currentLevel);
                 _canBeClicked = false;
                 _audioManager.Play("officeBg");
+                _audioManager.Play("musicBg");
                 _audioManager.Play("clockTicking");
                 _bigBossCall.ResetTimers();
             }

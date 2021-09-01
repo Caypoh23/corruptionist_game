@@ -39,7 +39,8 @@ public class Tutorial : MonoBehaviour
                 panel.SetActive(false);
             }
 
-            tutorialPanels[currentPanelIndex].SetActive(true);
+            //tutorialPanels[currentPanelIndex].SetActive(true);
+            StartCoroutine(WaitAndStartTurorial(currentPanelIndex));
 
             // increments current launch number only once and sets showTutorialPanel to false
             // further the boolean con be changed to true in settings menu 
@@ -63,6 +64,11 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    private IEnumerator WaitAndStartTurorial(int panelIndex)
+    {
+        yield return new WaitForSeconds(1f);
+        tutorialPanels[panelIndex].SetActive(true);
+    }
     public void StartGame()
     {
         gamePause.UnpauseGame();

@@ -5554,7 +5554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1514494880
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6666,7 +6666,7 @@ MonoBehaviour:
   - name: officeBg
     clip: {fileID: 8300000, guid: 5af393609d12f1e4fb9be137b199d71d, type: 3}
     mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
-    volume: 0.6
+    volume: 0.419
     pitch: 1
     loop: 0
     playOnAwake: 1
@@ -6714,7 +6714,7 @@ MonoBehaviour:
   - name: clockTicking
     clip: {fileID: 8300000, guid: 8530fdb5d61ecf34288c9cbed2cc8816, type: 3}
     mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
-    volume: 0.03
+    volume: 0.01
     pitch: 0.9
     loop: 1
     playOnAwake: 0
@@ -6782,6 +6782,14 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     playOnAwake: 0
+    source: {fileID: 0}
+  - name: musicBg
+    clip: {fileID: 8300000, guid: b1e0e072eaf0bc844b909220782747c2, type: 3}
+    mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    playOnAwake: 1
     source: {fileID: 0}
 --- !u!4 &1847659407
 Transform:

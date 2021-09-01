@@ -62,6 +62,7 @@ public class GameFinisher : MonoBehaviour
         }
         _cashProgressBar.AddValue(1000);
         _audioManager.Stop("officeBg");
+        _audioManager.Stop("musicBg");
         _audioManager.Stop("clockTicking");
 
         _elapsedTime += Time.deltaTime;
@@ -128,6 +129,7 @@ public class GameFinisher : MonoBehaviour
     {
        
         endGamePanel.SetActive(true);
+
         //moraleAnimator.SetTrigger(ShowText);
         //typing effect
     }

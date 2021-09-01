@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Hand;
 using TMPro;
+using UI;
 using UnityEngine;
 
 public class InteractiveTutorial : MonoBehaviour
@@ -36,10 +37,14 @@ public class InteractiveTutorial : MonoBehaviour
     [SerializeField] private TutorialPhonePickUp phone;
     [SerializeField] private GameObject secretaryPenaltyText;
 
+  
+    private GamePause gamePause;
     private TextMeshPro _cashText;
 
     private void Awake()
     {
+        
+
         instructionsText.SetText("С первым рабочим днём, коллега!");
         StartCoroutine(WaitAndShowClick());
         fadePanel.SetActive(false);
@@ -48,9 +53,24 @@ public class InteractiveTutorial : MonoBehaviour
         _cashText = secretaryPenaltyText.GetComponentInChildren<TextMeshPro>();
         _cashText.SetText("-300");
         _cashText.color = Color.red;
+
+        
+
+
     }
+
+    private IEnumerator WaitAndStartTurorial()
+    {
+        clickAnywhere.SetActive(false);
+        yield return new WaitForSeconds(1f);
+
+        dialogPanel.SetActive(true);
+       
+    }
+
     private void Start()
     {
+        StartCoroutine(WaitAndStartTurorial());
         _audioManager.Play("officeBg");
         _audioManager.Play("clockTicking");
     }
@@ -215,7 +235,7 @@ public class InteractiveTutorial : MonoBehaviour
 
     private IEnumerator WaitAndShowClick()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.7f);
         clickAnywhere.SetActive(true);
     }
 }

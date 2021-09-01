@@ -7,13 +7,28 @@ using UnityEngine.SceneManagement;
 public class StartGameOrTutorial : MonoBehaviour
 {
     private int _currentLaunchNumber;
+    [SerializeField] private Animator transition;
+    [SerializeField] private Animator musicTransition;
 
     private void Awake()
     {
         _currentLaunchNumber = DataManager.Instance.LoadLaunchNumber();
     }
-
     public void StartGame()
+    {
+        StartCoroutine(TransitionFade());
+    }
+    IEnumerator TransitionFade()
+    {
+        transition.SetTrigger("fadeout");
+        musicTransition.SetTrigger("fadeout");
+
+        yield return new WaitForSeconds(1f);
+
+        ChangeScene();
+    }
+
+    private void ChangeScene()
     {
         if (_currentLaunchNumber == 0)
         {

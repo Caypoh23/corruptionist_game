@@ -65,6 +65,7 @@ namespace UI
                     panel.SetActive(false);
                 }
                 _audioManager.Play("officeBg");
+                
                 _audioManager.Play("clockTicking");
 
             }
@@ -72,6 +73,7 @@ namespace UI
             {
                 pausePanel.SetActive(true);
                 _audioManager.Stop("officeBg");
+            
                 _audioManager.Stop("clockTicking");
                 if (!isEndless)
                 {

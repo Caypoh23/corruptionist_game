@@ -14,5 +14,6 @@ public class PauseGameForEndLevel : MonoBehaviour
     public void PauseGameForEndlevelFromAnimator()
     {
         _gamePause.PauseGame();
+     
     }
 }
