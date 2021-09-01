@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Data;
 using Money;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -58,7 +59,7 @@ public class EndlessGameOver : MonoBehaviour
             _recordCashCount = endlessCashCount.currentCashCount;
             SaveRecordCashState();
         }
-        
+
         DataManager.Instance.LoadRecord();
         cashRecord.SetText(_recordCashCount.ToString());
         pauseCanvas.enabled = false;
@@ -82,7 +83,9 @@ public class EndlessGameOver : MonoBehaviour
     public void ContinueGame()
     {
         Time.timeScale = 1;
+
         endGamePanel.SetActive(false);
+
         // dunno which method to use to set max value // setValue 
         progressBar.SetValue(1000);
         clock.StartClock();
@@ -90,7 +93,7 @@ public class EndlessGameOver : MonoBehaviour
         progressBar.StartDecrementValue();
         handGenerator.UnblockHandGenerator();
     }
-    
+
 
     public void GoHome()
     {

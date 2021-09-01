@@ -61,7 +61,7 @@ public class ContinueGameAds : MonoBehaviour, IUnityAdsListener
         if (placementId == PlacementId && showResult == ShowResult.Finished)
         {
             Debug.Log("VIDEO FINISHED");
-            _onRewardedAdSuccess.Invoke();
+            _onRewardedAdSuccess?.Invoke();
         }
         else if (showResult == ShowResult.Skipped)
         {
@@ -71,5 +71,10 @@ public class ContinueGameAds : MonoBehaviour, IUnityAdsListener
         {
             Debug.Log("Failed");
         }
+    }
+
+    private void OnDestroy()
+    {
+        Advertisement.RemoveListener(this);
     }
 }
