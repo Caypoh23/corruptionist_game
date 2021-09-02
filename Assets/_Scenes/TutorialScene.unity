@@ -2638,6 +2638,7 @@ GameObject:
   - component: {fileID: 815863753}
   - component: {fileID: 815863752}
   - component: {fileID: 815863751}
+  - component: {fileID: 815863754}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -2709,6 +2710,28 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1780665720}
         m_MethodName: OpenScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 815863754}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 815863754}
+        m_MethodName: OnUnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2815,6 +2838,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815863749}
   m_CullTransparentMesh: 0
+--- !u!114 &815863754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815863749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603fbab4b40d1a94d9ccf30968503901, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 815863752}
+  _color: {r: 0.25490198, g: 0.6117647, b: 0, a: 1}
 --- !u!1 &876728183
 GameObject:
   m_ObjectHideFlags: 0
@@ -6790,6 +6827,14 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     playOnAwake: 1
+    source: {fileID: 0}
+  - name: buttonClick
+    clip: {fileID: 8300000, guid: 90e7ca35dd86d3c40a482dfb217c58bc, type: 3}
+    mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
+    volume: 0.9
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
 --- !u!4 &1847659407
 Transform:

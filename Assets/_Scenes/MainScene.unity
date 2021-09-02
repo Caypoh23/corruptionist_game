@@ -22698,7 +22698,7 @@ MonoBehaviour:
   - name: officeBg
     clip: {fileID: 8300000, guid: 5af393609d12f1e4fb9be137b199d71d, type: 3}
     mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
-    volume: 0.6
+    volume: 0.65
     pitch: 1
     loop: 0
     playOnAwake: 1
@@ -22818,7 +22818,7 @@ MonoBehaviour:
   - name: musicBg
     clip: {fileID: 8300000, guid: 4bfbacd88768a2b499e62c2d8f995d57, type: 3}
     mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
-    volume: 0.1
+    volume: 0.15
     pitch: 1
     loop: 1
     playOnAwake: 1
