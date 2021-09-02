@@ -16,7 +16,7 @@ public class EndlessGameBlocker : MonoBehaviour
     // also plays jail up animation
     public void EndGame()
     {
-        gameOver.EndGame("Вас поймали");
+        gameOver.EndGame("Police Officer arrested you");
 
        // gameObject.SetActive(false);
     }

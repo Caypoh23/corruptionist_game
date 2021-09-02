@@ -31,8 +31,8 @@ public class MoralePanel : MonoBehaviour
 
     public void ShowEndGamePanel()
     {
-        cashEarnedText.SetText("Заработанно в общем: " + cashCount.GetEarnedCash());
-        overallCaughtTimesText.SetText("Пойман в общем: " + policeCaughtCounter.GetOverallCaughtNumber() + " раз");
+        cashEarnedText.SetText("Earned in total: " + cashCount.GetEarnedCash());
+        overallCaughtTimesText.SetText("Was caught in total: " + policeCaughtCounter.GetOverallCaughtNumber() + " times");
         statsPanel.SetActive(true);
         gameObject.SetActive(false);
     }

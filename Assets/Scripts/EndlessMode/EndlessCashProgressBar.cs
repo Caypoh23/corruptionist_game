@@ -38,7 +38,7 @@ public class EndlessCashProgressBar : MonoBehaviour
         else if(value <= 0)
         {
             _canDecrement = false;
-            gameOver.EndGame("К сожалению, вы обанкротились");
+            gameOver.EndGame("You went bankrupt!");
         }
         
     }
