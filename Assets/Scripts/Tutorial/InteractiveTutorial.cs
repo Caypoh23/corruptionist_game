@@ -45,7 +45,7 @@ public class InteractiveTutorial : MonoBehaviour
     {
         
 
-        instructionsText.SetText("Congratulations on the first working day!");
+        instructionsText.SetText("С первым рабочим днём, коллега!");
         StartCoroutine(WaitAndShowClick());
         fadePanel.SetActive(false);
         _audioManager = FindObjectOfType<AudioManager>();
@@ -95,13 +95,13 @@ public class InteractiveTutorial : MonoBehaviour
             case 1:
                 dialogPanel.SetActive(false);
                 dialogPanel.SetActive(true);
-                instructionsText.SetText("Let me tell you how things are done.");
+                instructionsText.SetText("Давай я введу тебя в курс дела.");
                 StartCoroutine(WaitAndShowClick());
                 break;
             case 2:
                 dialogPanel.SetActive(false);
                 dialogPanel.SetActive(true);
-                instructionsText.SetText("Take money from people, it doesn't matter how much bribe is.");
+                instructionsText.SetText("Принимай взятку как должное. Размер взятки не имеет значения.");
                 
                 panelCollider2D.enabled = false;
                 fadePanel.SetActive(true);
@@ -113,7 +113,7 @@ public class InteractiveTutorial : MonoBehaviour
             case 3:
                 dialogPanel.SetActive(false);
                 dialogPanel.SetActive(true);
-                instructionsText.SetText("Police Officers will also give you bribes. Be carefull, don't get caught!");
+                instructionsText.SetText("Среди взяткодателей есть оборотни. Будь осторожен, не бери у них деньги");
                 panelCollider2D.enabled = false;
                 MoveHandForward(1);
 
@@ -129,7 +129,7 @@ public class InteractiveTutorial : MonoBehaviour
                 _audioManager.Play("phoneRing");
                 dialogPanel.SetActive(false);
                 dialogPanel.SetActive(true);
-                instructionsText.SetText("Sometimes Big Boss will call you. Make sure to answer his call.");
+                instructionsText.SetText("Хочешь оставаться в нём долго? Поднимай трубку, когда начальство звонит.");
                 panelCollider2D.enabled = false;
                 MoveHandForward(2);
              

@@ -9,6 +9,6 @@ public class DayCount : MonoBehaviour
 
     public void SetDayUI(int day) 
     {
-        dayCountText.SetText("Day: " + day.ToString());
+        dayCountText.SetText("День: " + day.ToString());
     }
 }

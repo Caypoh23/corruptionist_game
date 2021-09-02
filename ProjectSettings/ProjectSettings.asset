@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Padavans
-  productName: Corruptionist
+  productName: "\u041A\u043E\u0440\u0440\u0443\u043F\u0446\u0438\u043E\u043D\u0435\u0440"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}

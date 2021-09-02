@@ -59,7 +59,7 @@ namespace UI
         public void ShowPanel(int dayNumber, float cashEarned, int caughtTimes)
         {
             secretaryHand.RemoveHand();
-            dayNumberText.SetText("Day " + dayNumber.ToString() + " completed");
+            dayNumberText.SetText("День " + dayNumber.ToString() + " завершен");
             cashEarnedText.SetText(cashEarned.ToString());
             cashEarnedTotalText.SetText(_cashCount.GetEarnedCash().ToString());
 
