@@ -26,7 +26,7 @@ public class SceneSwitcherWithSound : MonoBehaviour
         transition.SetTrigger("fadeout");
         musicTransition.SetTrigger("fadeout");
 
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(1f);
 
         ChangeScene();
     }

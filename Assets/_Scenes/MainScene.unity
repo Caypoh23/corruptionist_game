@@ -22816,9 +22816,9 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: musicBg
-    clip: {fileID: 8300000, guid: b1e0e072eaf0bc844b909220782747c2, type: 3}
+    clip: {fileID: 8300000, guid: 4bfbacd88768a2b499e62c2d8f995d57, type: 3}
     mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
-    volume: 0.04
+    volume: 0.1
     pitch: 1
     loop: 1
     playOnAwake: 1
