@@ -31,9 +31,14 @@ MonoBehaviour:
     assemblyNames:
     - Assembly-CSharp-firstpass
     - Assembly-CSharp
+    - OneSignal.Core
     - AV.Hierarchy
     - AV.Tags
+    - OneSignal.Android
     - PsdPlugin
+    - OneSignal.Core.Editor
+    - OneSignal.UnityPackage
+    - OneSignal.Android.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

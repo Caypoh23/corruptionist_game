@@ -2,6 +2,7 @@
   "dependencies": {
     "com.av.smart-hierarchy": "https://github.com/neon-age/Smart-Hierarchy.git",
     "com.av.tags": "https://github.com/neon-age/Tags.git",
+    "com.onesignal.unity.android": "2.14.2",
     "com.unity.2d.animation": "3.2.9",
     "com.unity.2d.pixel-perfect": "2.1.0",
     "com.unity.2d.psdimporter": "2.1.8",
@@ -48,5 +49,14 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "npmjs",
+      "url": "https://registry.npmjs.org",
+      "scopes": [
+        "com.onesignal"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,367 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f0b0c553be8edd4682e9180fdd13e37, type: 3}
+  m_Name: I2Languages
+  m_EditorClassIdentifier: 
+  mSource:
+    UserAgreesToHaveItOnTheScene: 0
+    UserAgreesToHaveItInsideThePluginsFolder: 0
+    GoogleLiveSyncIsUptoDate: 1
+    mTerms:
+    - Term: CorruptionistLogo
+      TermType: 0
+      Description: Main menu logo text
+      Languages:
+      - "\u041A\u043E\u0440\u0440\u0443\u043F\u0446\u0438\u043E\u043D\u0435\u0440"
+      - Corruptionist
+      Flags: 0000
+      Languages_Touch: []
+    - Term: GameMode
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0440\u0435\u0436\u0438\u043C:"
+      - 'Choose game mode:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: StoryMode
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0418\u0441\u0442\u043E\u0440\u0438\u044F"
+      - Story
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TutorialMode
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0422\u0443\u0442\u043E\u0440\u0438\u0430\u043B"
+      - Tutorial
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EndlessMode
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0411\u0435\u0441\u043A\u043E\u043D\u0435\u0447\u043D\u044B\u0439"
+      - Endless
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Settings
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+      - Settings
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Volume
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0417\u0432\u0443\u043A:"
+      - 'Volume:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Language
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u042F\u0437\u044B\u043A:"
+      - 'Language:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: LangRu
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
+      - Russian
+      Flags: 0000
+      Languages_Touch: []
+    - Term: LangEn
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0410\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0438\u0439"
+      - English
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BackToMenu
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u0432 \u043C\u0435\u043D\u044E..."
+      - Back to menu...
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Rules
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u041F\u0440\u0430\u0432\u0438\u043B\u0430"
+      - Rules
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TakeMoney
+      TermType: 0
+      Description: 
+      Languages:
+      - "1. \u0421\u043E\u0431\u0438\u0440\u0430\u0439\u0442\u0435 \u0432\u0437\u044F\u0442\u043A\u0438"
+      - 1. Take money
+      Flags: 0000
+      Languages_Touch: []
+    - Term: PoliceMoney
+      TermType: 0
+      Description: 
+      Languages:
+      - "2. \u041D\u0435 \u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0437\u044F\u0442\u043A\u0438
+        \u0443 \u043C\u0438\u043B\u043B\u0438\u0446\u0438\u043E\u043D\u0435\u0440\u043E\u0432"
+      - 2. Do not take moeny from Police Officers
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Calls
+      TermType: 0
+      Description: 
+      Languages:
+      - "3. \u041E\u0442\u0432\u0435\u0447\u0430\u0439\u0442\u0435 \u043D\u0430 \u0437\u0432\u043E\u043D\u043A\u0438
+        \u0411\u0438\u0433 \u0411\u043E\u0441\u0441\u0430"
+      - 3. Answer calls from Big Boss
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Click
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0429\u0435\u043B\u043A\u043D\u0438\u0442\u0435 \u0432 \u043B\u044E\u0431\u043E\u043C
+        \u043C\u0435\u0441\u0442\u0435, \u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C..."
+      - Tap Anywhere to continue...
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Welcome
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0421 \u043F\u0435\u0440\u0432\u044B\u043C \u0440\u0430\u0431\u043E\u0447\u0438\u043C
+        \u0434\u043D\u0451\u043C, \u043A\u043E\u043B\u043B\u0435\u0433\u0430!"
+      - Congratulations on the first working day!
+      Flags: 0000
+      Languages_Touch: []
+    - Term: HowThingsDone
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0414\u0430\u0432\u0430\u0439 \u044F \u0432\u0432\u0435\u0434\u0443 \u0442\u0435\u0431\u044F
+        \u0432 \u043A\u0443\u0440\u0441 \u0434\u0435\u043B\u0430."
+      - Let me tell you how things are done.
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TakeMoneyTutorial
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u041F\u0440\u0438\u043D\u0438\u043C\u0430\u0439 \u0432\u0437\u044F\u0442\u043A\u0443
+        \u043A\u0430\u043A \u0434\u043E\u043B\u0436\u043D\u043E\u0435. \u0420\u0430\u0437\u043C\u0435\u0440
+        \u0432\u0437\u044F\u0442\u043A\u0438 \u043D\u0435 \u0438\u043C\u0435\u0435\u0442
+        \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044F."
+      - Take money from people, it doesn't matter how much bribe is.
+      Flags: 0000
+      Languages_Touch: []
+    - Term: PoliceTutorial
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0421\u0440\u0435\u0434\u0438 \u0432\u0437\u044F\u0442\u043A\u043E\u0434\u0430\u0442\u0435\u043B\u0435\u0439
+        \u0435\u0441\u0442\u044C \u043E\u0431\u043E\u0440\u043E\u0442\u043D\u0438.
+        \u0411\u0443\u0434\u044C \u043E\u0441\u0442\u043E\u0440\u043E\u0436\u0435\u043D,
+        \u043D\u0435 \u0431\u0435\u0440\u0438 \u0443 \u043D\u0438\u0445 \u0434\u0435\u043D\u044C\u0433\u0438"
+      - Police Officers will also give you bribes. Be carefull, don't get caught!
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BossTutorial
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0425\u043E\u0447\u0435\u0448\u044C \u043E\u0441\u0442\u0430\u0432\u0430\u0442\u044C\u0441\u044F
+        \u0432 \u043D\u0451\u043C \u0434\u043E\u043B\u0433\u043E? \u041F\u043E\u0434\u043D\u0438\u043C\u0430\u0439
+        \u0442\u0440\u0443\u0431\u043A\u0443, \u043A\u043E\u0433\u0434\u0430 \u043D\u0430\u0447\u0430\u043B\u044C\u0441\u0442\u0432\u043E
+        \u0437\u0432\u043E\u043D\u0438\u0442."
+      - Sometimes Big Boss will call you. Make sure to answer his call.
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Remember
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0418 \u0437\u0430\u0444\u0438\u043A\u0441\u0438\u0440\u0443\u0439 \u0433\u043B\u0430\u0432\u043D\u043E\u0435:"
+      - 'And remember:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: HappyCountry
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0411\u043B\u0430\u0433\u043E\u043F\u043E\u043B\u0443\u0447\u043D\u044B\u0439
+        \u0447\u0438\u043D\u043E\u0432\u043D\u0438\u043A - \u044D\u0442\u043E \u0441\u0447\u0430\u0441\u0442\u043B\u0438\u0432\u0430\u044F
+        \u0441\u0442\u0440\u0430\u043D\u0430"
+      - Prosperous officials make happy country
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TimeToWork
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0417\u0430 \u0440\u0430\u0431\u043E\u0442\u0443!"
+      - Time to work!
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Pause
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u041F\u0430\u0443\u0437\u0430"
+      - Pause
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BackMenuBtn
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u043D\u0430\u0437\u0430\u0434 \u0432 \u043C\u0435\u043D\u044E"
+      - back to menu
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Day
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0414\u0435\u043D\u044C:"
+      - 'Day:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TodayEarned
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0421\u0435\u0433\u043E\u0434\u043D\u044F \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043E:"
+      - 'Today earned:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TodayCaughtTimes
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0421\u0435\u0433\u043E\u0434\u043D\u044F \u0432\u0430\u0441 \u043F\u043E\u0439\u043C\u0430\u043B\u0438:"
+      - 'Today caught times:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TotallyEarned
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0412\u0441\u0435\u0433\u043E \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043E:"
+      - 'Totally earned:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: TottalyLost
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0412\u0441\u0435\u0433\u043E \u043F\u043E\u0442\u0435\u0440\u044F\u043D\u043E:"
+      - 'Totally lost:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Continue
+      TermType: 0
+      Description: 
+      Languages:
+      - "... \u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+      - ... Continue
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Record
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0420\u0435\u043A\u043E\u0440\u0434"
+      - 'Record:'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: GameOver
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0418\u0433\u0440\u0430 \u043E\u043A\u043E\u043D\u0447\u0435\u043D\u0430"
+      - Game Over
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Bankrupt
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u041A \u0441\u043E\u0436\u0430\u043B\u0435\u043D\u0438\u044E, \u0432\u044B
+        \u043E\u0431\u0430\u043D\u043A\u0440\u043E\u0442\u0438\u043B\u0438\u0441\u044C"
+      - You went bankrupt!
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Arrested
+      TermType: 0
+      Description: 
+      Languages:
+      - "\u0412\u0430\u0441 \u043F\u043E\u0439\u043C\u0430\u043B\u0438"
+      - Police Officer arrested you
+      Flags: 0000
+      Languages_Touch: []
+    - Term: "\u041A\u043E\u0440\u0440\u0443\u043F\u0446\u0438\u043E\u043D\u0435\u0440"
+      TermType: 9
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Dropdown
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    CaseInsensitiveTerms: 0
+    OnMissingTranslation: 1
+    mTerm_AppName: '-'
+    mLanguages:
+    - Name: Russian
+      Code: ru
+      Flags: 0
+    - Name: English
+      Code: en
+      Flags: 0
+    IgnoreDeviceLanguage: 1
+    _AllowUnloadingLanguages: 0
+    Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxNLmGzGFAUkNhbDavpArdN-xdp6H2jYr7bb3pGmtC7_fFr2pCgF8sLBwAa3_ztv3j_Og/exec
+    Google_SpreadsheetKey: 1s79V9py53QSwrsQUatzMsOEz26F_vtoQS3b2cDtWiw4
+    Google_SpreadsheetName: "I2Loc \u041A\u043E\u0440\u0440\u0443\u043F\u0446\u0438\u043E\u043D\u0435\u0440
+      Localization"
+    Google_LastUpdatedVersion: 1630680945345
+    Google_Password: Galandec1234
+    GoogleUpdateFrequency: 3
+    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateSynchronization: 1
+    GoogleUpdateDelay: 0
+    Assets: []
+    Spreadsheet_LocalFileName: 
+    Spreadsheet_LocalCSVSeparator: ','
+    Spreadsheet_LocalCSVEncoding: utf-8
+    Spreadsheet_SpecializationAsRows: 1

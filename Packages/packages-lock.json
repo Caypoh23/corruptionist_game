@@ -14,6 +14,22 @@
       "dependencies": {},
       "hash": "20a03a6aa3d5681db3babc958043a32b8ec2add1"
     },
+    "com.onesignal.unity.android": {
+      "version": "2.14.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.onesignal.unity.core": "2.14.2"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.onesignal.unity.core": {
+      "version": "2.14.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
     "com.unity.2d.animation": {
       "version": "3.2.9",
       "depth": 0,
