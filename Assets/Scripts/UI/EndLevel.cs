@@ -2,6 +2,7 @@
 using Hand;
 using Level;
 using System;
+using I2.Loc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -17,6 +18,7 @@ namespace UI
         [SerializeField] private TMP_Text cashLostTotalText;
         [SerializeField] private TMP_Text caughtTimesText;
         [SerializeField] private BigBossCall secretaryHand;
+        [SerializeField] private Localize localizeDayEnded;
 
         private Animator panelAnimator;
 
@@ -59,7 +61,10 @@ namespace UI
         public void ShowPanel(int dayNumber, float cashEarned, int caughtTimes)
         {
             secretaryHand.RemoveHand();
-            dayNumberText.SetText("День " + dayNumber.ToString() + " завершен");
+            
+            localizeDayEnded.SetTerm("DayEnded");
+            //dayNumberText.SetText("День " + dayNumber.ToString() + " завершен");
+            
             cashEarnedText.SetText(cashEarned.ToString());
             cashEarnedTotalText.SetText(_cashCount.GetEarnedCash().ToString());
 

@@ -3,6 +3,7 @@ using Money;
 using Hand;
 using System.Collections;
 using Data;
+using I2.Loc;
 using UI;
 using UnityEditor;
 using UnityEngine;
@@ -35,11 +36,14 @@ namespace Level
         private LevelItemGenerator itemGenerator;
         public int currentLevel;
 
+        [SerializeField] private Localize localizeDay;
+
+
         private void Awake()
         {
             currentLevel = DataManager.Instance.LoadLevelNumber();
             _audioManager = FindObjectOfType<AudioManager>();
-            dayCount.SetDayUI(currentLevel);
+            SetDayUI();
             _gameFinisher = FindObjectOfType<GameFinisher>();
             _handGenerator = FindObjectOfType<HandGenerator>();
             //maxTimerValue = clock.GetSecondsPerIngameWorkingDay();
@@ -50,6 +54,19 @@ namespace Level
             _cashProgressBar = FindObjectOfType<CashProgressBar>();
             _bigBossCall = FindObjectOfType<BigBossCall>();
             _gamePause = FindObjectOfType<GamePause>();
+        }
+
+        public void OnModifyLocalization()
+        {
+            if (string.IsNullOrEmpty(Localize.MainTranslation))
+                return;
+
+            Localize.MainTranslation = Localize.MainTranslation.Replace("{DAY_COUNT}", currentLevel.ToString());
+        }
+
+        public void SetDayUI()
+        {
+            localizeDay.SetTerm("Day");
         }
 
         private void Start()
@@ -111,7 +128,8 @@ namespace Level
                 _gamePause.UnpauseGame();
                 currentLevel++;
                 DataManager.Instance.SaveLevelNumber(currentLevel);
-                dayCount.SetDayUI(currentLevel);
+                SetDayUI();
+                //dayCount.SetDayUI(currentLevel);
                 clock.StartClock();
                 _currentTimerValue = maxTimerValue;
                 policeCaughtCounter.todayCaughtTimes = 0;
