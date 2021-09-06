@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using I2.Loc;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class EndlessGameBlocker : MonoBehaviour
 {
@@ -16,8 +18,8 @@ public class EndlessGameBlocker : MonoBehaviour
     // also plays jail up animation
     public void EndGame()
     {
-        gameOver.EndGame("Вас поймали");
+        gameOver.EndGame("Arrested");
 
-       // gameObject.SetActive(false);
+        // gameObject.SetActive(false);
     }
 }

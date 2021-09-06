@@ -8,15 +8,15 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <permission android:name="com.DefaultCompany.Corruptionistist.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="com.DefaultCompany.Corruptionistist.permission.C2D_MESSAGE" />
+    <permission android:name="com.corruptionist.game.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="com.corruptionist.game.permission.C2D_MESSAGE" />
     <application>
       <receiver
             android:name="com.onesignal.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.DefaultCompany.Corruptionistist" />
+                <category android:name="com.corruptionist.game" />
             </intent-filter>
         </receiver>
     </application>

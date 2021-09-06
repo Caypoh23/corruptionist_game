@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Data;
+using I2.Loc;
 using Money;
 using TMPro;
 using UnityEditor;
@@ -20,6 +22,7 @@ public class EndlessGameOver : MonoBehaviour
     [SerializeField] private Canvas pauseCanvas;
     [SerializeField] private EndlessCashProgressBar progressBar;
     [SerializeField] private EndlessModeController endlessController;
+    [SerializeField] private Localize localizeReason;
 
     // maybe to add ads play time (counter) and limit to 3 continues
     // (if died 3 times and watched 3 ads to continues, there is no more chance watch ad again)
@@ -35,7 +38,6 @@ public class EndlessGameOver : MonoBehaviour
         pauseCanvas.enabled = true;
         endExitPanel.SetActive(false);
     }
-
 
     private void SaveRecordCashState()
     {
@@ -72,7 +74,8 @@ public class EndlessGameOver : MonoBehaviour
         endlessController.StopTimer();
         handGenerator.BlockHandGenerator();
 
-        reasonText.SetText(reason);
+        localizeReason.SetTerm(reason);
+        //reasonText.SetText(reason);
     }
 
     public void ShowAd()

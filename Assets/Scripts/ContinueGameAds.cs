@@ -15,7 +15,8 @@ public class ContinueGameAds : MonoBehaviour, IUnityAdsListener
     private const string PlacementId = "ContinueGame";
 
     private Action _onRewardedAdSuccess;
-    
+
+    [SerializeField] private Canvas pauseButtonCanvas;
     private void Start()
     {
         Advertisement.AddListener(this);
@@ -62,6 +63,7 @@ public class ContinueGameAds : MonoBehaviour, IUnityAdsListener
         {
             Debug.Log("VIDEO FINISHED");
             _onRewardedAdSuccess?.Invoke();
+            pauseButtonCanvas.enabled = true;
         }
         else if (showResult == ShowResult.Skipped)
         {

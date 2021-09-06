@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using I2.Loc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,7 +39,8 @@ public class EndlessCashProgressBar : MonoBehaviour
         else if(value <= 0)
         {
             _canDecrement = false;
-            gameOver.EndGame("К сожалению, вы обанкротились");
+            gameOver.EndGame("Bankrupt");
+            
         }
         
     }
