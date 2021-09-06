@@ -148,7 +148,7 @@ public class InteractiveTutorial : MonoBehaviour
             case 5:
                 panelCollider2D.enabled = false;
                 startGamePanel.SetActive(true);
-                Debug.Log("END");
+                //Debug.Log("END");
                 break;
         }
 

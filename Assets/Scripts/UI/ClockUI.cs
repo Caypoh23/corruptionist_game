@@ -46,7 +46,7 @@ namespace UI
 
         public void StopClock()
         {
-            Debug.Log("Stop"+ secondsPerIngameDay);
+            //Debug.Log("Stop"+ secondsPerIngameDay);
             _isWorkingDayGoing = false;
             clockHourHandTransform.eulerAngles = new Vector3(0, 0, dayEndDegrees);
             clockMinuteHandTransform.eulerAngles = new Vector3(0, 0, 0);
@@ -56,7 +56,7 @@ namespace UI
 
         public void StartClock()
         {
-            Debug.Log("Start" + secondsPerIngameDay);
+            //Debug.Log("Start" + secondsPerIngameDay);
             //clockHourHand.SetActive(true);
             _isWorkingDayGoing = true;
         }

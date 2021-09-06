@@ -14,7 +14,7 @@ namespace Money
         {
             progressBar.SetMaxValue(totalCashCount * 7); // all cashCount * 7 
             progressBar.SetMaxValuePerLevel(totalCashCount);
-            Debug.Log(totalCashCount);
+            //Debug.Log(totalCashCount);
         }
 
        
