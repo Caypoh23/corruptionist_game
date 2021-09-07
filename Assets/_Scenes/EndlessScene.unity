@@ -17300,7 +17300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8c31df128594a40b12728d26ebb101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  workingDayTime: 5
+  workingDayTime: 20
   clock: {fileID: 465167837}
   endlessCashCount: {fileID: 266411043}
   dayNumberText: {fileID: 1893525136}
@@ -23808,7 +23808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.999992}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: 20.820671}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &1836101141
@@ -28130,7 +28130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -11.399902}
+  m_AnchoredPosition: {x: 0, y: -11.399963}
   m_SizeDelta: {x: 0, y: -22.73169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2112040262

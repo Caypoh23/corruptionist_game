@@ -15,7 +15,7 @@ MonoBehaviour:
   mSource:
     UserAgreesToHaveItOnTheScene: 0
     UserAgreesToHaveItInsideThePluginsFolder: 0
-    GoogleLiveSyncIsUptoDate: 0
+    GoogleLiveSyncIsUptoDate: 1
     mTerms:
     - Term: CorruptionistLogo
       TermType: 0
@@ -433,6 +433,22 @@ MonoBehaviour:
       - 'Day: '
       Flags: 0000
       Languages_Touch: []
+    - Term: HandInterval
+      TermType: 0
+      Description: 
+      Languages:
+      - 0.2
+      - 0.2
+      Flags: 0000
+      Languages_Touch: []
+    - Term: HandMovementInterval
+      TermType: 0
+      Description: 
+      Languages:
+      - 0.18
+      - 0.18
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: CorruptionistLogo
@@ -449,9 +465,9 @@ MonoBehaviour:
     Google_SpreadsheetKey: 1s79V9py53QSwrsQUatzMsOEz26F_vtoQS3b2cDtWiw4
     Google_SpreadsheetName: "I2Loc \u041A\u043E\u0440\u0440\u0443\u043F\u0446\u0438\u043E\u043D\u0435\u0440
       Localization"
-    Google_LastUpdatedVersion: 1630997760772
+    Google_LastUpdatedVersion: 1631040898214
     Google_Password: Galandec1234
-    GoogleUpdateFrequency: 3
+    GoogleUpdateFrequency: 2
     GoogleInEditorCheckFrequency: 2
     GoogleUpdateSynchronization: 1
     GoogleUpdateDelay: 0

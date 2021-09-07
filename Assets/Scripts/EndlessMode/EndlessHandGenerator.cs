@@ -223,9 +223,9 @@ public class EndlessHandGenerator : MonoBehaviour
 
     public void SpeedUpHands()
     {
-        if(_handMovementInterval <= 0.05f)
+        if(_handMovementInterval <= 0.2f)
         {
-            _handMovementInterval = 0.025f;
+            _handMovementInterval = 0.18f;
         }
         else
         {
@@ -233,9 +233,9 @@ public class EndlessHandGenerator : MonoBehaviour
         }
 
 
-        if(_handMovementTime <= 0.05f)
+        if(_handMovementTime <= 0.2f)
         {
-            _handMovementTime = 0.025f;
+            _handMovementTime = 0.18f;
         }
         else
         {
@@ -243,9 +243,9 @@ public class EndlessHandGenerator : MonoBehaviour
         }
 
 
-        if(_handStayDuration <= 0.05f)
+        if(_handStayDuration <= 0.2f)
         {
-            _handStayDuration = 0.025f;
+            _handStayDuration = 0.18f;
         }
         else
         {
