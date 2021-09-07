@@ -223,8 +223,34 @@ public class EndlessHandGenerator : MonoBehaviour
 
     public void SpeedUpHands()
     {
-        _handMovementInterval -= handSpeedMultiplier;
-        _handMovementTime -= handSpeedMultiplier;
-        _handStayDuration -= handSpeedMultiplier;
+        if(_handMovementInterval <= 0.05f)
+        {
+            _handMovementInterval = 0.025f;
+        }
+        else
+        {
+            _handMovementInterval -= handSpeedMultiplier;
+        }
+
+
+        if(_handMovementTime <= 0.05f)
+        {
+            _handMovementTime = 0.025f;
+        }
+        else
+        {
+            _handMovementTime -= handSpeedMultiplier;
+        }
+
+
+        if(_handStayDuration <= 0.05f)
+        {
+            _handStayDuration = 0.025f;
+        }
+        else
+        {
+            _handStayDuration -= handSpeedMultiplier;
+        }
+        
     }
 }

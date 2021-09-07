@@ -73,6 +73,7 @@ namespace Level
         {
             // progress bar fixing 
             _cashProgressBar.SetValueForLevel(currentLevel);
+            _audioManager.SpeedUp("musicBg", currentLevel);
             _audioManager.Play("officeBg");
             _audioManager.Play("clockTicking");
         }
@@ -138,6 +139,10 @@ namespace Level
                 _handGenerator.OnLevelUp();
                 _cashProgressBar.SetValueForLevel(currentLevel);
                 _canBeClicked = false;
+
+               
+                _audioManager.SpeedUp("musicBg", currentLevel);
+
                 _audioManager.Play("officeBg");
                 _audioManager.Play("musicBg");
                 _audioManager.Play("clockTicking");

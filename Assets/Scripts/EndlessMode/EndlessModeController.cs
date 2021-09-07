@@ -42,6 +42,7 @@ public class EndlessModeController : MonoBehaviour
         // progress bar fixing 
         //_canSpeedUpHands = true;
         _timeCanTick = true;
+ 
         _audioManager.Play("officeBg");
         _audioManager.Play("clockTicking");
     }
@@ -75,12 +76,12 @@ public class EndlessModeController : MonoBehaviour
             }
            
             _handGenerator.SpeedUpHands();
-
+            _audioManager.SpeedUpForEndless("musicBg");
             //if (_canSpeedUpHands)
             //{
-                //speed up hands
+            //speed up hands
             //}
-            
+
             _currentTimerValue = workingDayTime;
         }
     }

@@ -538,7 +538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8360842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 3.38, z: 0}
+  m_LocalPosition: {x: -0.036, y: 3.138, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 895475200}
@@ -1000,9 +1000,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1706266592}
   m_Direction: 0
   m_MinValue: -80
-  m_MaxValue: 5
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 5
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1940,6 +1940,7 @@ RectTransform:
   - {fileID: 1458235774}
   - {fileID: 473114043}
   - {fileID: 1761528632}
+  - {fileID: 685734193}
   - {fileID: 206779115}
   - {fileID: 1254051113}
   m_Father: {fileID: 1905593815}
@@ -2641,14 +2642,13 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 685734193}
+  m_Children: []
   m_Father: {fileID: 128720511}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 327, y: -327}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 358, y: 121}
   m_SizeDelta: {x: 92, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206779116
@@ -4017,7 +4017,7 @@ MonoBehaviour:
   - name: officeBg
     clip: {fileID: 8300000, guid: 5af393609d12f1e4fb9be137b199d71d, type: 3}
     mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
-    volume: 0.5
+    volume: 0.8
     pitch: 1
     loop: 1
     playOnAwake: 1
@@ -4025,7 +4025,7 @@ MonoBehaviour:
   - name: cash
     clip: {fileID: 8300000, guid: f5dd94803671df747aba2e9cdd38ec61, type: 3}
     mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 0
     playOnAwake: 0
@@ -4143,9 +4143,9 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: musicBg
-    clip: {fileID: 8300000, guid: b1e0e072eaf0bc844b909220782747c2, type: 3}
+    clip: {fileID: 8300000, guid: be117fb4ce8665145ac2fd238fec1cc6, type: 3}
     mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
-    volume: 0.1
+    volume: 0.15
     pitch: 1
     loop: 1
     playOnAwake: 1
@@ -4318,7 +4318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292158648}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 3.38, z: 0}
+  m_LocalPosition: {x: -0.05, y: 3.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1045571621}
@@ -8407,7 +8407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Day: '
+  m_text: "\u0414\u0435\u043D\u044C: "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6be139eeb3623aa46817a3b7302a98e5, type: 2}
   m_sharedMaterial: {fileID: -2894180469417211633, guid: 6be139eeb3623aa46817a3b7302a98e5,
@@ -9165,7 +9165,7 @@ MonoBehaviour:
   animatedPart: {fileID: 1836101142}
   endlessModeController: {fileID: 1296902222}
   gameOver: {fileID: 1905593816}
-  coef: 80
+  coef: 70
   playerAnim: {fileID: 822784608}
 --- !u!114 &659167221
 MonoBehaviour:
@@ -9596,14 +9596,14 @@ RectTransform:
   m_GameObject: {fileID: 685734192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4999999, y: 1.4999999, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 206779115}
-  m_RootOrder: 0
+  m_Father: {fileID: 128720511}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -327, y: 8.999939}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 126}
   m_SizeDelta: {x: 331, y: 105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685734194
@@ -13031,7 +13031,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969792848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 3.38, z: 0}
+  m_LocalPosition: {x: 0.01, y: 3.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 156163825}
@@ -16650,11 +16650,11 @@ RectTransform:
   m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 128720511}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -336.00006, y: -327}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -365, y: 125}
   m_SizeDelta: {x: 92, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254051114
@@ -17300,7 +17300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8c31df128594a40b12728d26ebb101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  workingDayTime: 20
+  workingDayTime: 5
   clock: {fileID: 465167837}
   endlessCashCount: {fileID: 266411043}
   dayNumberText: {fileID: 1893525136}
@@ -19108,7 +19108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465320300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 3.38, z: 0}
+  m_LocalPosition: {x: -0.01, y: 3.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1915101148}
@@ -23808,7 +23808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -25}
+  m_AnchoredPosition: {x: 0, y: -24.999992}
   m_SizeDelta: {x: 0, y: 20.820671}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &1836101141

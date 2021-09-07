@@ -66,4 +66,44 @@ public class AudioManager : MonoBehaviour
 
         s.source.Stop();
     }
+
+    public void SpeedUp(string name, int level)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found");
+            return;
+        }
+        if(level == 1)
+        {
+            s.source.pitch = 1;
+        }
+        else
+        {
+            s.source.pitch = 0.2f * level + 1;
+        }
+        
+    }
+
+    public void SpeedUpForEndless(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found");
+            return;
+        }
+        if (s.source.pitch >= 2f)
+        {
+            s.source.pitch = 2f;
+        }
+        else
+        {
+            s.source.pitch += 0.03f;
+        }
+       
+        
+
+    }
 }

@@ -11,6 +11,7 @@ namespace UI
 {
     public class EndLevel : MonoBehaviour
     {
+  
         [SerializeField] private GameObject levelPanel;
         [SerializeField] private TMP_Text dayNumberText;
         [SerializeField] private TMP_Text cashEarnedText;
@@ -92,7 +93,7 @@ namespace UI
             // если изначально он был неактивным
             _cashCount.EmptyDailyCashAmount();
             _cashCount.SaveCashState();
-       
+         
             _handGenerator.UnblockHandGeneratorAfterWait();
         }
     }

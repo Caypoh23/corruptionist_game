@@ -6707,7 +6707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1828504416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6917,7 +6917,7 @@ MonoBehaviour:
   - name: cash
     clip: {fileID: 8300000, guid: f5dd94803671df747aba2e9cdd38ec61, type: 3}
     mixer: {fileID: 24300002, guid: be46b814eb5ab874dbb7a4134f9c5b03, type: 2}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 0
     playOnAwake: 0
