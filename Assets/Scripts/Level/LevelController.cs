@@ -137,6 +137,12 @@ namespace Level
                 itemGenerator.LoadItems();
                 _handGenerator.DeactivateJail();
                 _handGenerator.OnLevelUp();
+
+                if(currentLevel == 7)
+                {
+                    _handGenerator.OnLevelUp();
+                }
+
                 _cashProgressBar.SetValueForLevel(currentLevel);
                 _canBeClicked = false;
 

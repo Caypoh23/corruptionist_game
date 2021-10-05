@@ -61,11 +61,17 @@ namespace Hand
             //_handMovementTime = handMovementTime;
             //_handStayDuration = handStayDuration;
 
-            //BOBUR LOOK HERE
             _currentLevel = levelController.currentLevel; // load current level here
             _handMovementInterval = handMovementInterval - (_currentLevel * handSpeedMultiplier);
             _handMovementTime = handMovementTime - (_currentLevel * handSpeedMultiplier);
             _handStayDuration = handStayDuration - (_currentLevel * handSpeedMultiplier);
+
+            if (_currentLevel == 7)
+            {
+           
+                OnLevelUp();
+            }
+         
             //lets suppose we do it when game loads once
         }
 
@@ -205,9 +211,14 @@ namespace Hand
         {
             // accelerates hand movement speed according to current level
             // called in level controller
-            _handMovementInterval -= handSpeedMultiplier;
-            _handMovementTime -= handSpeedMultiplier;
-            _handStayDuration -= handSpeedMultiplier;
+      
+            
+                _handMovementInterval -= handSpeedMultiplier;
+                _handMovementTime -= handSpeedMultiplier;
+                _handStayDuration -= handSpeedMultiplier;
+           
+
+          
             //this would still work, ты можешь вставить тоже самое что в Старте но я не уверена в порядке: тип что первое? Лвл повышается или ускоряются руки
             //probably need to remove this
             //0.066f

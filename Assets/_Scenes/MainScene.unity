@@ -17348,7 +17348,7 @@ MonoBehaviour:
   handMovementInterval: 0.5
   handMovementTime: 0.5
   handStayDuration: 0.5
-  handSpeedMultiplier: 0.055
+  handSpeedMultiplier: 0.05
   blockDurationForMent: 3
   levelController: {fileID: 658372632}
   jailPanelGO: {fileID: 1194580504}
@@ -21669,7 +21669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -24.999992}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: 20.820671}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &1628871245
